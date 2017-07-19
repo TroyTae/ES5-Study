@@ -2,9 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Object</title>
+    <title>object</title>
 </head>
 <body>
+    <script>
+        var obj = {
+            bol: true,
+            num: 10,
+            str: '객체',
+            tmp: undefined,
+            nll: null,
+            obj: {
+                str: '또다른 객체!'
+            }
+        };
 
+        console.log(obj.bol, obj.num, obj.str, obj.tmp, obj.nll);
+        console.log(obj.obj, obj.obj.str);
+    </script>
 </body>
 </html>
