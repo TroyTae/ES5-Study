@@ -13,7 +13,10 @@
     -->
     <!--<h1>object</h1>-->
     <script>
+      var h1Tag = document.createElement("h1");
+      document.body.appendChild(h1Tag);
 
+      h1Tag.textContent = typeof(h1Tag);
     </script>
 </body>
 </html>
