@@ -17,21 +17,26 @@
         "얘는 지워주세요!"라는 문자열을 가진 li 태그를 찾아 삭제하는 스크립트를 작성하시오
     -->
     <script>
+        // var wrap = document.getElementById('wrap'),
+        //     child = wrap.getElementsByClassName('list'),
+        //     edit = '이걸 바꿔주세요!',
+        //     del = '얘는 지워주세요!';
+        //
+        // for (var i = 0; i < child.length; i++) {
+        //     var target = child[i],
+        //         txt = target.textContent;
+        //
+        //     if (edit === txt){
+        //         target.textContent = '바껴랏!'
+        //     }else if (del === txt){
+        //         wrap.removeChild(target);
+        //     }
+        // }
         var wrap = document.getElementById('wrap'),
-            child = wrap.getElementsByClassName('list'),
-            edit = '이걸 바꿔주세요!',
-            del = '얘는 지워주세요!';
+            child = wrap.getElementsByClassName('list');
 
-        for (var i = 0; i < child.length; i++) {
-            var target = child[i],
-                txt = target.textContent;
-
-            if (edit === txt){
-                target.textContent = '바껴랏!'
-            }else if (del === txt){
-                wrap.removeChild(target);
-            }
-        }
+        child[0].textContent = '바껴랏!';
+        wrap.removeChild(child[3]);
     </script>
 </body>
 </html>
