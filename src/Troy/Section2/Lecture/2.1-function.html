@@ -2,11 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>function</title>
+    <title>Function Declaration</title>
 </head>
 <body>
+    <!--함수 선언은 호이스팅 된다-->
     <script>
+        console.log(sum(1, 5));
 
+        function sum(a, b) {
+            return a + b;
+        }
+    </script>
+
+    <!--함수 표현은 호이스팅 안됨-->
+    <script>
+        console.log(multiply);
+        var multiply = function (a, b) {
+            var res = a * b;
+            return res;
+        };
+        console.log(multiply(2, 5));
+    </script>
+
+    <!--함수는 별도의 스코프를 만들어낸다-->
+    <script>
+        // 즉시 실행함수
+        (function () {
+            var num = 10;
+        }());
+        console.log(num);
     </script>
 </body>
 </html>
