@@ -6,7 +6,13 @@
 </head>
 <body>
     <script>
+        var list = [1, 5, 9, 10];
 
+        for(var i = 0, max = list.length; i < max; ++i) {
+            // 아래 문장을 생략하고 조건변화식과 조건식을 체크한다!
+            if(i === 2) continue;
+            console.log(list[i]);
+        }
     </script>
 </body>
 </html>
