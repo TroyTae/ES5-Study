@@ -7,11 +7,12 @@
 <body>
     <script>
         var list = [1, 3, 5, 10],
-            i = list.length
+            i = 0,
+            max = list.length
         ;
         do {
-            console.log(list[--i]);
-        } while(i);
+            console.log(list[i]);
+        } while(++i < max);
     </script>
 </body>
 </html>

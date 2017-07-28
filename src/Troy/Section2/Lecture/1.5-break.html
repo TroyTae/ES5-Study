@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>break</title>
+</head>
+<body>
+    <script>
+        var list = [1, 2, 3, 4],
+            i = 0
+        ;
+
+        // 이런 경우를 무한 루프라고 한다
+        while(true) {
+            if(i === 3) break;
+            console.log(list[i++]);
+        }
+    </script>
+</body>
+</html>
