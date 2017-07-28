@@ -7,11 +7,11 @@
 <body>
     <!--문제6
         button DOM을 만들고
-        아래 2차원 배열에서 8을 찾아
+          아래 2차원 배열에서 8을 찾아
         button DOM의 text를 수정해준 뒤
         div를 만들어 button을 넣어서
         body 태그에 삽입하는 스크립트를 작성하시오
-        최종형태는 아래 주석처럼...
+          최종형태는 아래 주석처럼...
     -->
     <!--<div><button>8</button></div>-->
     <script>
@@ -19,6 +19,12 @@
             [1, 2, 3, 4],
             [5, 7, 8, 9]
         ];
+        var button = document.createElement('button');
+        button.textContent = matrix[1][2];
+        var div = document.createElement('div');
+        div.appendChild(button);
+        document.body.appendChild(div);
+        console.log(div);
     </script>
 </body>
 </html>

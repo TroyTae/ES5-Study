@@ -8,12 +8,14 @@
     <!--문제2
         h1 태그를 만들어 변수에 담고,
         textContent 속성을 이용해,
-        해당 DOM(h1)의 type을 문자열로 보여주는 스크립트를 작성하시오
-        아마 최종 형태는 아래처럼 나올 겁니다
+          해당 DOM(h1)의 type을 문자열로 보여주는 스크립트를 작성하시오
+          아마 최종 형태는 아래처럼 나올 겁니다
     -->
     <!--<h1>object</h1>-->
     <script>
-
+	var dom = document.createElement('h1');
+	dom.textContent = typeof dom;
+	console.log(dom);
     </script>
 </body>
 </html>
