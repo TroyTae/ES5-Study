@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>constructor</title>
+</head>
+<body>
+    <!--생성자 함수-->
+    <script>
+        function Person(name, gender) {
+            this.name = name;
+            this.gender = gender;
+            this.type = 'Human';
+        }
+
+        var person = new Person('TJY', true);
+        console.log(person);
+        console.log(person.name, person.gender, person.type);
+    </script>
+</body>
+</html>
