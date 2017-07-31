@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Math</title>
+</head>
+<body>
+    <!--좀더 자세한 함수들은 아래링크 참고-->
+    <!--https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Math-->
+    <script>
+        (function () {
+            function random(min, max) {
+                return Math.floor((Math.random() * (max - min + 1)) + min);
+            }
+            for(var i = 0; i < 20; ++i) console.log(random(-3, 10));
+        }());
+    </script>
+</body>
+</html>0000000

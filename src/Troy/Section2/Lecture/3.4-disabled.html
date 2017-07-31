@@ -19,7 +19,9 @@
     <script>
         (function () {
             var list = document.getElementsByClassName('disabled');
-            for(var i = 0, max = list.length; i < max; ++i) list[i].disabled = !list[i].disabled;
+            for(var i = 0, max = list.length; i < max; ++i) {
+                list[i].disabled = !list[i].disabled;
+            }
         }());
     </script>
 </body>
