@@ -17,11 +17,9 @@
             str: '문자열'
         };
 
-        key = obj;
-
-        document.write(key.num + "<br>");
-        document.write(key.bool + "<br>");
-        document.write(key.str + "<br>");
+        for(key in obj){
+          document.write(obj[key] + "<br>");
+        }
 
     </script>
 </body>

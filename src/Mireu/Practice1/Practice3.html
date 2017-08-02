@@ -17,8 +17,9 @@
         "얘는 지워주세요!"라는 문자열을 가진 li 태그를 찾아 삭제하는 스크립트를 작성하시오
     -->
     <script>
-      var first = document.querySelector("#wrap > li:first-child");
-      var last = document.querySelector("#wrap > li:last-child");
+      var wrap = document.getElementById("wrap")
+      var first = wrap.querySelector("li:first-child");
+      var last = wrap.querySelector("li:last-child");
 
       first.textContent = "바껴랏!";
       last.remove();
