@@ -17,7 +17,11 @@
         "얘는 지워주세요!"라는 문자열을 가진 li 태그를 찾아 삭제하는 스크립트를 작성하시오
     -->
     <script>
-
+        var ul = document.getElementById('wrap');
+        var li = document.getElementsByClassName('list');
+        li[0].textContent = '바껴랏!';
+        // ul.removeChild(li[3]); // ie
+        li[3].remove();
     </script>
 </body>
 </html>
