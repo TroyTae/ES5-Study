@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Practice3</title>
+    <title>hyeoni 1주차 - Practice3</title>
 </head>
 <body>
     <ul id="wrap">
@@ -17,7 +17,10 @@
         "얘는 지워주세요!"라는 문자열을 가진 li 태그를 찾아 삭제하는 스크립트를 작성하시오
     -->
     <script>
-
+        var li = document.getElementsByClassName('list')
+		li[0].textContent = "바껴랏!";
+		
+		document.getElementById('wrap').removeChild(li[3]);
     </script>
 </body>
 </html>
