@@ -15,7 +15,22 @@
         <li>1 x 9 = 9</li>
     </ul>-->
     <script>
+        for ( var i = 1; i <= 9; i++ ) {
+            var list_wrap = document.createElement('ul'),
+                heading = document.createElement('h1');
 
+            heading.textContent = i + '단';
+            document.body.appendChild(heading); // list 태그 안에는 li만 들어가야 하는 걸로 알고 있어서 임의로 수정했습니당ㅎㅎ;
+            document.body.appendChild(list_wrap);
+            // 두개의 코드가 동일한 작업을 하는데 항상 하나하나 appendChild를 해줘야 하나요?
+            // jQuery에서는 $('body').append(heading, list_wrap); 요렇게도 동작하는걸로 아는데 javascript에서도 가능한지 궁금하네요~
+
+            for ( var j = 1; j <= 9; j++ ) {
+                var list = document.createElement('li');
+                list.textContent = i + ' x ' + j + ' = ' + i * j;
+                list_wrap.appendChild(list);
+            }
+        }
     </script>
 </body>
 </html>
