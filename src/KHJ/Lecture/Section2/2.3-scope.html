@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>scope</title>
+</head>
+<body>
+    <!--함수를 실행하는 순간 스코프가 생성된다-->
+    <script>
+        /*즉시실행함수*/
+        (function () {
+            var a = 1;
+            console.log(a);
+        }());
+        // console.log(a);
+
+        /*즉시실행함수도 함수이므로 매개변수를 가질 수 있다*/
+        (function (b) {
+            var a = 1;
+            console.log(a);
+            a = b;
+            console.log(a);
+        }());
+    </script>
+
+    <!--스코프 체인-->
+    <!-- : 자식은 부모를 알지만 부모는 자식을 모른다. 스코프 체인이 너무 많아지면 느려짐 -->
+    <script>
+        var global = 'This is global';
+        (function () {
+            var global;
+            (function () {
+                global = 'Year~!';
+                console.log(global);
+            }());
+        }());
+        console.log(global);
+    </script>
+
+    <!--var 없이 하면 전역으로 선언됨!-->
+    <script>
+        (function () {
+            chain = '이건 어떻게 될까?';
+        }());
+        console.log(chain);
+    </script>
+</body>
+</html>

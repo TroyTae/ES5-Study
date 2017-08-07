@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>boolean</title>
+</head>
+<body>
+    <!--논리 연산자-->
+    <script>
+        // AND
+        console.log(true && true);
+        console.log(false && true);
+
+        // OR
+        console.log(false || false);
+        console.log(true || true);
+
+        // NOT
+        console.log(!true);
+        console.log(!false);
+        console.log(!'');   // 문자열에도 적용가능(공백많이 false...)
+        console.log(!0);    // 숫자에도 적용가능(0 아니면 다 true...)
+        console.log(!null); // null은 척봐도 false
+
+        // 복합
+        console.log(!false && (true || false));
+    </script>
+
+    <!--관계 연산자-->
+    <script>
+        console.log(1 > 5);
+        console.log(1 <= 5);
+
+        // ==과 ===의 차이 유념하기!!!!
+        console.log(1 == '1');
+        console.log(1 === '1');
+        console.log('js' !== 'js');
+    </script>
+</body>
+</html>

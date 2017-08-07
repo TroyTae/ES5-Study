@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM</title>
+</head>
+<body>
+    <h1 id="id" class="class" name="name">이건 원래 있던거!</h1>
+
+    <!--create-->
+    <script>
+        var dom = document.createElement('h1');
+        document.body.appendChild(dom);
+    </script>
+    <!--read(=select)-->
+    <script>
+        console.log(document.getElementById('id'));
+        console.log(document.getElementsByClassName('class'));
+        console.log(document.getElementsByName('name')[0]);
+        console.log(document.getElementsByTagName('h1'));
+
+
+        console.log(document.querySelector('#id'));
+        console.log(document.querySelector('.class'));
+        console.log(document.querySelectorAll('[name="name"]'));
+        console.log(document.querySelectorAll('h1'));
+    </script>
+    <!--update-->
+    <script>
+        dom.textContent = '이건 나중에 들어간거!';
+    </script>
+    <!--delete-->
+    <script>
+        // document.body.removeChild(dom);
+        // dom.remove(); // 빌어먹을 IE
+    </script>
+</body>
+</html>

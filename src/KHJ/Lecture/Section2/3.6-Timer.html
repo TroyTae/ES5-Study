@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Timer</title>
+</head>
+<body>
+    <!--애니메이션은 1000/60ms=60fps-->
+    <script>
+        // 5초 뒤에 콜백을 실행하는 타이머
+        setTimeout(function() {
+            console.log('5초 뒤 실행');
+        }, 5000);
+
+        // 타이머와 반복문의 혼합
+        var key = setInterval(function() {
+            console.log('1초마다 실행');
+        }, 1000);
+
+        setTimeout(function () {
+            clearInterval(key);
+        }, 10000);
+        // clearTimeout(key);
+    </script>
+</body>
+</html>

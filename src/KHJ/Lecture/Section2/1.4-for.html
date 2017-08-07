@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>for</title>
+</head>
+<body>
+    <script>
+        var list = [1, 5, 9, 10];
+
+        // for(초기식; 조건식; 수행식){ //code }
+        for(var i = 0, max = list.length; i < max; ++i) {
+            console.log(list[i]);
+        }
+    </script>
+
+    <script>
+        var obj = {
+            name: 'unknown',
+            age: '???',
+            type: 'alien'
+        };
+        for(var k in obj) console.log('key: ' + k + ', value: ' + obj[k]);
+
+        console.log(Object.keys(obj));
+        // console.log(Object.values(obj));
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Math</title>
+</head>
+<body>
+    <!--좀더 자세한 함수들은 아래링크 참고-->
+    <!--https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Math-->
+
+    <!--Random-->
+    <script>
+        (function () {
+            function random(min, max) {
+                var num = Math.random() * (max - min + 1) + min;
+                return Math.floor(num);
+            }
+            for(var i = 0; i < 10; ++i) {
+                console.log(random(-3, 10));
+            }
+        }());
+    </script>
+
+    <!--2,8,10,16진수-->
+    <script>
+        // 2진수
+        (function () {
+            var num = '1011';
+            console.log(parseInt(num, 2).toString(8)); // 2진수로 읽어서 8진수로 변형
+            console.log(parseInt(num, 2)); // 2진수로 읽어서 10진수로 변형
+            console.log(parseInt(num, 2).toString(16)); // 2진수로 읽어서 16진수로 변형
+        }());
+
+        // 8진수
+        (function () {
+            var num = '11';
+            console.log(parseInt(num, 8).toString(2));
+            console.log(parseInt(num, 8));
+            console.log(parseInt(num, 8).toString(16));
+        }());
+
+        // 10진수
+        (function () {
+            var num = 10;
+            console.log(num.toString(2));
+            console.log(num.toString(8));
+            console.log(num.toString(16));
+        }());
+
+        // 16진수
+        (function () {
+            var num = 'FF';
+            console.log(parseInt(num, 16).toString(2));
+            console.log(parseInt(num, 16).toString(8));
+            console.log(parseInt(num, 16));
+        }());
+    </script>
+</body>
+</html>

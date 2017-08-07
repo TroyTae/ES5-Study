@@ -13,14 +13,19 @@
             border-radius: 15px;
         }
     </style>
+    <div style="background-color: red"></div>
 
     <!--
         랜덤 한 색을 가진 div태그를 만들어 랜덤한 속도와 방향으로 움직이고, 벽에 부딪히면 반사각 방향으로 이동하는 스크립트를 작성하시오
-        (공은 화면에 100개를 생성하자!)
+        (공은 화면에 100개를 생성하자!) -> Interval(func, 1000/60)
         (속도는 60fps기준 최대 10px의 속도를 가질 수 있다)
         (색의 범위를 10진수로 나타내면 0~16777215의 범위를 가진다!)
         (벽은 화면의 최대 크기를 말하며 window.innerHeight/window.innerWidth 이용하면 된다!)
     -->
+    <!-- 브라우저 크기를 알 수 있음 : windoe.innerHeight, window.innerWidth를 이용해 어디까지가 벽인지 알아내는 알고리즘 -->
+    <!-- 속도: 최소:10/ 최대:100 -->
+    <!-- 음수: top, left 양수: botton, right -->
+    <!-- background, top/botto/left/right -->
     <script>
     </script>
 </body>

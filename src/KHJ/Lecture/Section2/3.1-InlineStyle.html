@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>InlineStyle</title>
+</head>
+<body>
+    <div id="box1"></div>
+    <div id="box2"></div>
+
+    <!--스크립트로 인라인 스타일 조정-->
+    <script>
+    	// cssText가 더 빠름. cssText가 더 권장되는 방법
+        document.getElementById('box1').style.cssText = 'width: 100px; height: 100px; background-color: red; margin-left: 50px;';
+        document.getElementById('box2').setAttribute('style', 'width: 100px; height: 100px; background-color: blue;');
+        //document.getElementById('box1').style.backgroundColor = 'yellow';
+    </script>
+</body>
+</html>

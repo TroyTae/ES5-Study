@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function</title>
+</head>
+<body>
+    <!--함수 선언은 호이스팅 된다-->
+    <script>
+        console.log(sum(1, 5));
+
+        function sum(a, b) {
+            return a + b;
+        }
+    </script>
+
+    <!--함수 표현은 호이스팅 안됨-->
+    <script>
+        console.log(multiply);
+        var multiply = function(a, b) {
+            var res = a * b;
+            return res;
+        };
+        console.log(multiply(2, 5));
+    </script>
+</body>
+</html>
