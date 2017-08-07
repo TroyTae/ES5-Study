@@ -27,6 +27,31 @@
     <!-- 음수: top, left 양수: botton, right -->
     <!-- background, top/botto/left/right -->
     <script>
+        function Ball() {
+            var ball = document.createElement('DIV');
+            ball.style.backgroundColor = 'red';
+            document.body.appendChild(ball);
+
+            this.dom = ball;
+            this.position = { x: 0 };
+            this.speed = { x: 10 };
+        }
+        Ball.prototype.start = function () {
+            var t = this;
+            setInterval(function () {
+                var pos = t.position,
+                    spd = t.speed
+                ;
+                if(pos.x < 0 || window.innerWidth < pos.x + spd.x + 30) spd.x *= (-1);
+                pos.x += spd.x;
+                t.dom.style.left = (pos.x + 'px');
+            }, 50 / 3/*=1000/60*/)
+        };
+
+        (function () {
+            var newBall = new Ball();
+            newBall.start();
+        }());
     </script>
 </body>
 </html>
