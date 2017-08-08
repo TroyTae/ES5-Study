@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CallByReference vs CallByValue</title>
+</head>
+<body>
+
+    <script>
+        var num = 10;
+        var obj = { num: 10 };
+
+        function insertZero(target) {
+            target = 0;
+            console.log(target);
+        }
+        function insertOne(target) {
+            target.num = 0;
+            console.log(target);
+        }
+    </script>
+</body>
+</html>
