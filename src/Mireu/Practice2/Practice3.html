@@ -23,30 +23,46 @@
     -->
     <script>
         function Ball() {
-            var ball = document.createElement('DIV');
-            ball.style.backgroundColor = 'red';
+            var ball = document.createElement('div');
+            ball.style.backgroundColor = "#" + parseInt(Math.random()*0xffffff).toString(16);
             document.body.appendChild(ball);
-
             this.dom = ball;
-            this.position = { x: 0 };
-            this.speed = { x: 10 };
+            this.position = { x: 0, y: 0 };
+            this.speed = { x: 0, y: 0 };
         }
         Ball.prototype.start = function () {
             var t = this;
+            t.position.x = parseInt(Math.random()*window.innerWidth);
+            t.position.y = parseInt(Math.random()*window.innerHeight);
+            t.speed.x = parseInt((Math.random()* 50/3) + 5);
+            t.speed.y = parseInt((Math.random()* 50/3) + 5);
+
             setInterval(function () {
                 var pos = t.position,
                     spd = t.speed
                 ;
-                if(pos.x < 0 || window.innerWidth < pos.x + spd.x + 30) spd.x *= (-1);
+
+                if(pos.x < 0 || window.innerWidth < pos.x + spd.x + 10) spd.x *= (-1);
+                if(pos.y < 0 || window.innerHeight < pos.y + spd.y + 10) spd.y *= (-1);
+                console.log(pos.x + spd.x + 10);
+
                 pos.x += spd.x;
+                pos.y += spd.y;
+
                 t.dom.style.left = (pos.x + 'px');
+                t.dom.style.top = (pos.y + 'px');
+
             }, 50 / 3/*=1000/60*/)
         };
 
         (function () {
-            var newBall = new Ball();
-            newBall.start();
+            var cnt = 100;
+            for(let i = 0; i < cnt; i++) {
+                var newBall = new Ball();
+                newBall.start();
+            }
         }());
+
     </script>
 </body>
 </html>

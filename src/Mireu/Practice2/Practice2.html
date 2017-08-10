@@ -20,13 +20,71 @@
         아래와 같은 형식을 달팽이 배열이라고 한다
         cnt의 값에 따라 헤당하는 길이를 가진 달팽이 배열을 만드는 스크립트를 작성하시오
     -->
-    <!--<div><span>1</span><span>2</span><span>3</span><span>4</span></div>
+    <!-- <div><span>1</span><span>2</span><span>3</span><span>4</span></div>
     <div><span>12</span><span>13</span><span>14</span><span>5</span></div>
     <div><span>11</span><span>16</span><span>15</span><span>6</span></div>
-    <div><span>10</span><span>9</span><span>8</span><span>7</span></div>-->
+    <div><span>10</span><span>9</span><span>8</span><span>7</span></div> -->
 
     <script>
-        var cnt = 4;
+        function snail(cnt) {
+          this.cnt = cnt;
+        }
+
+        snail.prototype.append = function() {
+          var a = this;
+          var i = 0;
+          var row = 0, col = -1;
+          var value = 1;
+          var inc = 1;
+          var arr = new Array(a.cnt);
+
+          for(i = 0; i < a.cnt; i++) {
+            arr[i] = new Array(a.cnt);
+          }
+
+          while(a.cnt > 0) {
+            for(i = 0; i < a.cnt; i++) {
+              col += inc;
+              arr[row][col] = value;
+              value++;
+            }
+
+            a.cnt--;
+            if(a.cnt === 0) break;
+
+            for(i = 0; i < a.cnt; i++) {
+              row += inc;
+              arr[row][col] = value;
+              value++;
+            }
+
+            inc *= -1;
+          }
+
+          return arr;
+        };
+
+        snail.prototype.print = function(arr) {
+          for (let i = 0; i < arr.length; i++) {
+            let div = document.createElement("div");
+            document.body.appendChild(div);
+
+            for (let j = 0; j < arr.length; j++) {
+              let span = document.createElement("span");
+              span.textContent = arr[i][j];
+              div.appendChild(span);
+            }
+          }
+        };
+
+        (function () {
+          var cnt = 4;
+          var arr = null;
+
+          var newSnail = new snail(cnt);
+          arr = newSnail.append();
+          newSnail.print(arr);
+        }());
     </script>
 </body>
 </html>

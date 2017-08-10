@@ -15,7 +15,39 @@
         <li>1 x 9 = 9</li>
     </ul>-->
     <script>
+      function Gugudan(dan) {
+          var ul = document.createElement("ul");
+          var h1 = document.createElement("h1");
 
+          this.ulTag = ul;
+          this.h1Tag = h1;
+          this.dan = dan;
+      }
+
+      Gugudan.prototype.start = function() {
+          var g = this;
+          var result = null;
+
+          document.body.appendChild(g.ulTag);
+          g.h1Tag.textContent = g.dan + "단";
+          g.ulTag.appendChild(g.h1Tag);
+
+          for(let i = 1; i <= 9; i++) {
+              let li = document.createElement("li");
+              result = g.dan * i;
+              li.textContent = g.dan + " X " + i + " = " + result;
+              g.ulTag.appendChild(li);
+          }
+      };
+
+      (function () {
+        var cnt = 9; // 단 개수
+        
+        for(let i = 1; i <= cnt; i++) {
+            var newGugudan = new Gugudan(i);
+            newGugudan.start();
+        }
+      }());
     </script>
 </body>
 </html>
