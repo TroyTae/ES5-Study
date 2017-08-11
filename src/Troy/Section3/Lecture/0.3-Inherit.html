@@ -5,6 +5,17 @@
     <title>Inherit</title>
 </head>
 <body>
+    <!--Prototype 상속-->
+    <script>
+        function Animal() {}
+        Animal.prototype.eat = function () { console.log('먹는다'); };
+        function Human() {}
+        Human.prototype = Object.create(Animal.prototype);
+        // Human.prototype.constructor = Human;
+        Human.prototype.think = function() { console.log('고로 존재한다'); };
 
+        var animal = new Animal();
+        var human = new Human();
+    </script>
 </body>
 </html>
