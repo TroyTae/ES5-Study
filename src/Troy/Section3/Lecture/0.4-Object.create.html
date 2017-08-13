@@ -19,4 +19,19 @@
     10. obj 반환.
 -->
 </body>
+    <script>
+        function f() {
+            this.key = 'key';
+            this.value = 'value';
+        }
+        /* 실제 내부에서는 이런일이...
+        Object.create = function (f) {
+            function F() {}
+            F.prototype = f;
+            return new F();
+        }
+        */
+        console.log(new f);
+        console.log(new (Object.create(f).__proto__));
+    </script>
 </html>
