@@ -16,6 +16,22 @@
     </ul>-->
     <script>
 
+        for(i = 1; i<=9; i++){
+            var dan = document.createElement('h1'),
+                goo = document.createElement('ul') 
+            for(j = 1; j<=9; j++){
+                var ra = document.createElement('li');
+                ra.textContent = i + " X " + j + " = " + i*j;
+                goo.appendChild(ra)
+                
+            }
+             dan.textContent = i + "단";
+             document.body.appendChild(dan)
+             document.body.appendChild(goo)    
+
+        }
+
+        
     </script>
 </body>
 </html>
