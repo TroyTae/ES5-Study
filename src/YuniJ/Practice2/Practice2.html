@@ -20,13 +20,63 @@
         아래와 같은 형식을 달팽이 배열이라고 한다
         cnt의 값에 따라 헤당하는 길이를 가진 달팽이 배열을 만드는 스크립트를 작성하시오
     -->
-    <!--<div><span>1</span><span>2</span><span>3</span><span>4</span></div>
+  <!-- <div><span>1</span><span>2</span><span>3</span><span>4</span></div>
     <div><span>12</span><span>13</span><span>14</span><span>5</span></div>
     <div><span>11</span><span>16</span><span>15</span><span>6</span></div>
-    <div><span>10</span><span>9</span><span>8</span><span>7</span></div>-->
+    <div><span>10</span><span>9</span><span>8</span><span>7</span></div> -->
 
     <script>
-        var cnt = 4;
+  
+    var cnt = 4;
+    
+    function snail(cnt){
+    	 this.cnt = cnt; //달패이 숫자
+    	 this.k = 0; // 달팽이 감소 행렬
+    	 this.num = 1; // 시작
+    }
+   
+    snail.prototype.smallSnail = function(){
+    		var list = new Array();
+    		
+    		for(i = 0; i < this.cnt ; i++){
+    			list[i] = new Array();
+    		}
+    		for(n = this.cnt; n > 0; n-=2){
+			    for(var right = 0; right < n; right++){
+			    		list[this.k][this.k+right] = this.num;
+			    		this.num++;
+			    }			
+				for(var bottom = 1; bottom < n; bottom++ ){
+					list[this.k+bottom][this.cnt-this.k-1] = this.num;
+					this.num++;
+				}
+				for(var left = 1; left < n; left++){
+					list[this.k+bottom-1][this.cnt-this.k-left-1] = this.num;
+					this.num++;
+				}
+				for(var top = 1; top < n-1; top++){
+					list[this.cnt-this.k-top-1][this.k] = this.num;
+					this.num++;
+				}
+				this.k++
+    		}
+    		
+    		var span;
+    	    var div;
+    	    
+    	    for(var col = 0; col < this.cnt; col++){
+    	 	   div = document.createElement('div');
+    	 	   document.body.appendChild(div);
+    	 	   	for(var row = 0; row < this.cnt; ++row){
+    		    	   	span = document.createElement('span');
+    		   		div.appendChild(span).textContent = list[col][row];	   
+    	    		}
+    	    }
+    }
+    var start = new snail(cnt);
+    start.smallSnail();
+	
+	
     </script>
 </body>
 </html>
