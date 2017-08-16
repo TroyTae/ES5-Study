@@ -6,6 +6,7 @@
 </head>
 <body>
     <style>
+
         div {
             position: absolute;
             width: 30px;
@@ -24,28 +25,37 @@
     <script>
         function Ball() {
             var ball = document.createElement('DIV');
-            ball.style.backgroundColor = 'red';
+            ball.style.backgroundColor = '#'+ parseInt(Math.random()*0xffffff).toString(16);
             document.body.appendChild(ball);
 
             this.dom = ball;
-            this.position = { x: 0 };
-            this.speed = { x: 10 };
+            this.position = { x: parseInt((Math.random()*window.innerWidth)-1), y:parseInt((Math.random()*window.innerHeight)-1) };
+            this.speed = { x: parseInt((Math.random()* 30)+1),y:parseInt((Math.random()* 30)+1) };
         }
         Ball.prototype.start = function () {
             var t = this;
+            document.body.style.cssText="overflow: hidden;";
             setInterval(function () {
+            	
                 var pos = t.position,
                     spd = t.speed
                 ;
+                
                 if(pos.x < 0 || window.innerWidth < pos.x + spd.x + 30) spd.x *= (-1);
+                if(pos.y < 0 || window.innerHeight < pos.y + spd.y + 30) spd.y *= (-1);
+                
                 pos.x += spd.x;
+                pos.y += spd.y;
+                
                 t.dom.style.left = (pos.x + 'px');
+                t.dom.style.top = (pos.y + 'px');
             }, 50 / 3/*=1000/60*/)
         };
 
         (function () {
+        	for(var i=0; i<50; i++){
             var newBall = new Ball();
-            newBall.start();
+            newBall.start();}
         }());
     </script>
 </body>
