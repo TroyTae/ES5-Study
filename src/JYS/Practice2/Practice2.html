@@ -26,7 +26,60 @@
     <div><span>10</span><span>9</span><span>8</span><span>7</span></div>-->
 
     <script>
-        var cnt = 4;
+        var cnt = 4,
+            num = 1,
+            x = 0,
+            y = 0,
+            dir = 'right',
+            minus = cnt - 1,
+            arr = new Array();
+
+        // 2차원 배열 생성
+        for ( var i = 0; i < cnt; i ++ ) {
+            arr[i] = new Array(cnt);
+        }
+
+        // 돌아라 달팽이
+        while ( num <= cnt * cnt ) {
+            arr[x][y] = num++;
+
+            if ( dir === 'right' && y != minus ) {
+                y ++;
+                if ( y === minus ) {
+                    dir = 'down';
+                }
+            } else if ( dir === 'down' && x != minus ) {
+                x ++;
+                if ( x === minus ) {
+                    dir = 'left';
+                }
+            } else if ( dir === 'left' && y != 0 ) {
+                y --;
+                if ( y === cnt - minus - 1 ) {
+                    dir = 'up';
+                }
+            } else if ( dir === 'up' && x != 0 ) {
+                x --;
+                if ( x === cnt - minus ) {
+                    dir = 'right';
+                    minus -= 1;
+                }
+            }
+        }
+
+        // 출력
+        for ( var i = 0; i < cnt; i ++ ) {
+            var wrap = document.createElement('div');
+
+            for ( var j = 0; j < cnt; j ++ ) {
+                var span = document.createElement('span');
+
+                span.textContent = arr[i][j];
+                wrap.appendChild(span);
+            }
+
+            document.body.appendChild(wrap);
+        }
     </script>
 </body>
 </html>
