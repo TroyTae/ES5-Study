@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mouseEvent</title>
+</head>
+<body>
+    <p id="down">mouseDown</p>
+    <p id="up">mouseUp</p>
+    <p id="click">Click</p>
+
+    <script>
+        document.getElementById('down').addEventListener('mousedown', function () { console.log(''); });
+        document.getElementById('up').addEventListener('mouseup', function () {});
+        document.getElementById('click').addEventListener('click', function () {});
+    </script>
+</body>
+</html>
