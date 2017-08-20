@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wrapper Object</title>
+</head>
+<body>
+    <!--Object-->
+    <script>
+        (function() {
+            var obj = new Object();
+            /* Object 객체를 기반으로 동작하는 create,freeze,isFrozen */
+            var clone = Object.create(obj);
+            obj.data = {};
+            console.log(obj);
+            console.log(clone);
+            Object.freeze(clone);
+            clone.data = {};
+            console.log(clone);
+            console.log(Object.isFrozen(clone));
+
+            /* 만들어진 Instance 변수를 기반으로 동작하는 toString */
+            console.log(obj.toString());
+            console.log(clone.toString());
+        }());
+        console.log('------------------------------------------------');
+    </script>
+
+    <!--Boolean-->
+    <script>
+        (function() {
+            var v1 = new Boolean();
+            var v2 = new Boolean(true);
+            console.log(v1, v2);
+            console.log(v1.toString(), v2.toString());
+        }());
+        console.log('------------------------------------------------');
+    </script>
+
+    <!--Number-->
+    <script>
+        (function () {
+            var num = new Number(10.51);
+            console.log(Number.parseInt('2015'));
+            console.log(Number.parseFloat('205.203'));
+            console.log(Number.NaN);
+
+            console.log(num);
+            console.log(num.toString());
+            console.log(num.toFixed(0));
+            console.log(num.toFixed(1));
+        }());
+        console.log('------------------------------------------------');
+    </script>
+    <!--String-->
+    <script>
+        (function () {
+            var str = new String('JS STUDY!');
+            console.log(String.fromCharCode(65, 66, 67));
+            console.log(str);
+
+            console.log(str.charAt(0), str.charAt(4));
+            console.log(str.concat('JS LOUNGE!'), (str + 'JS LOUNGE!'));
+            console.log(str.replace('STUDY', 'LOUNGE'));
+            console.log(str.split(' '), str.split('S'));
+            console.log(str.substring(0, 2));
+            console.log();
+            console.log();
+            console.log();
+        }());
+        console.log('------------------------------------------------');
+    </script>
+</body>
+</html>
