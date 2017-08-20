@@ -43,5 +43,27 @@
         }());
         console.log(chain);
     </script>
+
+    <!--클로저 예제-->
+    <script>
+        /*속도에서의 이득, 메모리에서의 손해*/
+        var Counter = (function() {
+            var count = 0;
+            return {
+                upCount: function () {
+                    count++;
+                    console.log(count);
+                },
+                downCount: function () {
+                    count--;
+                    console.log(count);
+                }
+            };
+        }());
+
+        Counter.downCount();
+        Counter.upCount();
+        Counter.upCount();
+    </script>
 </body>
 </html>

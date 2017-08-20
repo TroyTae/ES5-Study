@@ -2,9 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>RecursionFunction</title>
+    <title>Function</title>
 </head>
 <body>
+    <script>
+        // 함수 선언은 호이스팅 된다
+        console.log(sum(1, 5));
+        // 함수 표현은 호이스팅 안됨
+        console.log(multiply);
+
+        function sum(a, b) {
+            return a + b;
+        }
+
+        var multiply = function(a, b) {
+            var res = a * b;
+            return res;
+        };
+        console.log(multiply(2, 5));
+    </script>
+
+    <script>console.log('-----------------------------------------------------');</script>
+
     <script>
         /*익명 함수 표현식*/
         var func1 = function() { return 1; };
