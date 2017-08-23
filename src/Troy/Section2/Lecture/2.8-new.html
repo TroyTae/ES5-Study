@@ -20,18 +20,20 @@
 -->
 </body>
     <script>
-        function f() {
-            this.key = 'key';
-            this.value = 'value';
+        function Animal(name, type) {
+            this.name = name;
+            this.type = type;
         }
-        /* 실제 내부에서는 이런일이...
-        Object.create = function (f) {
-            function F() {}
-            F.prototype = f;
-            return new F();
-        }
-        */
-        console.log(new f);
-        console.log(new (Object.create(f).__proto__));
+        Animal.prototype.eat = function () {
+            console.log(this.name + '(' + this.type + '): "냠냠"');
+        };
+
+        // new Animal('돌고래', '포유류')
+        // 위 코드를 실행하면 실제 내부에서는 이런일이...
+        var obj = {};
+        obj.__proto__ = Animal.prototype;
+        obj.name = '돌고래';
+        obj.type = '포유류';
+        console.log(obj);
     </script>
 </html>
