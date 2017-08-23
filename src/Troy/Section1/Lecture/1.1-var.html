@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>var</title>
+</head>
+<body>
+     <!--값들을 담을 수 있고 언제든지 바뀔 수 있는 선언문-->
+    <script>
+        var num1 = 1;
+        var boo = true, num2 = 2, str = 't3';
+        var undo;
+        var nll = null;
+
+        console.log(num1);
+        console.log(boo, num2, str);
+        console.log(undo);
+        console.log(nll);
+
+        // 언제든 값을 변경할 수 있어요!
+        undo = 5;
+        console.log(undo);
+        undo = '헿';
+        console.log(undo);
+        undo = false;
+        console.log(undo);
+        console.log('-----------------------------------------------------');
+    </script>
+
+     <!-- hoisting = 들어올리다/끌어올리다 -->
+     <script>
+         console.log(t1);
+         var t1 = '여기서 선언!';
+         console.log(t1);
+     </script>
+     <!--사실상 이런 코드가 수행된 것....-->
+     <script>
+         var t2;
+         console.log(t2);
+         t2 = '여기서 선언!';
+         console.log(t2);
+     </script>
+</body>
+</html>
