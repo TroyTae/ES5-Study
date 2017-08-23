@@ -6,10 +6,11 @@
 </head>
 <body>
     <!--Prototype 상속-->
+    <!--모든 자료형은 Object를 상속받고 있음!-->
     <script>
-        function Animal() {}
+        function Animal(name) { this.name = name; }
         Animal.prototype.eat = function () { console.log('먹는다'); };
-        function Human() {}
+        function Human(name) { this.name = name; }
         Human.prototype = Object.create(Animal.prototype);
         // Human.prototype.constructor = Human;
         Human.prototype.think = function() { console.log('고로 존재한다'); };
@@ -21,5 +22,6 @@
         console.log(human.eat(), human.think());
         console.log(human.constructor);
     </script>
+    <!--순수하게 Prototype만을 상속받는 개념이므로 실제 Class의 상속 개념과 조금 다르다-->
 </body>
 </html>

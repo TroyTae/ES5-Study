@@ -12,7 +12,7 @@
         Number.prototype.getThis = function () { return this; };
         String.prototype.getThis = function () { return this; };
         (function () {
-            var obj = new Object();
+            var obj = new Object({ data: {} });
             console.log(obj, obj.getThis());
             var boo = new Boolean(true);
             console.log(boo, boo.getThis());
@@ -22,13 +22,12 @@
             console.log(str, str.getThis());
         }());
 
-
         Object.prototype.getValue = function () { return this.valueOf(); };
         Boolean.prototype.getValue = function () { return this.valueOf(); };
         Number.prototype.getValue = function () { return this.valueOf(); };
         String.prototype.getValue = function () { return this.valueOf(); };
         (function () {
-            var obj = new Object();
+            var obj = new Object({ data: {} });
             console.log(obj.valueOf(), obj.getValue());
             var boo = new Boolean(true);
             console.log(boo.valueOf(), boo.getValue());

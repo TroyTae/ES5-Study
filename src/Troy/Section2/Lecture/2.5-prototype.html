@@ -27,10 +27,14 @@
             var num = new Number(100);
             var str = new String('!!!');
 
-            obj.func();
             console.log(boo.string);
             console.log(num.ten());
             console.log(str.useYn);
+
+            obj.func();
+            // 중간에 추가될 수도 있으므로 정말 관리를 잘해야함
+            Object.prototype.func2 = function () { console.log('객체의 줄임말입니다2.'); };
+            obj.func2();
         }());
     </script>
 </body>

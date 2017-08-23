@@ -15,6 +15,8 @@
             console.log(this.name + '(' + this.type + '): "냠냠"');
         };
 
+        // 만들어진 구조만 보면 Object랑 똑같다! ex) new Object({name:'???', type:'???'})
+        // 하지만 그렇다고 Object.prototype을 확장하면..?
         (function () {
             var bird = new Animal('새', '조류'),
                 bear = new Animal('곰', '포유류')
