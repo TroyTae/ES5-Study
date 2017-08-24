@@ -8,24 +8,54 @@
     <script>
         var arr = [1, 4, 10, 11, 15];
 
-        // for문 대체 가능
-        arr.forEach(function (v, i, arr) {
-            console.log(i + ': ' + v);
-            console.log(arr);
-        });
-        console.log('-----------------------------------------------');
-
         // 배열을 병합해서 반환하지만 원본은 유지
+        console.log(arr.join('-'));
+        // 매개변수의 있는 값을 모든 값 사이에 삽입한 문자열 반환
         console.log(arr.concat([1, 2, 3], [1, 2, 3]));
         // 배열 제일 앞에 있는 요소(0번 index)를 삭제
         arr.shift();
         // 배열 제일 뒤에 있는 요소(arr.length - 1번 index) 삭제
         arr.pop();
+        console.log(arr);
         // 해당 요소를 배열 제일 앞에 추가
         arr.unshift(5);
         // 해당 요소를 배열 제일 뒤에 추가
         arr.push(7);
+        arr.push(8);
         console.log(arr);
+        // 해당 index 사이에 있는 값들의 배열을 반환
+        console.log(arr.slice(0, 4));
+        // 첫번째 매개변수 index 기준, 두번쨰 매개변수의 count 만큼 배열에서 제거
+        arr.splice(5, 1);
+        console.log(arr);
+        console.log('-----------------------------------------------');
+
+
+        // for문 대체 가능
+        arr.forEach(function (v, i, arr) {
+            if(i === 0) console.log(arr);
+            console.log(i + ': ' + v);
+        });
+        // 1개라도 조건이 참이면 true 반환
+        console.log(arr.some(function(v) { return 5 < v }));
+        console.log(arr.some(function(v) { return v < 4 }));
+        // 모든 조건이 참일때만 true 반환
+        console.log(arr.every(function(v) { return 5 < v }));
+        console.log(arr.every(function(v) { return 3 < v }));
+        // 조건에 맞는 값들만 담은 배열 반환
+        console.log(arr.filter(function(v) { return 5 < v; }));
+        // return 값으로 배열의 각 index에 있는 값들을 치환
+        console.log(arr.map(function(v) { return v * 2; }));
+        console.log('-----------------------------------------------');
+    </script>
+
+    <!--실전 예제-->
+    <script>
+        [2, 3, 7, 15, 5, 1]
+            .filter(function(v) { return 5 <= v })
+            .map(function(v, i) { return v + i; })
+            .forEach(function(v) { console.log('여기서 전부 가공된 데이터로 내가 원하는걸~', v); })
+        ;
     </script>
 </body>
 </html>
