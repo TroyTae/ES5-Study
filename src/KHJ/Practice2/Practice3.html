@@ -13,7 +13,6 @@
             border-radius: 15px;
         }
     </style>
-    <div style="background-color: red"></div>
 
     <!--
         랜덤 한 색을 가진 div태그를 만들어 랜덤한 속도와 방향으로 움직이고, 벽에 부딪히면 반사각 방향으로 이동하는 스크립트를 작성하시오
@@ -25,33 +24,55 @@
     <!-- 브라우저 크기를 알 수 있음 : windoe.innerHeight, window.innerWidth를 이용해 어디까지가 벽인지 알아내는 알고리즘 -->
     <!-- 속도: 최소:10/ 최대:100 -->
     <!-- 음수: top, left 양수: botton, right -->
-    <!-- background, top/botto/left/right -->
+    <!-- background, top/bottom/left/right -->
     <script>
+    	
+	    function random(min, max) {
+	        var num = Math.random() * (max - min + 1) + min;
+	        return Math.floor(num);
+	    }
+    
+	    
         function Ball() {
-            var ball = document.createElement('DIV');
-            ball.style.backgroundColor = 'red';
-            document.body.appendChild(ball);
 
+       		var ball = document.createElement('DIV');
+            ball.style.backgroundColor = '#'+random(0,16777215).toString(16);
+            document.body.appendChild(ball);
+             
             this.dom = ball;
-            this.position = { x: 0 };
-            this.speed = { x: 10 };
+            this.position = {x : random(0,10), y : random(0,10)};
+            this.speed = {x : random(-10,10), y : random(-10,10)};
+                
         }
+        
         Ball.prototype.start = function () {
             var t = this;
             setInterval(function () {
                 var pos = t.position,
                     spd = t.speed
                 ;
-                if(pos.x < 0 || window.innerWidth < pos.x + spd.x + 30) spd.x *= (-1);
+                if(pos.x < 0 || window.innerWidth < pos.x + spd.x + 30){
+                	spd.x *= (-1);
+                }
+                if(pos.y < 0 || window.innerHeight < pos.y + spd.y + 30){
+                	spd.y *= (-1);
+                }
                 pos.x += spd.x;
+                pos.y += spd.y;
+                
                 t.dom.style.left = (pos.x + 'px');
+                t.dom.style.top = (pos.y + 'px');
+                
             }, 50 / 3/*=1000/60*/)
         };
 
         (function () {
-            var newBall = new Ball();
-            newBall.start();
+        	for(var i = 0; i < 100; ++i) {
+	            var newBall = new Ball();
+	            newBall.start();
+        	}
         }());
+        
     </script>
 </body>
 </html>
