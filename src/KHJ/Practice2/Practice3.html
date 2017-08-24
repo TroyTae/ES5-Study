@@ -29,18 +29,18 @@
     	
 	    function random(min, max) {
 	        var num = Math.random() * (max - min + 1) + min;
-	        return Math.floor(num);
+	        return num;
 	    }
     
 	    
         function Ball() {
 
        		var ball = document.createElement('DIV');
-            ball.style.backgroundColor = '#'+random(0,16777215).toString(16);
+            ball.style.backgroundColor = '#'+parseInt(random(0,16777215)).toString(16);
             document.body.appendChild(ball);
              
             this.dom = ball;
-            this.position = {x : random(0,10), y : random(0,10)};
+            this.position = {x : random(0, window.innerWidth - 30), y : random(0, window.innerHeight - 30)};
             this.speed = {x : random(-10,10), y : random(-10,10)};
                 
         }
