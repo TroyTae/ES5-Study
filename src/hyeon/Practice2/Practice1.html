@@ -15,7 +15,19 @@
         <li>1 x 9 = 9</li>
     </ul>-->
     <script>
-
+        for (let dan = 1; dan<=9; dan++) {
+            let ul = document.createElement("ul");
+            let h1 = document.createElement("h1");
+            h1.textContent = dan + "단";
+            ul.appendChild(h1);
+            for(let n = 1; n<=9; n++) {
+                let li = document.createElement("li");
+                li.textContent = dan + " X " + n + " = " + (dan*n);
+                ul.appendChild(li);
+            }
+            document.body.appendChild(ul)
+        }
     </script>
 </body>
 </html>
+
