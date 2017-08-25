@@ -10,6 +10,7 @@
         function Animal(name, type) {
             this.name = name;
             this.type = type;
+            this.getThis = function () { return this; };
         }
         Animal.prototype.eat = function () {
             console.log(this.name + '(' + this.type + '): "냠냠"');
@@ -17,15 +18,21 @@
 
         // 만들어진 구조만 보면 Object랑 똑같다! ex) new Object({name:'???', type:'???'})
         // 하지만 그렇다고 Object.prototype을 확장하면..?
-        (function () {
-            var bird = new Animal('새', '조류'),
-                bear = new Animal('곰', '포유류')
-            ;
-            console.log(bird.name, bird.type);
-            bird.eat();
-            console.log(bear.name, bear.type);
-            bear.eat();
-        }());
+        var bird = new Animal('새', '조류'),
+            bear = new Animal('곰', '포유류')
+        ;
+        console.log(bird.name, bird.type);
+        bird.eat();
+        console.log(bear.name, bear.type);
+        bear.eat();
+
+        console.log('-------------------------------------------------------');
+        console.log(bird.getThis());
+        console.log(bear.getThis());
+
+        // 새로운 변수는 글로벌 속성이므로 this가 window가 됨
+        var func = bird.getThis;
+        console.log(func());
     </script>
 </body>
 </html>

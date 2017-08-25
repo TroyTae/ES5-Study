@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON</title>
+</head>
+<body>
+    <!-- 데이터 교환 방식 중 하나로 속성-값 쌍으로 이루어진 데이터 오브젝트 -->
+    <!-- 서버와 통신하기 위한 데이터 모델 중 사실상 표준이라 할 정도로 대부분 쓰인다 -->
+    <script>
+        var study = {
+            count: 3,
+            memberList: [{
+                name: 'TJY',
+                type: 'Owner',
+                gender: true
+            }, {
+                name: 'KHJ',
+                type: 'Member',
+                gender: false
+            }, {
+                name: 'Mireu',
+                type: 'Member',
+                gender: true
+            }]
+        };
+
+        // 서버에 보내기 위해 JSON string 형태로 변환
+        var json = JSON.stringify(study);
+        console.log(json);
+
+        // 서버에서 받은 JSON string을 객체로 parsing
+        console.log(JSON.parse(json));
+    </script>
+</body>
+</html>
