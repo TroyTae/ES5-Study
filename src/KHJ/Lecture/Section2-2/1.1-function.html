@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function</title>
+</head>
+<body>
+    <script>
+        // 함수 선언은 호이스팅 된다
+        console.log(sum(1, 5));
+        // 함수 표현은 호이스팅 안됨
+        console.log(multiply);
+
+        function sum(a, b) {
+            return a + b;
+        }
+
+        var multiply = function(a, b) {
+            var res = a * b;
+            return res;
+        };
+        console.log(multiply(2, 5));
+    </script>
+
+    <script>console.log('-----------------------------------------------------');</script>
+
+    <script>
+        /*익명 함수 표현식*/
+        var func1 = function() { return 1; };
+        /*기명 함수 표현식*/
+        var func2 = function func3() { return 2; };
+        console.log(func1());
+        console.log(func2());
+        // console.log(func3());
+    </script>
+
+    <!--재귀함수를 이용한 팩토리얼-->
+    <script>
+        var factorial = function self(n) {
+            if(n === 1) return 1;
+            else return n * self(n - 1);
+        };
+        console.log(factorial(3));
+        console.log(factorial(5));
+    </script>
+</body>
+</html>

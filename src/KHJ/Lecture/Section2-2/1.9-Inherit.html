@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inherit</title>
+</head>
+<body>
+    <!--Prototype 상속-->
+    <!--모든 자료형은 Object를 상속받고 있음!-->
+    <script>
+        function Animal(name) { this.name = name; }
+        Animal.prototype.eat = function () { console.log('먹는다'); };
+        function Human(name) { this.name = name; }
+        Human.prototype = Object.create(Animal.prototype); // create은 reference로 묶이는게 아니라 새로 복제함
+        // Human.prototype.constructor = Human;
+        
+        // create으로 하지 않으면 Animal에 think 생김
+        // 따라서 상속받은 Animal에 영향을 주지 않기 위해 .으로 reference로 접근 안함
+        Human.prototype.think = function() { console.log('고로 존재한다'); };
+
+        var animal = new Animal();
+        var human = new Human();
+
+        console.log(animal.eat());
+        console.log(human.eat(), human.think());
+        console.log(human.constructor); // 자바스크립트에서 인정한 공식 버그
+    </script>
+    <!--순수하게 Prototype만을 상속받는 개념이므로 실제 Class의 상속 개념과 조금 다르다-->
+    <!--멤버변수 상속 안됨. Human에서 this.name = name 안하면 에러남. 그래서 ES6에서는 class 개념 추가됨   -->
+</body>
+</html>

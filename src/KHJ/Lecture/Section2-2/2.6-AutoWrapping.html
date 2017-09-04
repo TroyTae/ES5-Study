@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AutoWrapping</title>
+</head>
+<body>
+    <script>
+        var boo = true;
+        var num = 10.102;
+        var str = 'JS STUDY!';
+
+        console.log(boo.toString());
+        console.log(num.toFixed(0), num.toFixed(2));
+        console.log(str.substring(0, 2), str.replace('STUDY', 'LOUNGE'));
+        /*실제로는 아래와 같이 동작함*/
+        console.log(new Boolean(boo).toString());
+        console.log(new Number(num).toFixed(0), new Number(num).toFixed(2));
+        console.log(new String(str).substring(0, 2), new String(str).replace('STUDY', 'LOUNGE'));
+    </script>
+    <!-- 프로토타입으로 쓰기 위해 wrapping 된걸 쓴다?
+    var num = new Number(1);로 하는게 좋음. for문 돌면서 할 경우 비용이 크게 발생할 수도  -->
+</body>
+</html>

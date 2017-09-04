@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Timer</title>
+</head>
+<body>
+    <!--애니메이션은 1000/60ms=60fps-->
+    <script>
+        // 5초 뒤에 콜백을 실행하는 타이머
+        setTimeout(function() {
+            console.log('5초 뒤 실행');
+        }, 5000);
+
+        // 타이머와 반복문의 혼합
+        var key = setInterval(function() {
+            console.log('1초마다 실행');
+        }, 1000);
+
+        setTimeout(function () {
+            clearInterval(key);
+        }, 10000);
+        // clearTimeout(key);
+    </script>
+    <!--setInterval(function() {console.log('1');}, 500);-->
+    <!--추가로 배터리 절약을 위해 비활성화 Tab에서는 타이머가 클램핑되기 떄문에 위 코드의 타이머는 1000ms로 치환-->
+    <!--클램핑 알고리즘 - 특정 min, max 안에서 실행시키겠다.-->
+    <!--타이머가 4ms 이상. 활성화 탭. 비활성화 탭에서는 1초(1000ms) 밑으로는 못하게. 아니면 배터리 소모량이 너무 많음  -->
+</body>
+</html>

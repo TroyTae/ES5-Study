@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array</title>
+</head>
+<body>
+    <script>
+        var arr = [1, 4, 10, 11, 15];
+
+        /* 원본 유지 */
+        // 배열을 병합해서 반환하지만 원본은 유지
+        console.log(arr.join('-')); // split 후에 join 하면 원하는 형태로 변환 가능
+        // 매개변수의 있는 값을 모든 값 사이에 삽입한 문자열 반환
+        console.log(arr.concat([1, 2, 3], [1, 2, 3]));
+        
+        /* 원본 변환 */
+        // 배열 제일 앞에 있는 요소(0번 index)를 삭제
+        arr.shift();
+        // 배열 제일 뒤에 있는 요소(arr.length - 1번 index) 삭제
+        arr.pop();
+        console.log(arr);
+        // 해당 요소를 배열 제일 앞에 추가
+        arr.unshift(5);
+        // 해당 요소를 배열 제일 뒤에 추가
+        arr.push(7);
+        arr.push(8);
+        console.log(arr);
+        // 해당 index 사이에 있는 값들의 배열을 반환
+        console.log(arr.slice(0, 4));
+        // 첫번째 매개변수 index 기준, 두번쨰 매개변수의 count 만큼 배열에서 제거
+        arr.splice(5, 1);
+        console.log(arr);
+        console.log('-----------------------------------------------');
+
+
+        // for문 대체 가능
+        // 실제 arr reference에 접근해서 값 변환하고 싶으면 arr 사용! v로는 arr 변환 불가능. 값만 바뀜
+        arr.forEach(function (v, i, arr) {
+            if(i === 0) console.log(arr);
+            console.log(i + ': ' + v);
+        });
+        
+        
+        /* 원본 유지 */
+        /* boolean으로 리턴! */
+        // 1개라도 조건이 참이면 true 반환 (arr.some)
+        console.log(arr.some(function(v) { return 5 < v }));
+        console.log(arr.some(function(v) { return v < 4 }));
+        // 모든 조건이 참일때만 true 반환 (arr.every)
+        console.log(arr.every(function(v) { return 5 < v }));
+        console.log(arr.every(function(v) { return 3 < v }));
+        // 조건에 맞는 값들만 담은 배열 반환 (arr.filter)
+        console.log(arr.filter(function(v) { return 5 < v; }));
+        
+        
+        // return 값으로 배열의 각 index에 있는 값들을 치환 (arr.map)
+        console.log(arr.map(function(v) { return v * 2; }));
+        console.log('-----------------------------------------------');
+    </script>
+
+    <!--실전 예제-->
+    <!--집에 가서 for문으로 짜보면 왜 이렇게 내장 함수를 사용하는지 알게 될꺼야  -->
+    <!--함수형 프로그래밍은 자바스크립트에만 있었는데 java8에도 추가됨 -->
+    <!--java에는 class가 있었는데 자바스크립트에는 없어서 ES6에 class 개념이 추가 됨  -->
+    <script>
+        [2, 3, 7, 15, 5, 1]
+            .filter(function(v) { return 5 <= v })
+            .map(function(v, i) { return v + i; })
+            .forEach(function(v) { console.log('여기서 전부 가공된 데이터로 내가 원하는걸~', v); })
+        ;
+    </script>
+</body>
+</html>

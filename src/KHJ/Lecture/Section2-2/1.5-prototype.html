@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>prototype</title>
+</head>
+<body>
+    <script>
+        console.log(Object.prototype);
+        console.log(Boolean.prototype);
+        console.log(Number.prototype);
+        console.log(String.prototype);
+        console.log(Function.prototype);
+        console.log('----------------------------------------------------------------------');
+    </script>
+
+    <!--Prototype은 자료형의 기능 확장을 위한것-->
+    <script>
+        Object.prototype.func = function () { console.log('객체의 줄임말입니다.'); };
+        Boolean.prototype.string = 'Boolean';
+        Number.prototype.ten = function () { return 10; };
+        String.prototype.useYn = true;
+
+        (function () {
+            var obj = new Object();
+            var boo = new Boolean();
+            var num = new Number(100);
+            var str = new String('!!!');
+
+            console.log(boo.string);
+            console.log(num.ten());
+            console.log(str.useYn);
+
+            obj.func();
+            // 중간에 추가될 수도 있으므로 정말 관리를 잘해야함
+            Object.prototype.func2 = function () { console.log('객체의 줄임말입니다2.'); };
+            obj.func2();
+        }());
+    </script>
+</body>
+</html>

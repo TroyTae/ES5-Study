@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object.create</title>
+</head>
+<body>
+<!--
+    "new" 키워드
+    1. obj에 새로운 native ECMAScript 객체를 삽입한다.
+    2. 8.12에 명시된 모든 내장 메서드들을 설정한다. (자료형과 관계없는 메서드 Get/Set/GetProperty)
+    3. obj의 내부 속성 [[Class]]를  "Object"로 설정한다.
+    4. obj의 내부 속성 [[Extensible]]을 "true"로 설정한다.
+    5. proto의 값이 "prototype"을 매개변수로 가지는 [[Get]] 메서드를 호출하도록 설정한다.
+    6. 만약 Type(proto)이 "Object"면, obj의 내부속성 [[Prototype]]을 proto로 설정한다.
+    7. 만약 Type(proto)이 "Object"가 아니면, 내부속성 [[Prototype]]을 15.2.4에 기술된 표준 내장 객체 프로토타입로 설정한다.
+    8. result에 내부속성 [[Call]]을 호출한 결과를 삽입한 뒤, this 값을 할당해주고 [[Construct]]에 매개변수들을 넘겨준다.
+    9. 만약 Type(result)이 "Object"면 result를 반환한다.
+    10. obj 반환.
+-->
+</body>
+    <script>
+        function Animal(name, type) {
+            this.name = name;
+            this.type = type;
+        }
+        Animal.prototype.eat = function () {
+            console.log(this.name + '(' + this.type + '): "냠냠"');
+        };
+
+        // new Animal('돌고래', '포유류')
+        // 위 코드를 실행하면 실제 내부에서는 이런일이...
+        // new를 할 때 실제로 일어나는 코드
+        var obj = {};
+        obj.__proto__ = Animal.prototype;
+        obj.name = '돌고래';
+        obj.type = '포유류';
+        console.log(obj); // obj.eat 가능
+    </script>
+</html>
