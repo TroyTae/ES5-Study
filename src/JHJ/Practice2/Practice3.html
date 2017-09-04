@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Practice3</title>
+    <title>Practice2</title>
 </head>
 <body>
     <style>
@@ -28,8 +28,14 @@
             document.body.appendChild(ball);
 
             this.dom = ball;
-            this.position = { x: 0 };
-            this.speed = { x: 10 };
+            this.position = {
+                x: 0,
+                y: 0
+            };
+            this.speed = {
+                x: 10,
+                y: 10
+            };
         }
         Ball.prototype.start = function () {
             var t = this;
@@ -38,8 +44,13 @@
                     spd = t.speed
                 ;
                 if(pos.x < 0 || window.innerWidth < pos.x + spd.x + 30) spd.x *= (-1);
+                if(pos.y < 0 || window.innerHeight < pos.y + spd.y + 30) spd.y *= (-1);
+
                 pos.x += spd.x;
+                pos.y += spd.y;
+
                 t.dom.style.left = (pos.x + 'px');
+                t.dom.style.top = (pos.y + 'px');
             }, 50 / 3/*=1000/60*/)
         };
 
