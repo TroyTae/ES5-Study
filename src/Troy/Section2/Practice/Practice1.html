@@ -2,60 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Practice3</title>
+    <title>Practice1</title>
 </head>
 <body>
     <style>
-        div {
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            border-radius: 15px;
+        span {
+            display: inline-block;
+            border: 1px solid black;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
         }
     </style>
 
     <!--
-        랜덤 한 색을 가진 div태그를 만들어 랜덤한 속도와 방향으로 움직이고, 벽에 부딪히면 반사각 방향으로 이동하는 스크립트를 작성하시오
-        (공은 화면에 100개를 생성하자!)
-        (속도는 60fps기준 최대 10px의 속도를 가질 수 있다)
-        (색의 범위를 10진수로 나타내면 0~16777215의 범위를 가진다!)
-        (벽은 화면의 최대 크기를 말하며 window.innerHeight/window.innerWidth 이용하면 된다!)
+        아래와 같은 형식을 달팽이 배열이라고 한다
+        cnt의 값에 따라 헤당하는 길이를 가진 달팽이 배열을 만드는 스크립트를 작성하시오
     -->
+    <!--<div><span>1</span><span>2</span><span>3</span><span>4</span></div>
+    <div><span>12</span><span>13</span><span>14</span><span>5</span></div>
+    <div><span>11</span><span>16</span><span>15</span><span>6</span></div>
+    <div><span>10</span><span>9</span><span>8</span><span>7</span></div>-->
+
     <script>
-        function Ball() {
-            var ball = document.createElement('DIV');
-            ball.style.backgroundColor = 'red';
-            document.body.appendChild(ball);
-
-            this.dom = ball;
-            this.position = {
-                x: 0,
-                y: 0
-            };
-            this.speed = {
-                x: 10,
-                y: 10
-            };
-        }
-        Ball.prototype.start = function () {
-            var t = this;
-            setInterval(function () {
-                var pos = t.position,
-                    spd = t.speed
-                ;
-                pos.x += spd.x;
-                pos.y += spd.y;
-                if(pos.x < 0 || window.innerWidth < pos.x + 30) spd.x *= (-1);
-                if(pos.y < 0 || window.innerHeight < pos.y + 30) spd.y *= (-1);
-                t.dom.style.left = (pos.x + 'px');
-                t.dom.style.top = (pos.y + 'px');
-            }, 50 / 3/*=1000/60*/)
-        };
-
-        (function () {
-            var newBall = new Ball();
-            newBall.start();
-        }());
+        var cnt = 4;
     </script>
 </body>
 </html>
