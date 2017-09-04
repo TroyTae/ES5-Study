@@ -10,17 +10,36 @@
         고객들이 보기 편한 형태로 아래 주석처럼 출력하기 위해 prototype를 덮어써서 작성해보자!
     -->
     <script>
-        Date.prototype.toString = function(pattern) {};
+
+        Number.prototype.format = function(len){
+            var s = '', i = 0;
+            while (i++ < len - this.toString.length) { s += '0'; }
+            return s + this;
+        };
+
+
+        Date.prototype.toString = function(pattern) {
+            if(pattern === 'yyyy'){
+                return date.getFullYear();
+            }else if(pattern === 'yyyy-MM'){
+                return date.getFullYear() + '-' + (date.getMonth()+1).format(2);
+            }else if(pattern === 'MM/dd'){
+                return (date.getMonth()+1).format(2) + '/' + date.getDate().format(2);
+            }else{
+
+            }
+        };
+
 
         var date = new Date();
 
-        // console.log(date.toString('yyyy'))
+        console.log(date.toString('yyyy'))
         // 위 코드를 실행시키면 Year 출력
 
-        // console.log(date.toString('yyyy-MM'))
+        console.log(date.toString('yyyy-MM'))
         // 위 코드를 실행시키면 Year-Month 형태로 출력
 
-        // console.log(date.toString('MM/dd'))
+        console.log(date.toString('MM/dd'))
         // 위 코드를 실행시키면 Month/Date 형태로 출력
     </script>
 </body>

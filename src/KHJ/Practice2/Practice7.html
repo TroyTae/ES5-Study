@@ -11,7 +11,27 @@
         2를 곱해서 출력하는 스크립트를 작성하시오.
     -->
     <script>
-        [4, 16, 25, 9, 144];
+        /*
+        제곱근 한 후에 2를 곱하는것인지
+        제곱근 하기 전에 2를 곱해서 출력하는 것인지 애매해서
+        두가지 방법으로 했어요
+        */
+
+        var arr = [4, 16, 25, 9, 144];
+        arr.filter(v => Math.sqrt(v) >= 4)
+            .map(v => Math.sqrt(v)*2)
+            .forEach(v => console.log(v));
+
+
+        /*arr.filter(v => Math.sqrt(v) >= 4)
+             .map(v => v*2)
+             .forEach(v => console.log(v));*/
+
+
+        /*arr.filter(function(v){ return Math.sqrt(v) >= 4 })
+            .map(function(v){ return Math.sqrt(v)*2 })
+            .forEach(function(v){ console.log(v) });*/
+
     </script>
 </body>
 </html>
