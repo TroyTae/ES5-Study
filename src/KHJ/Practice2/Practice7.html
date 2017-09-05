@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Practice6</title>
+    <title>Practice7</title>
 </head>
 <body>
     <!--
@@ -18,9 +18,14 @@
         */
 
         var arr = [4, 16, 25, 9, 144];
-        arr.filter(v => Math.sqrt(v) >= 4)
+        var func = function(v){ return v >= 4};
+        arr.map(Math.sqrt)
+            .filter(func)
+            .forEach(function(v){console.log(v*2)});
+
+        /*arr.filter(v => Math.sqrt(v) >= 4)
             .map(v => Math.sqrt(v)*2)
-            .forEach(v => console.log(v));
+            .forEach(v => console.log(v));*/
 
 
         /*arr.filter(v => Math.sqrt(v) >= 4)

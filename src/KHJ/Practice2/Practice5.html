@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Practice4</title>
+    <title>Practice5</title>
 </head>
 <body>
     <!--
@@ -13,36 +13,36 @@
         hint! 즉시실행 함수를 활용해서 private 변수를 만들자!!
     -->
     <script>
-        (function(){
-           res = 0;
-        })()
 
+        var obj = (function(){
+            var res = 0;
 
-        var obj = {
-            sum: function(v) {
-                res = obj.show() + v;
-                return res;
-            },
-            substract: function(v) {
-                res = obj.show() - v;
-                return res;
-            },
-            multiply: function(v) {
-                res=  obj.show() * v;
-                return res;
-            },
-            divide: function(v) {
-                res = obj.show() / v;
-                return res;
-            },
-            reset: function() {
-                res = 0;
-                return res;
-            },
-            show: function() {
-                return res;
-            }
-        };
+            return{
+                sum: function(v) {
+                    res = obj.show() + v;
+                    return res;
+                },
+                substract: function(v) {
+                    res = obj.show() - v;
+                    return res;
+                },
+                multiply: function(v) {
+                    res=  obj.show() * v;
+                    return res;
+                },
+                divide: function(v) {
+                    res = obj.show() / v;
+                    return res;
+                },
+                reset: function() {
+                    res = 0;
+                    return res;
+                },
+                show: function() {
+                    return res;
+                }
+            };
+        }());
 
         console.log(obj.sum(10));
         console.log(obj.substract(5));
@@ -50,7 +50,6 @@
         console.log(obj.divide(5));
         console.log(obj.reset());
         console.log(obj.show());
-
 
 
     </script>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Practice5</title>
+    <title>Practice6</title>
 </head>
 <body>
     <!--
@@ -19,15 +19,9 @@
 
 
         Date.prototype.toString = function(pattern) {
-            if(pattern === 'yyyy'){
-                return date.getFullYear();
-            }else if(pattern === 'yyyy-MM'){
-                return date.getFullYear() + '-' + (date.getMonth()+1).format(2);
-            }else if(pattern === 'MM/dd'){
-                return (date.getMonth()+1).format(2) + '/' + date.getDate().format(2);
-            }else{
-
-            }
+            return pattern.replace('yyyy', date.getFullYear())
+                            .replace('MM', (date.getMonth()+1).format(2))
+                            .replace('dd', (date.getDate().format(2)));
         };
 
 
@@ -41,6 +35,12 @@
 
         console.log(date.toString('MM/dd'))
         // 위 코드를 실행시키면 Month/Date 형태로 출력
+
+        console.log(date.toString('yyyy/MM/dd'))
+        // 위 코드를 실행시키면 Year/Month/Date 형태로 출력
+
+        console.log(date.toString('yyyy-MM-dd'))
+        // 위 코드를 실행시키면 Year-Month-Date 형태로 출력
     </script>
 </body>
 </html>
