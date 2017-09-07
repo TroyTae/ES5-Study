@@ -5,14 +5,22 @@
     <title>mouseEvent</title>
 </head>
 <body>
-    <p id="down">mouseDown</p>
-    <p id="up">mouseUp</p>
-    <p id="click">Click</p>
+    <style>
+        button {
+            padding: 10px;
+        }
+    </style>
+
+    <button id="down">mouseDown</button>
+    <button id="up">mouseUp</button>
+    <button id="click">Click</button>
+    <button id="dblclick">dblClick</button>
 
     <script>
-        document.getElementById('down').addEventListener('mousedown', function () { console.log(''); });
-        document.getElementById('up').addEventListener('mouseup', function () {});
-        document.getElementById('click').addEventListener('click', function () {});
+        document.getElementById('down').addEventListener('mousedown', function () { console.log('up 상태였던 마우스가 해당 DOM 좌표에서 down!'); });
+        document.getElementById('up').addEventListener('mouseup', function () { console.log('down 상태였던 마우스가 해당 DOM 좌표에서 up!'); });
+        document.getElementById('click').addEventListener('click', function () { console.log('해당 DOM 좌표에서 mousedown 후 mouseup!'); });
+        document.getElementById('dblclick').addEventListener('dblclick', function () { console.log('해당 DOM 연속으로 click!'); });
     </script>
 </body>
 </html>
