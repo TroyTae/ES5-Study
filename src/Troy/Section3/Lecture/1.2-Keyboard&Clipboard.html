@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>keyboardEvent</title>
+</head>
+<body>
+    <input id="down" type="text"/>
+    <input id="up" type="text"/>
+    <textarea placeholder="작성해주세요"></textarea>
+
+    <!--keyboard-->
+    <script>
+        document.getElementById('up').addEventListener('keyup', function() { console.log('키보드 up~'); });
+        document.getElementById('down').addEventListener('keydown', function() { console.log('키보드 down~'); });
+    </script>
+
+    <!--clipboard-->
+    <script>
+        var textarea = document.querySelector('textarea');
+        textarea.addEventListener('cut', function() { console.log('잘라내기!'); });
+        textarea.addEventListener('copy', function() { console.log('복사!'); });
+        textarea.addEventListener('paste', function() { console.log('붙여넣기!'); });
+    </script>
+</body>
+</html>
