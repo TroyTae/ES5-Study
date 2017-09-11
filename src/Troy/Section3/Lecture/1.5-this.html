@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Event</title>
+    <title>this</title>
 </head>
 <body>
     <input type="text"/>
@@ -13,26 +13,21 @@
     <script>
         var inputs = document.getElementsByTagName('input');
 
-        inputs[0].addEventListener('keydown', function(e) {
-            console.log(e);
-            console.log(e.target, this);
-
+        inputs[0].addEventListener('keydown', function() {
+            console.log(this);
             var value = this.value;
             if(10 < value.length) this.value = value.slice(0, 10);
         });
 
-        inputs[1].addEventListener('keyup', function(e) {
-            console.log(e);
-            console.log(e.target, this);
-
+        inputs[1].addEventListener('keyup', function() {
+            console.log(this);
             var value = this.value;
             if(10 < value.length) this.value = value.slice(0, 10);
         });
 
-        inputs[2].addEventListener('input', function(e) {
-            console.log(e);
-            console.log(e.target, this);
-
+        // The DOM input event is fired synchronously when the value of an <input>, <select>, or <textarea> element is changed.
+        inputs[2].addEventListener('input', function() {
+            console.log(this);
             var value = this.value;
             if(10 < value.length) this.value = value.slice(0, 10);
         });

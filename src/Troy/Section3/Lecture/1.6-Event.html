@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event</title>
+</head>
+<body>
+    <input id="input" type="text"/>
+    <input name="change" type="text"/>
+    <select name="change">
+        <option value="Mireu">김미르</option>
+        <option>Chloe</option>
+        <option>hyeon</option>
+        <option value="Troy">태재영</option>
+        <option>JHJ</option>
+        <option>Jurip</option>
+        <option value="JYS">전윤선</option>
+        <option>kimhoyoung</option>
+        <option>seyoung</option>
+        <option value="KHJ">강현지</option>
+        <option>YuniJ</option>
+        <option>HDC</option>
+    </select>
+
+    <script>
+        // Unlike the input event, the change event is not necessarily fired for each change to an element's value.
+        var list = document.getElementsByName('change');
+        list[0].addEventListener('change', function(e) { console.log(e.target.value); });
+        list[1].addEventListener('change', function(e) { console.log(e.target.value); });
+
+        document
+            .getElementById('input')
+            .addEventListener('input', function(e) {
+                console.log(e.target.value);
+            })
+        ;
+    </script>
+</body>
+</html>
