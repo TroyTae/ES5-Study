@@ -6,7 +6,7 @@
 </head>
 <body>
     <style>
-        p, span, a {
+        p, span, strong {
             display: block;
             padding: 40px;
         }
@@ -15,22 +15,22 @@
             background-color: red;
         }
         span { background-color: blue; }
-        a { background-color: green; }
+        strong { background-color: green; }
     </style>
 
     <div id="preventDefault">
         <h4>preventDefault</h4>
-        <p><span><a href="#temp"></a></span></p>
+        <p><span><strong></strong></span></p>
     </div>
 
     <div id="stopPropagation">
         <h4>stopPropagation</h4>
-        <p><span><a href="#temp"></a></span></p>
+        <p><span><strong></strong></span></p>
     </div>
 
     <div id="stopImmediatePropagation">
         <h4>stopImmediatePropagation</h4>
-        <p><span><a href="#temp"></a></span></p>
+        <p><span><strong></strong></span></p>
     </div>
 
     <script>
@@ -38,12 +38,18 @@
             var dom = document.getElementById(type);
             dom.querySelector('p').addEventListener('click', function(e) { console.log('P'); e[type](); });
             dom.querySelector('span').addEventListener('click', function(e) { console.log('SPAN'); e[type](); });
-            dom.querySelector('a').addEventListener('click', function(e) { console.log('A'); e[type](); });
+            dom.querySelector('strong').addEventListener('click', function(e) { console.log('STRONG'); e[type](); });
+            dom.querySelector('strong').addEventListener('click', function(e) { console.log('STRONG'); e[type](); });
         };
 
         attachEvent('preventDefault');
         attachEvent('stopPropagation');
         attachEvent('stopImmediatePropagation');
+
+        document.addEventListener('contextmenu', function(e) {
+            console.log('우클릭!');
+            e.preventDefault();
+        });
     </script>
 </body>
 </html>
