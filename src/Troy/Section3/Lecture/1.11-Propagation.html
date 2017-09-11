@@ -34,12 +34,20 @@
     </div>
 
     <script>
-        var attachEvent = function(type) {
-            var dom = document.getElementById(type);
-            dom.querySelector('p').addEventListener('click', function(e) { console.log('P'); e[type](); });
-            dom.querySelector('span').addEventListener('click', function(e) { console.log('SPAN'); e[type](); });
-            dom.querySelector('strong').addEventListener('click', function(e) { console.log('STRONG'); e[type](); });
-            dom.querySelector('strong').addEventListener('click', function(e) { console.log('STRONG'); e[type](); });
+        var attachEvent = function(id) {
+            var dom = document.getElementById(id),
+                evt = function(e) {
+                    e[id]();
+                    // e.preventDefault();
+                    // e.stopPropagation();
+                    // e.stopImmediatePropagation();
+                    console.log(this.tagName);
+                }
+            ;
+            dom.querySelector('p').addEventListener('click', evt);
+            dom.querySelector('span').addEventListener('click', evt);
+            dom.querySelector('strong').addEventListener('click', evt);
+            dom.querySelector('strong').addEventListener('click', evt);
         };
 
         attachEvent('preventDefault');
