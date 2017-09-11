@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CBRvsCBV</title>
+</head>
+<body>
+    <style>
+        button {
+            width: 160px;
+            height: 70px;
+            margin: 10px;
+        }
+    </style>
+
+    <script>
+        for(var i = 0, max = 5; i < max; ++i) {
+            var btn = document.createElement('button');
+            btn.textContent = i;
+            btn.addEventListener('click', function() { console.log(i); });
+            document.body.appendChild(btn);
+        }
+    </script>
+</body>
+</html>
