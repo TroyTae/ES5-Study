@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bubble</title>
+</head>
+<body>
+    <style>
+        .div {
+            display: inline-block;
+            padding: 30px;
+            border: 2px solid black;
+        }
+    </style>
+
+
+
+    <div>
+        <div id="mouseenter" class="div">
+            <div class="div">
+                <div class="div">mouseenter</div>
+            </div>
+        </div>
+        <div id="mouseover" class="div">
+            <div class="div">
+                <div class="div">mouseover</div>
+            </div>
+        </div>
+    </div>
+
+    <!--mouseover는 기본적으로 capture를 한다-->
+    <script>
+        document
+            .getElementById('mouseenter')
+            .addEventListener('mouseenter', function () {
+                console.log(this);
+            })
+        ;
+        document
+            .getElementById('mouseover')
+            .addEventListener('mouseover', function () {
+                console.log(this);
+            })
+        ;
+    </script>
+
+
+
+    <div id="bubble">
+        <div class="div">
+            <div class="div">
+                <div class="div">bubble</div>
+            </div>
+        </div>
+    </div>
+    <div id="capture">
+        <div class="div">
+            <div class="div">
+                <div class="div">capture</div>
+            </div>
+        </div>
+    </div>
+
+    <!--https://www.w3.org/TR/DOM-Level-3-Events/#event-flow-->
+    <script>
+        var bubbles = document.getElementById('bubble').getElementsByClassName('div');
+        var captures = document.getElementById('capture').getElementsByClassName('div');
+
+        for(var i = 0, max = 3; i < max; ++i) {
+            bubbles[i].addEventListener('click', function() { console.log(this); }, false);
+            captures[i].addEventListener('click', function() { console.log(this); }, true);
+        }
+    </script>
+</body>
+</html>
