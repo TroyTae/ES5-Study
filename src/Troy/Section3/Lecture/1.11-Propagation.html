@@ -44,20 +44,15 @@
                     console.log(this.tagName);
                 }
             ;
-            dom.querySelector('p').addEventListener('click', evt);
-            dom.querySelector('span').addEventListener('click', evt);
-            dom.querySelector('strong').addEventListener('click', evt);
-            dom.querySelector('strong').addEventListener('click', evt);
+            dom.querySelector('p').addEventListener('contextmenu', evt);
+            dom.querySelector('span').addEventListener('contextmenu', evt);
+            dom.querySelector('strong').addEventListener('contextmenu', evt);
+            dom.querySelector('strong').addEventListener('contextmenu', evt);
         };
 
         attachEvent('preventDefault');
         attachEvent('stopPropagation');
         attachEvent('stopImmediatePropagation');
-
-        document.addEventListener('contextmenu', function(e) {
-            console.log('우클릭!');
-            e.preventDefault();
-        });
     </script>
 </body>
 </html>
