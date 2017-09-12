@@ -16,10 +16,13 @@
         <textarea class="disabled"></textarea>
     </div>
 
+    <!--disabled은 key의 존재여부로 활성화 여부를 판단하는 Boolean 값-->
     <script>
         (function () {
             var list = document.getElementsByClassName('disabled');
             for(var i = 0, max = list.length; i < max; ++i) {
+                // disabled === true, 비활성화
+                // disabled === false, 활성화
                 list[i].disabled = !list[i].disabled;
             }
         }());
