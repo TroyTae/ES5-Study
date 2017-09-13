@@ -5,11 +5,32 @@
     <title>text</title>
 </head>
 <body>
-    <p></p>
-
+    <textarea id="textarea"></textarea>
+    <p id="innerText"></p>
+    <p id="textContent"></p>
+    <button id="btn">값 읽기</button>
 
     <script>
+        var innerText = document.getElementById('innerText'),
+            textContent = document.getElementById('textContent'),
+            textarea = document.getElementById('textarea'),
+            btn = document.getElementById('btn')
+        ;
+        /*
+        * innerText는 렌더링에 기반으로 보이는 대로 읽어들여서 치환해주며,
+        * textContent는 자바스크립트를 기반으로 순수하게 데이터만 본다.
+        */
+        textarea.addEventListener('input', function() {
+            var val = this.value;
+            innerText.innerText = val;
+            textContent.textContent = val;
+        });
 
+        /* 렌더링을 기반으로 하므로 display 속성에 주의하자! */
+        btn.addEventListener('click', function() {
+            console.log(innerText.innerText);
+            console.log(textContent.textContent);
+        });
     </script>
 </body>
 </html>
