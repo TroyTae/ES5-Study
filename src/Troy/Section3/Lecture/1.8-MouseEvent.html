@@ -39,9 +39,9 @@
         document
             .getElementById('wrap')
             .addEventListener('mousemove', function(e) {
-                redBall.style.cssText = 'top: ' + e.offsetY + 'px; left: ' + e.offsetX + 'px';
-                blueBall.style.cssText = 'top: ' + e.pageY + 'px; left: ' + e.pageX + 'px';
-                greenBall.style.cssText = 'top: ' + e.screenY + 'px; left: ' + e.screenX + 'px';
+                redBall.style.cssText = ('top:' + e.offsetY + 'px; left:' + e.offsetX + 'px');
+                blueBall.style.cssText = ('top:' + e.pageY + 'px; left:' + e.pageX + 'px');
+                greenBall.style.cssText = ('top:' + e.screenY + 'px; left:' + e.screenX + 'px');
             })
         ;
 
