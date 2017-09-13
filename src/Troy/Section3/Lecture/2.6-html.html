@@ -15,6 +15,10 @@
 
     <button id="innerHTML">innerHTML</button>
     <button id="outerHTML">outerHTML</button>
+    <button id="beforebegin">beforebegin</button>
+    <button id="afterbegin">afterbegin</button>
+    <button id="beforeend">beforeend</button>
+    <button id="afterend">afterend</button>
 </body>
 
 <script>
@@ -30,5 +34,11 @@
     document.getElementById('outerHTML').addEventListener('click', function() {
         wrap.outerHTML = '<div class="outer"><span>outer</span></div>';
     });
+
+    /* innerHTML을 사용하여 추가하는 것보다 빠르다 */
+    beforebegin.addEventListener('click', function() { wrap.insertAdjacentHTML('beforebegin', '<span>bb</span>'); });
+    afterbegin.addEventListener('click', function() { wrap.insertAdjacentHTML('afterbegin', '<span>ab</span>'); });
+    beforeend.addEventListener('click', function() { wrap.insertAdjacentHTML('beforeend', '<span>be</span>'); });
+    afterend.addEventListener('click', function() { wrap.insertAdjacentHTML('afterend', '<span>ae</span>'); });
 </script>
 </html>
