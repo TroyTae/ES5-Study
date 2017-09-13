@@ -18,12 +18,13 @@
             textarea = document.getElementById('textarea'),
             select = document.getElementById('select')
         ;
-        /*
-        input.value;
-        textarea.value;
-        select.value === select.querySelector(':checked').value;
-          -> :selected는 jQuery가 만든 자체 css 문법이다. 표준은 checked! 오해말자!
-        */
+        input.addEventListener('change', function() { console.log(input.value); });
+        textarea.addEventListener('change', function() { console.log(textarea.value); });
+        select.addEventListener('change', function() {
+            // :selected는 jQuery가 만든 자체 css 문법이다. 표준은 checked! 오해말자!
+            var opt = select.querySelector(':checked');
+            console.log(select.value, opt.value, opt.textContent);
+        });
     </script>
 </body>
 </html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>disabled</title>
+</head>
+<body>
+    <div>
+        <h1>check 상태에 따라 disabled</h1>
+        <label><input type="radio" name="disabled" value="enable"/><span>활성화</span></label>
+        <label><input type="radio" name="disabled" value="disable" checked/><span>비활성화</span></label>
+        <select class="disabled" disabled>
+            <option>샐랙트1</option>
+            <option>샐랙트2</option>
+            <option>샐랙트3</option>
+        </select>
+    </div>
+
+    <!--체크 여부도 checked와 마찬가지로 Boolean 값-->
+    <!--jQuery에는 이렇게 Boolean 값을 가진 속성 변경에 대해 prop라는 메서드를 사용!-->
+    <script>
+        /*
+        * disabled === true, 비활성화
+        * disabled === false, 활성화
+        */
+        (function () {
+            var radios = document.querySelectorAll('[type="radio"]'),
+                select = document.querySelector('select')
+            ;
+            for(var i = 0, max = radios.length; i < max; ++i) {
+                radios[i].addEventListener('change', function() {
+                    select.disabled = (this.value === 'disable');
+                    console.log(this);
+                });
+            }
+        }());
+    </script>
+</body>
+</html>
