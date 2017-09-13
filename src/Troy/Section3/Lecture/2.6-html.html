@@ -5,6 +5,30 @@
     <title>html</title>
 </head>
 <body>
+    <style>
+        div { padding: 50px; display: inline-block; }
+        span {padding: 20px; background-color: white; }
+        .inner { background-color: red; }
+        .outer { background-color: blue; }
+    </style>
+    <div></div>
 
+    <button id="innerHTML">innerHTML</button>
+    <button id="outerHTML">outerHTML</button>
 </body>
+
+<script>
+    var wrap = document.querySelector('div');
+
+    // 해당 DOM 내부에 있는 HTML 문자열을 가져온다
+    document.getElementById('innerHTML').addEventListener('click', function() {
+        wrap.className = 'inner';
+        wrap.innerHTML = '<span>inner</span>'
+    });
+
+    // 해당 DOM 자체의 HTML 문자열을 가져온다
+    document.getElementById('outerHTML').addEventListener('click', function() {
+        wrap.outerHTML = '<div class="outer"><span>outer</span></div>';
+    });
+</script>
 </html>
