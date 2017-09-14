@@ -5,6 +5,29 @@
     <title>attribute</title>
 </head>
 <body>
+    <input id="attr" type="text"/>
 
+    <button id="show">show</button>
+    <button id="enable">enable</button>
+    <button id="disable">disable</button>
+
+    <script>
+        var attr = document.getElementById('attr');
+
+        document.getElementById('show').addEventListener('click', function() {
+            console.log(attr.getAttribute('id'));
+            console.log(attr.getAttribute('type'));
+            console.log(attr.getAttribute('name'));
+            console.log(attr.hasAttribute('disabled'));
+        });
+        document.getElementById('enable').addEventListener('click', function() {
+            attr.setAttribute('name', 'enable');
+            attr.removeAttribute('disabled');
+        });
+        document.getElementById('disable').addEventListener('click', function() {
+            attr.setAttribute('name', 'disable');
+            attr.setAttribute('disabled', '');
+        });
+    </script>
 </body>
 </html>
