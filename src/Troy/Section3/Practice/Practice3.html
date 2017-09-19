@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practice3</title>
+</head>
+<body>
+    <style>
+        div {
+            position: relative;
+            width: 175px;
+        }
+        ul {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: calc(100% - 2px);
+            padding: 0;
+            margin-top: 23px;
+        }
+        li {
+            cursor: pointer;
+            list-style: none;
+            background-color: #eee;
+        }
+        li:hover {
+            background-color: #ddd;
+        }
+    </style>
+    <div>
+        <input type="text"/>
+        <ul>
+            <li>아무개</li>
+            <li>김누구</li>
+            <li>이름이</li>
+            <li>이무이</li>
+            <li>김철수</li>
+            <li>이수미</li>
+        </ul>
+    </div>
+    <!--
+    자동완성을 만들어보자~
+    input에 글자를 입력하면 ul에 해당하는 글자와 일치하는 문자열을 포함하는 배열 요소를 li로 만들어 출력하고, 클릭 시 input에 자동완성된다.
+    (초성 검색까지는 안해도 된다... 초성검색은 다음 시간에 정규식 배우고 나서!)
+    -->
+    <script>
+        var arr = ['아무개', '김누구', '이름이', '이무이', '김철수', '이수미'];
+    </script>
+</body>
+</html>
