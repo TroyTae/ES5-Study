@@ -13,14 +13,34 @@
         hint! 즉시실행 함수를 활용해서 private 변수를 만들자!!
     -->
     <script>
+
+    var result=0;
         var obj = {
-            sum: function(v) {},
-            substract: function(v) {},
-            multiply: function(v) {},
-            divide: function(v) {},
-            reset: function() {},
-            show: function() {}
+        	sum: function(v) {
+        		result+=v;
+        	},
+            substract: function(v) {
+        		result-=v;
+            },
+            multiply: function(v) {
+            	result = result*v;
+            },
+            divide: function(v) {
+            	result = result/v
+            },
+            reset: function() {
+            	result=0;
+            },
+            show: function() {
+            	console.log(result);
+            }
         };
+        obj.sum(5);
+        obj.substract(1);
+        obj.multiply(2);
+        obj.divide(2);
+        obj.reset();
+        obj.show();
     </script>
 </body>
 </html>

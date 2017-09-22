@@ -11,7 +11,15 @@
         2를 곱해서 출력하는 스크립트를 작성하시오.
     -->
     <script>
-        [4, 16, 25, 9, 144];
+        var a =[4, 16, 25, 9, 144];
+		Num();
+        function Num() {
+        	for(var i=0; i<5; i++){
+	        	if(4<=Math.sqrt(a[i])){
+					console.log(Math.sqrt(a[i])*2);
+				}
+        	}
+		}
     </script>
 </body>
 </html>
