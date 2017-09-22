@@ -11,7 +11,8 @@
         2를 곱해서 출력하는 스크립트를 작성하시오.
     -->
     <script>
-        [4, 16, 25, 9, 144];
+        var arr = [4, 16, 25, 9, 144];
+        arr.map(Math.sqrt).filter(function(x){return x >= 4;}).forEach(function(x){console.log(x);})
     </script>
 </body>
 </html>

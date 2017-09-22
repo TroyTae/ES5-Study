@@ -13,14 +13,51 @@
         hint! 즉시실행 함수를 활용해서 private 변수를 만들자!!
     -->
     <script>
-        var obj = {
-            sum: function(v) {},
-            substract: function(v) {},
-            multiply: function(v) {},
-            divide: function(v) {},
-            reset: function() {},
-            show: function() {}
-        };
+        var obj = (function(){
+          var result = 0;
+
+          return {
+            sum: function(v) {
+              if(result === 0){
+                result = v;
+              }
+              else{
+                result += v;
+              }
+            },
+            substract: function(v) {
+              if(result === 0){
+                result = v;
+              }
+              else{
+                result -= v;
+              }
+            },
+            multiply: function(v) {
+              if(result === 0){
+                result = v;
+              }
+              else{
+                result *= v;
+              }
+            },
+            divide: function(v) {
+              if(result === 0){
+                result = v;
+              }
+              else{
+                result /= v;
+              }
+            },
+            reset: function() {
+              result = 0;
+            },
+            show: function() {
+              console.log("result : " + result);
+            }
+          }
+          return 0;
+        })();
     </script>
 </body>
 </html>
