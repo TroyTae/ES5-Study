@@ -11,18 +11,14 @@
     -->
     <script>
         Date.prototype.toString = function(pattern) {
-          var date = new Date();
 
           pattern = pattern.toLowerCase();
 
-          switch(pattern){
-            case "yyyy" :
-              return date.getFullYear();
-            case "yyyy-mm":
-              return date.getFullYear() + "-" + date.getMonth();
-            case "mm/dd":
-              return date.getMonth() + "/" + date.getDate();
-          }
+          return pattern
+          .replace("yyyy", this.getFullYear())
+          .replace("mm", this.getMonth())
+          .replace("dd", this.getDate());
+
         };
 
         var date = new Date();

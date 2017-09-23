@@ -10,21 +10,25 @@
     -->
     <script>
 
-      function func(){}
-
-      func.attr = {
-        attr : {
-          func : function(){
-            return function(){
-              return function(){
-                return {
-                  value : "JS STUDY"
+      function func(){
+        return {
+          attr : {
+            attr : {
+              func : function(){
+                return function(){
+                  return function(){
+                    return {
+                      value : "JS STUDY"
+                    }
+                  }
                 }
               }
             }
           }
         }
       }
+
+
 
       //console.log(func().attr.attr.func()()().value);
     </script>
