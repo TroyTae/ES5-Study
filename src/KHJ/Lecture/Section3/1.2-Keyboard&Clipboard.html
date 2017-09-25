@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Keyboard&Clipboard</title>
+</head>
+<body>
+    <input id="down" type="text"/>
+    <input id="up" type="text"/>
+    <input id="clipboard" type="text"/>
+
+    <script>
+        var up = document.getElementById('up'),
+            down = document.getElementById('down'),
+            clipboard = document.getElementById('clipboard')
+        ;
+        
+        // 하드웨어적인 인터럽트 이벤트
+        up.addEventListener('keyup', function() { console.log('키보드 up~'); });
+        down.addEventListener('keydown', function() { console.log('키보드 down~'); });
+        
+        // 소프트웨어적인 인터럽트 이벤트
+        clipboard.addEventListener('cut', function() { console.log('잘라내기!'); });
+        clipboard.addEventListener('copy', function() { console.log('복사!'); });
+        clipboard.addEventListener('paste', function() { console.log('붙여넣기!'); });
+    </script>
+</body>
+</html>

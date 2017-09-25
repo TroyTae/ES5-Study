@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CBRvsCBV</title>
+</head>
+<body>
+    <style>
+        button {
+            width: 160px;
+            height: 70px;
+            margin: 10px;
+        }
+    </style>
+
+    <script>
+        for(var i = 0, max = 5; i < max; ++i) {
+            var btn = document.createElement('button');
+            btn.textContent = i;
+            /* (function(num){
+            	btn.addEventListener('click', function() { console.log(num); });
+            }(i)) */
+            (function(){
+            	var num = i;
+        		btn.addEventListener('click', function() { console.log(num); });
+            }())
+            // 클릭하기 전까지는 i라는 변수를 단순히 참조하고 있는 것 뿐!
+            // 클릭했을 때는 이미 i가 4, 그래서 클릭하면 계속 4가 나와~
+            // btn.addEventListener('click', function() { console.log(i); });
+            document.body.appendChild(btn);
+        }
+    </script>
+</body>
+</html>

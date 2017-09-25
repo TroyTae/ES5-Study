@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Propagation</title>
+</head>
+<body>
+    <style>
+        p, span, strong {
+            display: block;
+            padding: 40px;
+        }
+        p {
+            width: 160px;
+            background-color: red;
+        }
+        span { background-color: blue; }
+        strong { background-color: green; }
+    </style>
+
+    <div id="preventDefault">
+        <h4>preventDefault</h4>
+        <p><span><strong></strong></span></p>
+    </div>
+
+    <div id="stopPropagation">
+        <h4>stopPropagation</h4>
+        <p><span><strong></strong></span></p>
+    </div>
+
+    <div id="stopImmediatePropagation">
+        <h4>stopImmediatePropagation</h4>
+        <p><span><strong></strong></span></p>
+    </div>
+
+    <script>
+        var attachEvent = function(id) {
+            var dom = document.getElementById(id),
+                evt = function(e) {
+                    e[id]();
+                    // e.preventDefault();
+                    // e.stopPropagation();
+                    // e.stopImmediatePropagation();
+                    console.log(this.tagName);
+                }
+            ;
+            // contextmenu는 우클릭 이벤트
+            dom.querySelector('p').addEventListener('contextmenu', evt);
+            dom.querySelector('span').addEventListener('contextmenu', evt);
+            dom.querySelector('strong').addEventListener('contextmenu', evt);
+            dom.querySelector('strong').addEventListener('contextmenu', evt);
+        };
+
+        // 우클릭 작동 안함
+        // 자식 -> 부모 이벤트 전파 됨
+        attachEvent('preventDefault');
+        
+        // 우클릭 동작 하고 현재 이벤트만 발생
+        // 상위 돔 이벤트 전파 발생 막음
+        // 현재 돔 이벤트는 모두 실행
+        attachEvent('stopPropagation');
+        
+        // 현재 돔에서도 첫번째 이벤트만 발생
+        attachEvent('stopImmediatePropagation');
+        
+    </script>
+</body>
+</html>

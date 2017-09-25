@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>class</title>
+</head>
+<body>
+    <h1>Class</h1>
+
+    <button id="show">show class</button>
+    <button id="add">add class</button>
+    <button id="remove">remove class</button>
+    <button id="toggle">toggle class</button>
+    <button id="contains">contains class</button>
+
+    <script>
+        var h1 = document.querySelector('h1'),
+            classes = h1.classList
+        ;
+        var show = document.getElementById('show'),
+            add = document.getElementById('add'),
+            remove = document.getElementById('remove'),
+            toggle = document.getElementById('toggle'),
+            contains = document.getElementById('contains')
+        ;
+        /* className read/write 모두 가능 */
+        h1.className = 'test';
+
+        /* classList 활용 class 추가/삭제 등 조작이 가능! */
+        show.addEventListener('click', function() { console.log(h1.className); });
+        add.addEventListener('click', function() { classes.add('cls'); });
+        remove.addEventListener('click', function() { classes.remove('cls'); });
+        toggle.addEventListener('click', function() { classes.toggle('cls'); });
+        contains.addEventListener('click', function() { console.log(classes.contains('cls')); });
+    </script>
+</body>
+</html>

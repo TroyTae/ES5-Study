@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MouseEvent</title>
+</head>
+<body>
+    <style>
+        #wrap {
+            margin: 20px;
+            width: 500px;
+            height: 500px;
+            border: 2px solid black;
+        }
+        .ball {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
+        }
+        .red { background-color: red; }
+        .blue { background-color: blue; }
+        .green { background-color: green; }
+    </style>
+
+    <div style="margin: 50px;">
+        <div id="wrap"></div>
+    </div>
+
+    <script>
+        var redBall = document.createElement('div'),
+            blueBall = document.createElement('div'),
+            greenBall = document.createElement('div')
+        ;
+        redBall.className = 'ball red';
+        blueBall.className = 'ball blue';
+        greenBall.className = 'ball green';
+
+        document
+            .getElementById('wrap')
+            .addEventListener('mousemove', function(e) {
+            	// offsetX, offsetY는 dom으로 부터 공의 위치를 document 상에서의 좌표로 환산한 좌표, relative 좌표
+            	// dom으로 부터 환산된 좌표값이 필요할 때 사용
+                redBall.style.cssText = ('top:' + e.offsetY + 'px; left:' + e.offsetX + 'px');
+                // pageX, pageY 전체 document 상에서의 좌표
+                blueBall.style.cssText = ('top:' + e.pageY + 'px; left:' + e.pageX + 'px');
+                // screenX, screenY는 바탕화면에서의 좌표
+                greenBall.style.cssText = ('top:' + e.screenY + 'px; left:' + e.screenX + 'px');
+            })
+        ;
+
+        document.body.appendChild(redBall);
+        document.body.appendChild(blueBall);
+        document.body.appendChild(greenBall);
+    </script>
+</body>
+</html>

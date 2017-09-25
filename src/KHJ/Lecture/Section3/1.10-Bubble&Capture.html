@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bubble&Capture</title>
+</head>
+<body>
+    <style>
+        .div {
+            display: inline-block;
+            padding: 30px;
+            border: 2px solid black;
+        }
+    </style>
+
+    <div id="bubble">
+        <div class="div">
+            <div class="div">
+                <div class="div">bubble</div>
+            </div>
+        </div>
+    </div>
+    <div id="capture">
+        <div class="div">
+            <div class="div">
+                <div class="div">capture</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- https://www.w3.org/TR/DOM-Level-3-Events/#event-flow -->
+    <script>
+        var bubbles = document.getElementById('bubble').getElementsByClassName('div');
+        var captures = document.getElementById('capture').getElementsByClassName('div');
+
+        for(var i = 0, max = 3; i < max; ++i) {
+        	// false = bubble(자식 -> 부모) 
+        	// true = capture(부모 -> 자식)
+        	// 보통 3번째 안쓰면 undefined라 false이다. 즉 3번째 값 안쓰면 bubble!
+            bubbles[i].addEventListener('click', function() { console.log(this); }, false);
+            captures[i].addEventListener('click', function() { console.log(this); }, true);
+        }
+    </script>
+</body>
+</html>

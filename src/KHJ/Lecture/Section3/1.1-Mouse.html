@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mouse</title>
+</head>
+<body>
+    <style>
+        button {
+            padding: 10px;
+        }
+    </style>
+
+    <button id="down">mouseDown</button>
+    <button id="up">mouseUp</button>
+    <button id="click">Click</button>
+    <button id="dblclick">dblClick</button>
+
+    <script>
+    //하드웨어 인터럽트를 감지한 이벤트
+    //인터럽트(interrupt, 문화어: 중단, 새치기)란 마이크로프로세서(CPU)가 프로그램을 실행하고 있을 때, 
+    //입출력 하드웨어 등의 장치나 또는 예외상황이 발생하여 처리가 필요할 경우에 마이크로프로세서에게 알려 처리할 수 있도록 하는 것을 말한다.
+        document.getElementById('down').addEventListener('mousedown', function () { console.log('up 상태였던 마우스가 해당 DOM 좌표에서 down!'); });
+        document.getElementById('up').addEventListener('mouseup', function () { console.log('down 상태였던 마우스가 해당 DOM 좌표에서 up!'); });
+        document.getElementById('click').addEventListener('click', function () { console.log('해당 DOM 좌표에서 mousedown 후 mouseup!'); });
+        document.getElementById('dblclick').addEventListener('dblclick', function () { console.log('해당 DOM 연속으로 click!'); });
+        document.addEventListener('wheel', function() { console.log('휠 돌아간다~~'); });
+    </script>
+</body>
+</html>

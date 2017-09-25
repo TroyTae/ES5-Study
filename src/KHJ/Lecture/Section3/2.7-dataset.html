@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dataset</title>
+</head>
+<body>
+    <div id="data" data-action="click"></div>
+
+    <!--ECMA에서 공식 지정한 Custom 정의-->
+    <script>
+        var data = document.getElementById('data');
+
+        console.log(data.dataset);
+        console.log(data.dataset.action);
+
+        data.dataset.button = 'btn';
+        console.log(data.dataset);
+        console.log(data.dataset.button);
+    </script>
+</body>
+</html>

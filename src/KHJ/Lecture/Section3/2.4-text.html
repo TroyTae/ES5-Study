@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>text</title>
+</head>
+<body>
+    <textarea id="textarea"></textarea>
+    <p id="innerText"></p>
+    <p id="textContent"></p>
+
+    <button id="show">show</button>
+    <button id="beforebegin">beforebegin</button>
+    <button id="afterbegin">afterbegin</button>
+    <button id="beforeend">beforeend</button>
+    <button id="afterend">afterend</button>
+
+    <script>
+        var innerText = document.getElementById('innerText'),
+            textContent = document.getElementById('textContent'),
+            textarea = document.getElementById('textarea')
+        ;
+        var show = document.getElementById('show'),
+            beforebegin = document.getElementById('beforebegin'),
+            afterbegin = document.getElementById('afterbegin'),
+            beforeend = document.getElementById('beforeend'),
+            afterend = document.getElementById('afterend')
+        ;
+        /*
+        * innerText는 렌더링에 기반으로 보이는 대로 읽어들여서 치환해주며,
+        * textContent는 자바스크립트를 기반으로 순수하게 데이터만 본다.
+        */
+        textarea.addEventListener('input', function() {
+            var val = this.value;
+            innerText.innerText = val;
+            textContent.textContent = val;
+        });
+
+        /* 렌더링을 기반으로 하므로 display 속성에 주의하자! */
+        show.addEventListener('click', function() {
+            console.log(innerText.innerText);
+            console.log(textContent.textContent);
+        });
+
+        /* innerText나 textContent를 사용하여 텍스트를 추가하는 것보다 빠르다 */
+        beforebegin.addEventListener('click', function() { innerText.insertAdjacentText('beforebegin', 'bb'); });
+        afterbegin.addEventListener('click', function() { innerText.insertAdjacentText('afterbegin', 'ab'); });
+        beforeend.addEventListener('click', function() { innerText.insertAdjacentText('beforeend', 'be'); });
+        afterend.addEventListener('click', function() { innerText.insertAdjacentText('afterend', 'ae'); });
+    </script>
+</body>
+</html>

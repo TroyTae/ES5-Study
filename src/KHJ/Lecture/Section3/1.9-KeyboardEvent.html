@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KeyboardEvent</title>
+</head>
+<body>
+    <input id="input" type="text"/>
+    <ul id="list"></ul>
+
+    <script>
+        var ul = document.getElementById('list');
+
+        document
+            .getElementById('input')
+            .addEventListener('keyup', function(e) {
+                // init
+                // ctrl + y -> 초기화
+                if(e.ctrlKey && e.keyCode === 89) {
+                    this.value = '';
+                }
+                // insert
+                // alt + enter -> li 태그 안에 들어감
+                else if(e.altKey && e.keyCode === 13) {
+                    var li = document.createElement('li'),
+                        value = this.value
+                    ;
+                    if(value) {
+                        li.textContent = value;
+                        this.value = '';
+                        ul.appendChild(li);
+                    }
+                }
+            })
+        ;
+    </script>
+</body>
+</html>

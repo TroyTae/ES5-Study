@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>this</title>
+</head>
+<body>
+    <input type="text"/>
+    <input type="text"/>
+    <input type="text"/>
+
+    <!--10글자 제한 스크립트-->
+    <script>
+        var inputs = document.getElementsByTagName('input');
+
+        inputs[0].addEventListener('keydown', function() {
+            console.log(this);
+            var value = this.value;
+            if(10 < value.length) this.value = value.slice(0, 10);
+        });
+
+        // up 하는 시점에서 10자리로 자름
+        inputs[1].addEventListener('keyup', function() {
+        	// this는 . 앞의 input
+        	// . 없이 자체적으로 실행되는 func의 this는 window다!
+        	// . 있으면 . 앞이 this, . 없으면 this는 window 
+            console.log(this);
+            //value 자체는 this.value와의 reference가 끊김
+            var value = this.value;
+            if(10 < value.length) this.value = value.slice(0, 10);
+        });
+
+        // 위의 두개는 하드웨어 제어이기에 추천 X 문제 발생
+        // 개발 입장에서는 데이터 관점으로 보기 때문에 소프트웨어 이벤트인 input을 사용하는 것이 안정적이다.
+        // The DOM input event is fired synchronously when the value of an <input>, <select>, or <textarea> element is changed.
+        inputs[2].addEventListener('input', function() {
+            console.log(this);
+            var value = this.value;
+            if(10 < value.length) this.value = value.slice(0, 10);
+        });
+    </script>
+</body>
+</html>

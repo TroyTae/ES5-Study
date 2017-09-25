@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Focus&Scroll</title>
+</head>
+<body>
+    <textarea placeholder="작성하세요"></textarea>
+
+    <script>
+        var textarea = document.querySelector('textarea');
+        textarea.addEventListener('focus', function() { console.log('집중!'); });
+        textarea.addEventListener('blur', function() { console.log('해방!'); });
+        
+        // 소프트웨어적인 인터럽트 이벤트
+        // 스크롤 값이 있는 경우에만 동작함, 스크롤 값이 있어서 변화가 있을때만 동작!
+        document.addEventListener('scroll', function() { console.log('스크롤 값이 변화할 때만!') });
+    </script>
+</body>
+</html>
