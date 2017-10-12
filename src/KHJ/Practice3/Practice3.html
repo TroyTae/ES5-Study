@@ -28,15 +28,8 @@
         }
     </style>
     <div>
-        <input type="text"/>
-        <ul>
-            <li>아무개</li>
-            <li>김누구</li>
-            <li>이름이</li>
-            <li>이무이</li>
-            <li>김철수</li>
-            <li>이수미</li>
-        </ul>
+        <input type="text" id="data"/>
+        <ul id="list"></ul>
     </div>
     <!--
     자동완성을 만들어보자~
@@ -46,6 +39,28 @@
     -->
     <script>
         var arr = ['아무개', '김누구', '이름이', '이무이', '김철수', '이수미'];
+
+        var data = document.getElementById('data');
+        var list = document.getElementById('list');
+
+
+        data.addEventListener('input', function(e) {
+                list.innerHTML='';
+                list.style.display='none';
+                for(var i = 0 ; i<arr.length ; i++){
+                    if(this.value !== '' && arr[i].includes(this.value)){
+                        list.style.display='inline-block';
+                        var li = document.createElement('li');
+                        li.textContent = arr[i];
+                        list.appendChild(li);
+                        li.addEventListener('click', function(e){
+                            data.value = e.target.innerText;
+                            list.innerHTML='';
+                        });
+                    }
+                }
+            });
+
     </script>
 </body>
 </html>

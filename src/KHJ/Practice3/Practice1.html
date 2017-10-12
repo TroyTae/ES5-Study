@@ -5,20 +5,11 @@
     <title>Practice1</title>
 </head>
 <body>
-    <h1>1단</h1>
-    <ul>
-        <li>1 * 1 = 1</li>
-        <li>1 * 2 = 2</li>
-        <li>1 * 3 = 3</li>
-        <li>1 * 4 = 4</li>
-        <li>1 * 5 = 5</li>
-        <li>1 * 6 = 6</li>
-        <li>1 * 7 = 7</li>
-        <li>1 * 8 = 8</li>
-        <li>1 * 9 = 9</li>
-    </ul>
-    <button>prev</button>
-    <button>next</button>
+
+    <h1 id="googoodanName"></h1>
+    <ul id="googoodan"></ul>
+    <button id="prev">prev</button>
+    <button id="next">next</button>
 
     <!--
     prev 버튼을 누르면 이전 단으로, next를 누르면 다음 단으로 넘어가는 스크립트를 작성해보자!
@@ -26,6 +17,48 @@
     id나 dataset/attribute 등 본인이 원하는 DOM 속성은 자유롭게 추가해도 된다!
     -->
     <script>
+        var index = 1;
+        var prev = document.getElementById('prev');
+        var next = document.getElementById('next');
+
+
+        // 1단 세팅
+        (function(){
+            clickEvent(index);
+        })();
+
+
+        function clickEvent(index) {
+            var h1 = document.getElementById('googoodanName');
+            var ul = document.getElementById('googoodan');
+            ul.innerHTML='';
+            h1.textContent = index + '단';
+            for (var i = 1; i < 10; i++) {
+                var li = document.createElement('li');
+                li.textContent = index + ' * ' + i + ' = ' + (index * i);
+                ul.appendChild(li);
+            }
+        }
+
+        prev.addEventListener('click', function(){
+            if(index >= 2 && index <= 9){
+                clickEvent(--index);
+            }});
+        next.addEventListener('click', function(){
+            if(index >= 1 && index <= 8){
+                clickEvent(++index);
+            }});
+
+        /*var gogoOBJ;
+          gogoOBJ=(function(){
+            return {
+                show:function(){  },
+                increase:function(){  },
+                decrease:function(){  },
+                add:function(num){ index+=num }
+            }
+        })();*/
+
     </script>
 </body>
 </html>

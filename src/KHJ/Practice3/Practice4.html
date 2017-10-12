@@ -45,6 +45,20 @@
         ;
         vertical.style.left = '50px';
         horizontal.style.top = '50px';
+
+        document.addEventListener('mousemove', function(e){
+            vertical.style.cssText = ('left:' + e.pageX + 'px');
+            horizontal.style.cssText = ('top:' + e.pageY + 'px');
+
+            document.addEventListener('click', function(e){
+                var redBall = document.createElement('div');
+                redBall.className = 'red ball';
+                redBall.style.cssText = ('top:' + e.pageY  + 'px; left:' + e.pageX + 'px');
+                document.body.appendChild(redBall);
+            })
+        })
+
+
     </script>
 </body>
 </html>
