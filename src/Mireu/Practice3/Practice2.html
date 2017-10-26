@@ -3,45 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <title>Practice2</title>
+    <style>
+        a {margin: 0 3px;}
+    </style>
 </head>
 <body>
-    <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li>6</li>
-        <li>7</li>
-        <li>8</li>
-        <li>9</li>
-        <li>10</li>
+    <ul id="pageList">
     </ul>
 
-    <button>prev</button>
-    <nav style="display: inline-block;">
-        <a href="#1">1</a>
-        <a href="#2">2</a>
-        <a href="#3">3</a>
-        <a href="#4">4</a>
-        <a href="#5">5</a>
-        <a href="#6">6</a>
-        <a href="#7">7</a>
-        <a href="#8">8</a>
-        <a href="#9">9</a>
-        <a href="#10">10</a>
+    <button class="btn-prev">prev</button>
+    <nav id="nav" style="display: inline-block;">
     </nav>
-    <button>next</button>
+    <button class ="btn-next">next</button>
 
     <!--
     데이터가 249개 있다고 가정하고 Pagination 모듈을 만들어보자!
     페이지 순번을 클릭했을 때 각 페이지별로 10개의 데이터가 보인다. (7페이지면 61부터 70까지 보인다)
     prev 버튼을 누를경우 전 페이지의 마지막 순번으로 가며, (14번에서 prev를 누를경우 10번으로간다)
     next 버튼을 누를경우 다음 페이지의 첫 순번으로 간다. (14번에서 next를 누를경우 21번으로간다)
-    해당하는 페이지가 없을 때 prev/next를 클릭하면 아무런 반응이 없어도 된다
+    해당하는 페이지가 없을 때 prev/next를 클릭하면 아무런 반응이 없어도 된다.
     -->
+
     <script>
-        var count = 249;
+        var Pagination = (function(){
+            function pagination(){
+                var count = 249;
+                this.init(count);
+            }
+
+            pagination.prototype = {
+                init: function(count){
+                    this.count = count;
+                    this.pageList = document.querySelector("#pageList");
+                    this.nav = document.querySelector("#nav");
+                    this.btnPrev = document.querySelector(".btn-prev");
+                    this.btnNext = document.querySelector(".btn-next");
+
+                    this.creatData(this, 1);
+                    this.creatPage(this, 1);
+
+                    this.navLink = this.nav.querySelectorAll("#nav > a");
+                    this.pageData = this.pageList.querySelectorAll("#pageList > li");
+
+                    this.bindEvents();                 
+                },
+
+                bindEvents: function(){
+                    var _self = this;
+
+                    _self.btnPrev.addEventListener("click", function(e){
+                        var start = Number(_self.navLink[0].hash.replace("#", ""));
+                        var min = 1;
+
+                        if(start > min){
+                            _self.creatPage(_self, (start - 10));
+                            _self.creatData(_self, (start - 1));
+                            _self.movePage(_self, 9);  
+                        }
+                        else{
+                            return 0;
+                        }
+                        
+                    });
+
+                    _self.btnNext.addEventListener("click", function(e){
+                        var end = Number(_self.navLink[_self.navLink.length - 1].hash.replace("#", ""));
+                        var max = Math.round(_self.count/10);
+
+                        if(end < max){
+                            _self.creatPage(_self, (end + 1));
+                            _self.creatData(_self, (end + 1));
+                            _self.movePage(_self, 0); 
+                        }
+                        else{
+                            return 0;
+                        }  
+                    });
+                },
+
+                creatData: function(_self, index){
+                    var list = (index * 10) - 9;
+
+                    _self.pageList = document.querySelector("#pageList");
+                    _self.pageList.innerHTML = "";
+             
+                    for(let i = 0; i <= 9; i++, list++){
+                        if(list <= _self.count){
+                            var li = document.createElement("li");
+                            li.textContent = list;
+                            _self.pageList.appendChild(li);
+                        }
+                    }
+                },
+
+                creatPage: function(_self, index){
+
+                    _self.nav = document.querySelector("#nav");
+                    _self.nav.innerHTML = "";
+
+                    for(let i = 0; i < 10; i++, index++){
+                        if(index <= Math.round(_self.count/10)){
+                            let a = document.createElement("a");
+                            a.textContent = index;
+                            a.href = "#" + index;
+
+                            (function(){
+                                var num = index;
+                                a.addEventListener("click", function(){
+                                    _self.creatData(_self, num);
+                                });
+                            }())
+                            _self.nav.appendChild(a);
+                        }
+                    }
+                    _self.navLink = _self.nav.querySelectorAll("#nav > a");
+                },
+
+                movePage: function(_self, index){
+                    location.href = _self.navLink[index].href;
+                }
+            }
+            return pagination;
+        }());
+
+        var pagination = new Pagination;
     </script>
 </body>
 </html>
