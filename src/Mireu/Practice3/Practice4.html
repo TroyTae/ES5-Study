@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +30,6 @@
             border-radius: 10px;
         }
     </style>
-
     <div id="vertical"></div>
     <div id="horizontal"></div>
 
@@ -44,6 +44,19 @@
         ;
         vertical.style.left = '50px';
         horizontal.style.top = '50px';
+
+        document.addEventListener("mousemove", function(e){
+            vertical.style.left = e.pageX + "px";
+            horizontal.style.top = e.pageY + "px";
+        })
+
+        document.addEventListener("click", function(e){
+            var div = document.createElement("div");
+            div.className = "red ball";
+            div.style.left = (e.pageX - 10) + "px";
+            div.style.top = (e.pageY - 10) + "px";
+            document.body.appendChild(div);
+        })
     </script>
 </body>
 </html>

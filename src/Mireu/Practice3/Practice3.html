@@ -28,14 +28,8 @@
         }
     </style>
     <div>
-        <input type="text"/>
-        <ul>
-            <li>아무개</li>
-            <li>김누구</li>
-            <li>이름이</li>
-            <li>이무이</li>
-            <li>김철수</li>
-            <li>이수미</li>
+        <input type="text" id="input">
+        <ul id="list">
         </ul>
     </div>
     <!--
@@ -45,7 +39,58 @@
     (초성 검색까지는 안해도 된다... 초성검색은 다음 시간에 정규식 배우고 나서!)
     -->
     <script>
-        var arr = ['아무개', '김누구', '이름이', '이무이', '김철수', '이수미'];
+        var AutoComplete = (function(){
+            function autoComplete(){
+                var arr = ['아무개', '김누구', '이름이', '이무이', '김철수', '이수미'];
+                this.init(arr);
+            }
+
+            autoComplete.prototype = {
+                init: function(arr){
+                    this.arr = arr;
+                    this.input = document.getElementById("input");
+                    this.list = document.getElementById("list");
+
+                    this.bindEvents();
+                },
+
+                bindEvents: function(){
+                    var _self = this;
+
+                    _self.input.addEventListener("input", function(){
+                        _self.list.innerHTML = "";
+                        _self.checkInput(_self);
+                    });
+                },
+
+                checkInput: function(_self){
+                    var value = _self.input.value;
+                    // console.log(value);
+                    
+                    for(var i = 0, len = _self.arr.length; i < len; i++){
+                        if(value !== "" && _self.arr[i].includes(value)){
+                            _self.showList(_self, _self.arr[i]);
+                        }
+                    }
+                },
+
+                showList: function(_self, value){
+                    var li = document.createElement("li");
+                    li.textContent = value;
+                    _self.list.appendChild(li);
+
+                    li.addEventListener("click", function(e){
+                        _self.input.value = e.target.innerText;
+                        _self.list.innerHTML = "";
+                    })
+                }              
+            }
+            return autoComplete;
+        }());
+
+        var autoComplete = new AutoComplete;
+
+
     </script>
 </body>
 </html>
