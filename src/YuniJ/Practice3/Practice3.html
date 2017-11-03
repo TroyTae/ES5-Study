@@ -46,6 +46,13 @@
     -->
     <script>
         var arr = ['아무개', '김누구', '이름이', '이무이', '김철수', '이수미'];
+        var ul = document.getElementsByTagName('ul');
+        var inputs = document.getElementsByTagName('input');
+
+        inputs.addEventListener('click', function() {       
+            ul.style.cssText = ('display:none;');
+        });
+        
     </script>
 </body>
 </html>

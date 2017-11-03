@@ -42,6 +42,57 @@
     -->
     <script>
         var count = 249;
+        var li = document.getElementsByTagName('li');
+        var button = document.getElementsByTagName('button');
+        var a = document.getElementsByTagName('a');
+        var number=0;
+        for(var i=0; i<10; i++){
+            a[i].addEventListener('click',function(){
+               li[9].style.display='list-item';
+                for(var lis=0; lis<10; lis++){
+                    li[lis].textContent=(this.textContent*10)-10+lis+1;
+                    if(count==li[lis].textContent){
+                        li[9].style.display='none';
+                       break;
+                    }
+                }
+            })
+        }
+        button[0].addEventListener('click',function(){
+           li[9].style.display='list-item';
+                 if(number==0){
+                    
+                 }else{
+                 number-=10;
+                    
+                 for(var lis=0; lis<10; lis++){
+                        li[lis].textContent=((number+9)*10)+lis+1;
+                    }
+              for(var i=0; i<10; i++){
+                 a[i].textContent=(i+1+number);
+                 a[i].style.display='inline-block';   
+              }
+                 }
+        }); 
+        button[1].addEventListener('click',function(){
+           li[9].style.display='list-item';
+           if(number==20){
+            
+         }else{
+                 number+=10;
+                 for(var lis=0; lis<10; lis++){
+                        li[lis].textContent=(number*10)+lis+1;
+                    }
+              for(var i=0; i<10; i++){
+                 if(Math.round(count/10)<i+1+number){
+                    a[i].style.display='none';   
+                 }else{
+                    a[i].style.display='inline-block';   
+                 a[i].textContent=(i+1+number);
+                 }
+              }
+         }
+        });
     </script>
 </body>
 </html>

@@ -26,6 +26,33 @@
     id나 dataset/attribute 등 본인이 원하는 DOM 속성은 자유롭게 추가해도 된다!
     -->
     <script>
+    var button = document.getElementsByTagName('button');
+    var li = document.getElementsByTagName('li');
+    var h1 = document.getElementsByTagName('h1');
+    var number=1;
+    button[0].addEventListener('click',function(){
+       if(number==1){
+          number=1;
+       }else {
+          number-=1;
+          h1[0].textContent=number+"단";
+          for(var i=0; i<9; i++){
+             li[i].textContent= number+' * '+(i+1)+' = '+(number*(i+1));
+          }
+       }
+    });
+    button[1].addEventListener('click',function(){
+       if(number==9){
+          number=9;
+       }else {
+          number+=1;
+          h1[0].textContent=number+"단";
+          for(var i=0; i<9; i++){
+             li[i].textContent= number+' * '+(i+1)+' = '+(number*(i+1));
+          }
+       }
+    });
+    
     </script>
 </body>
 </html>
