@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MatchAny</title>
+</head>
+<body>
+    <script>
+        var str = '음 아무글이나 적어보자...\n아무글이나...\n아무말 대찬치\n얼씨구 절씨구!';
+
+        // .(dot)을 이용한 모든 문자 매칭은 개행 포함x
+        console.log(str.match(/./g));
+        // [\S\s]은 개행 포함
+        console.log(str.match(/[\S\s]/g));
+        // .(dot)을 검색하고 싶으면 \(역슬래시) 사용!!
+        console.log(str.match(/\./g));
+
+        console.log('--------------------------------------------------------');
+
+        // \s는 공백
+        console.log(str.match(/\s/g));
+        // \S는 공백이 아닌 것
+        console.log(str.match(/\S/g));
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quantifier</title>
+</head>
+<body>
+    <script>
+        var beers = 'b be bee beer beers';
+
+        // 0개 이상
+        console.log(beers.match(/b\w*/g));
+        // 1개 이상
+        console.log(beers.match(/b\w+/g));
+        // Optional
+        console.log(beers.match(/be?/g));
+
+        console.log('--------------------------------------------------------');
+
+        // 정확한 숫자 지정
+        console.log(beers.match(/b\w{2}/g));
+        // 범위 지정
+        console.log(beers.match(/b\w{0,3}/g));
+        // 이상 범위 지정
+        console.log(beers.match(/b\w{1,}/g));
+    </script>
+</body>
+</html>
