@@ -46,12 +46,27 @@
     -->
     <script>
         var arr = ['아무개', '김누구', '이름이', '이무이', '김철수', '이수미'];
+        var input= document.getElementsByTagName('input');
+        var li = document.getElementsByTagName('li');
         var ul = document.getElementsByTagName('ul');
-        var inputs = document.getElementsByTagName('input');
-
-        inputs.addEventListener('click', function() {       
-            ul.style.cssText = ('display:none;');
+        
+        input[0].addEventListener('input', function(e) {
+           for(var i=0; i<li.length; i++){
+              li[i].style.display="none"
+              if(arr[i]==e.target.value){li[i].style.display="block"}
+              if(''==e.target.value){li[i].style.display="block"}
+           }
         });
+        
+        for(var lis =0; lis<li.length; lis++){
+           li[lis].addEventListener('click',function(){
+              input[0].value=this.textContent;
+              for(var i=0; i<li.length; i++){
+                  li[i].style.display="none"
+                  if(arr[i]==input[0].value){li[i].style.display="block"}
+               }
+           })
+        }
         
     </script>
 </body>

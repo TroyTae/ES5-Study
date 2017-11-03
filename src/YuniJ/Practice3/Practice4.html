@@ -36,10 +36,10 @@
             height: 300px;
             border: 2px solid #000;
             border-radius: 50%;
-            animation:plus 3s linear infinite;-webkit-animation:plus 3s linear infinite;-moz-animation:plus 3s linear infinite;-o-animation:plus 3s linear infinite;-ms-animation:plus 3s linear infinite;
+            animation:radar 3s linear infinite;-webkit-animation:radar 3s linear infinite;-moz-animation:radar 3s linear infinite;-o-animation:radar 3s linear infinite;-ms-animation:radar 3s linear infinite;
         }
-        @keyframes plus {0% {transform:scale(1);} 50% {transform:scale(0.3);} 100% {transform:scale(1);}}
-        @-webkit-keyframes plus {0% {transform:scale(1);} 50% {transform:scale(0.3);} 100% {transform:scale(1);}}
+        @keyframes radar {0% {transform:scale(1);} 50% {transform:scale(0.3);} 100% {transform:scale(1);}}
+        @-webkit-keyframes radar {0% {transform:scale(1);} 50% {transform:scale(0.3);} 100% {transform:scale(1);}}
     </style>
 
     <div id="vertical"></div>
@@ -57,7 +57,7 @@
             redBall = document.createElement('div')
         ;
 
-        document.body.style.cssText = ('width:100%;height:800px;overflow:hidden;');
+        document.body.style.cssText = ('margin:0;width:100%;height:100%;min-height:800px;overflow:hidden;');
         vertical.style.left = '50px';
         horizontal.style.top = '50px';
         radar.className = 'radar';
@@ -67,7 +67,6 @@
             vertical.style.cssText = ('top:50%' + e.pageY +'px; left:' + e.pageX + 'px');
             horizontal.style.cssText = ('top:' + e.pageY +'px; left:50%' + e.pageX + 'px');
             radar.style.cssText = ('top:' + e.pageY +'px; left:' + e.pageX + 'px;margin:-150px 0 0 -150px;opacity:1;');
-            //redBall.style.cssText = ('display:none;');
         });
 
         document.body.addEventListener('click', function(e){
