@@ -30,7 +30,7 @@
         show.addEventListener('click', function() { console.log(h1.className); });
         add.addEventListener('click', function() { classes.add('cls'); });
         remove.addEventListener('click', function() { classes.remove('cls'); });
-        toggle.addEventListener('click', function() { classes.toggle('cls'); });
+        toggle.addEventListener('click', function() { classes.toggle('cls'); }); // 한번 실행시에만 class 넣어주고 실행 후에 뺀다.
         contains.addEventListener('click', function() { console.log(classes.contains('cls')); });
     </script>
 </body>

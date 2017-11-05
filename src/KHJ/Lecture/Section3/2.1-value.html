@@ -21,7 +21,7 @@
         input.addEventListener('change', function() { console.log(input.value); });
         textarea.addEventListener('change', function() { console.log(textarea.value); });
         select.addEventListener('change', function() {
-            // :selected는 jQuery가 만든 자체 css 문법이다. 표준은 checked! 오해말자!
+            // :selected는 jQuery가 만든 자체 css 문법이다. * 표준은 checked! * 오해말자!
             var opt = select.querySelector(':checked');
             console.log(select.value, opt.value, opt.textContent);
         });

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Anchor</title>
+</head>
+<body>
+    <script>
+        var GordonRamsay = (
+            'Service, Please.\n' +
+            'It is fucking RAW!\n' +
+            'Shut the fuck up!\n' +
+            'Shut it down!\n' +
+            'Bloody well done.\n' +
+            'You, donkey!\n' +
+            'Stop! stop! stop!'
+        );
+
+        // 각 라인의 첫 번째 문자를 체크, m은 멀티라인(개행 기준)
+        console.log(GordonRamsay.match(/^s/igm));
+        // 각 라인의 마지막 문자를 체크($는 마지막 문자 검색, 개행 기준)
+        console.log(GordonRamsay.match(/!$/igm));
+
+        console.log('--------------------------------------------------------');
+
+        // 각 단어의 마지막 문자를 제외한 문자를 체크(단어 기준 스페이스 기준, \b 반대임)
+        console.log(GordonRamsay.match(/s\B/igm));
+        // 각 단어의 마지막 문자를 체크
+        console.log(GordonRamsay.match(/e\b/igm));
+    </script>
+</body>
+</html>

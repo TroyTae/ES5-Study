@@ -16,8 +16,8 @@
     <button id="afterend">afterend</button>
 
     <script>
-        var innerText = document.getElementById('innerText'),
-            textContent = document.getElementById('textContent'),
+        var innerText = document.getElementById('innerText'), // 렌더링 엔진 기반, \n -> <br>
+            textContent = document.getElementById('textContent'), // 자바스크립트 V8 엔진 기반, \n이든 스페이스이든 이들이 여러개 있어도 하나의 스페이스로 생각, jquery는 text를 사용하는데 이는 textContent 기반임. 따라서 native 사용 추천
             textarea = document.getElementById('textarea')
         ;
         var show = document.getElementById('show'),

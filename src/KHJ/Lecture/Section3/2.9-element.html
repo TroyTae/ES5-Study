@@ -32,9 +32,10 @@
         // 삽입
         document.getElementById('Insert').addEventListener('click', function() {
             // 심박하게도 insertAfter는 없다...
+            // insertBefore는 형제, 동생으로 많이 사용
             wrap.insertBefore(
                 document.createElement('span'),
-                wrap.querySelector('nth-child(2)')
+                wrap.querySelector(':nth-child(2)') // css 몇번째 자식인지...
             );
         });
 
@@ -47,6 +48,7 @@
 
         // 복사
         document.getElementById('Clone').addEventListener('click', function() {
+            // cloneNode는 복사하여 사용
             // 매개변수에 따라 자식들까지 복사할 것인지 판단
             document.body.appendChild(wrap.cloneNode(false));
             document.body.appendChild(wrap.cloneNode(true));

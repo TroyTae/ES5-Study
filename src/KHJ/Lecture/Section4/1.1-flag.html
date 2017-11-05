@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Character</title>
+</head>
+<body>
+    <!-- 정규식은 문자열의 패턴/조합을 검사할 수 있는 객체 -->
+    <script>
+        var str = 'Interesting Javascript Study';
+
+        // 문자열을 넣을 경우 해당 문자열을 탐색
+        console.log(str.match(/s/));
+
+        // g는 global의 약자로 문자열 전체 탐색을 의미
+        console.log(str.match(/s/g));
+
+        // i는 ignore case로 대소문자 구분x
+        // /~~/ 뒤에 붙는 거를 플래그라고 한다. gi, ig 순서 상관 X
+        console.log(str.match(/s/gi));
+    </script>
+</body>
+</html>

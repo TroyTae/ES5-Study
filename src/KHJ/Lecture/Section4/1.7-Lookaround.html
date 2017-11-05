@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lookaround</title>
+</head>
+<body>
+    <script>
+        var rating = '1pt 2px  3em 4px ';
+
+        // Grouping: ()
+        console.log(rating.match(/\d\D{3}/g));
+        console.log(rating.match(/(\d\D{3})+/g));
+
+        console.log('--------------------------------------------------------');
+
+        // 해당하는 조건: ?= 조건에 해당하면서 이것에 해당하지 않음
+        console.log(rating.match(/\d(?=px)/g));
+        // 해당하지 않는 조건: ?! 조건에 해당하지 않으면서 이것에 해당하지 않음
+        console.log(rating.match(/\d(?!px)/g));
+    </script>
+</body>
+</html>

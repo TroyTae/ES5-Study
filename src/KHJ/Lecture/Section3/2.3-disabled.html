@@ -22,6 +22,8 @@
         /*
         * disabled === true, 비활성화
         * disabled === false, 활성화
+        * checked, disabled는 boolean 값을 가지므로 대입문으로 true, false를 넣는다.
+        * jqeury에서 prop으로 checked, disabled를 관리한다. ex) prop('checked',true)
         */
         (function () {
             var radios = document.querySelectorAll('[type="radio"]'),

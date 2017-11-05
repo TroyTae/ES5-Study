@@ -1,0 +1,27 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CharacterSet</title>
+</head>
+<body>
+    <script>
+        var alphabet = 'abcdefghijklmnopqrstuvwxyz';
+
+        // 대괄호 안에 있는 문자 중 하나라도 포함되는 패턴, 대괄호는 or 규칙이 적용됨
+        console.log(alphabet.match(/[abepx]/g));
+        // 공백인 경우와 아닌 경우를 모두 포함하기 때문에 MatchAny!
+        console.log(alphabet.match(/[\S\s]/g));
+        // 대괄호 안에 있는 문자 중 하나라도 포함되지 않은 패턴
+        console.log(alphabet.match(/[^abepx]/g));
+
+        console.log('--------------------------------------------------------');
+
+        // -(하이픈)을 통해 범위 지정 가능(range)
+        console.log(alphabet.match(/[a-i]/g));
+        console.log(alphabet.match(/[c-p]/g));
+        console.log(alphabet.match(/[i-sz]/g));
+        console.log('공구가 여기 있었군!'.match(/[가-깋]/g)); // ㄱ이 초성에 있는 모든 문자를 검색, 한글 검색은 [가-힣]
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CharacterSet</title>
+</head>
+<body>
+    <script>
+        (function() {
+            var str = 'There is a whitespace.';
+
+            // 공백
+            console.log(str.match(/\s/g));
+            // 공백 이외 문자
+            console.log(str.match(/\S/g));
+        }());
+        console.log('--------------------------------------------------------');
+        (function() {
+            var str = 'tjy_9745@naver.com';
+
+            // [a-zA-Z0-9_] = \w, id를 위한 정규식에 사용
+            console.log(str.match(/\w/g));
+            // [^a-zA-Z0-9_]
+            console.log(str.match(/\W/g));
+        }());
+        console.log('--------------------------------------------------------');
+        (function() {
+            var str = '니 IQ 80, 내 IQ 80, 합쳐서 160!';
+
+            console.log(str.match(/\d/g));
+            console.log(str.match(/\D/g));
+        }());
+    </script>
+</body>
+</html>
