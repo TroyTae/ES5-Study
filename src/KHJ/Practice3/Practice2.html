@@ -37,7 +37,7 @@
         function createPage(){
             pagination.innerHTML='';
             var last = ( Math.ceil(count/100) === index ? Math.ceil(count/10) : index*10);
-            for (var num = (index-1)*10 + 1; num <= last; num++) {
+            for (var num = (index - 1)*10 + 1; num <= last; num++) {
                     var a = document.createElement('a');
                     a.href = '#' + num;
                     a.text = num + ' ';
@@ -53,12 +53,13 @@
         function createData(num){
             ul.innerHTML = '';
             var last = (count <  num*10 ? count : num*10);
-            for (var i = (num - 1) * 10 + 1; i <= last; i++) {
+            for (var i = (num - 1)*10 + 1; i <= last; i++) {
                 var li = document.createElement('li');
                 li.textContent = i;
                 ul.appendChild(li);
             }
         };
+
 
         // prev 버튼 클릭
         prev.addEventListener('click', function(){
@@ -69,15 +70,15 @@
             }
         });
 
+
         // next 버튼 클릭
         next.addEventListener('click', function(){
             if(index < count/100) {
                 index++;
                 createPage();
-                createData((num - 1) * 10 + 1);
+                createData((index - 1)*10 + 1);
             }
         });
-
 
 
     </script>
