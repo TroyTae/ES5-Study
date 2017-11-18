@@ -24,41 +24,38 @@
         var prev = document.getElementById('prev');
         var next = document.getElementById('next');
 
+        var pagination = document.getElementById('pagination');
+        var ul = document.getElementById('data');
 
-        (function(){
-            createPage(1 ,10);
-            createData(1, 10);
-        })();
+
+        // 처음 페이지 생성
+        createPage();
+        createData(1);
 
 
         // a 태그 생성
-        function createPage(index, page, last){
-            var pagination = document.getElementById('pagination');
+        function createPage(){
             pagination.innerHTML='';
-            for (var i = 1; i <= page; i++) {
-                var a = document.createElement('a');
-                a.href = '#' + (index-1)*10 + i;
-                (function(){
-                    var num = (index-1)*10 + i;
-                    var last = 10;
-                    if(num === Math.ceil(count/10)){
-                        last = count - (num-1)*10;
-                    }
-                    a.addEventListener('click', function() { createData(num, last); });
-                }());
-                a.text = (index-1)*10 + i + ' ';
-                pagination.append(a);
+            var last = ( Math.ceil(count/100) === index ? Math.ceil(count/10) : index*10);
+            for (var num = (index-1)*10 + 1; num <= last; num++) {
+                    var a = document.createElement('a');
+                    a.href = '#' + num;
+                    a.text = num + ' ';
+                    (function(num){
+                        a.addEventListener('click', function() { createData(num); });
+                    })(num)
+                    pagination.append(a);
             }
         }
 
 
         // li 태그 생성
-        function createData(index, last){
-            var ul = document.getElementById('data');
+        function createData(num){
             ul.innerHTML = '';
-            for (var i = 1; i <= last; i++) {
+            var last = (count <  num*10 ? count : num*10);
+            for (var i = (num - 1) * 10 + 1; i <= last; i++) {
                 var li = document.createElement('li');
-                li.textContent = (index - 1) * 10 + i;
+                li.textContent = i;
                 ul.appendChild(li);
             }
         };
@@ -66,22 +63,18 @@
         // prev 버튼 클릭
         prev.addEventListener('click', function(){
             if(index > 1){
-                createPage(--index, 10, 10);
-                createData(index*10, 10);
+                index--;
+                createPage();
+                createData(index*10);
             }
         });
 
         // next 버튼 클릭
         next.addEventListener('click', function(){
-            if(index < count/100 - 1) {
-                createData((index* 10) + 1, 10);
-                createPage(++index, 10, 10);
-            }else if(index === Math.floor(count/100)){
-                var page = Math.ceil((count/100 - index)*10);
-                createData((index * 10) + 1, 10);
-                createPage(++index, page, 10);
-            }else{
-                return;
+            if(index < count/100) {
+                index++;
+                createPage();
+                createData((num - 1) * 10 + 1);
             }
         });
 
