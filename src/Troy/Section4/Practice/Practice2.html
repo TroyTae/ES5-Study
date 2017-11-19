@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practice2</title>
+</head>
+<body>
+    <style>
+        div {
+            position: relative;
+            width: 175px;
+        }
+        ul {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: calc(100% - 2px);
+            padding: 0;
+            margin-top: 23px;
+        }
+        li {
+            cursor: pointer;
+            list-style: none;
+            background-color: #eee;
+        }
+        li:hover {
+            background-color: #ddd;
+        }
+    </style>
+    <div>
+        <input type="text"/>
+        <ul>
+            <li>아무개</li>
+            <li>김누구</li>
+            <li>이름이</li>
+            <li>이무이</li>
+            <li>김철수</li>
+            <li>이수미</li>
+        </ul>
+    </div>
+
+    <!--
+    Section3의 Practice3에서 자동완성을 만들었지만 불편하다는 클레임이 들어온다.
+    방향키(↑↓)를 이용해 이동하다 Enter를 이용해 마우스 클릭 없이도 선택할 수 있도록 만들고,
+    정규식을 이용해서 초성검색까지 지원해보도록 하자!
+    -->
+    <script>
+        var arr = ['아무개', '김누구', '이름이', '이무이', '김철수', '이수미'];
+    </script>
+</body>
+</html>
