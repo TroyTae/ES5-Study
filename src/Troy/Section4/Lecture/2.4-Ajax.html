@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax</title>
+</head>
+<body>
+    <script>
+        var Ajax = function(option, done, fail) {
+            var xhr = new XMLHttpRequest();
+            function createURI(obj) {
+                var uri = [];
+                for(var k in obj) {
+                    uri.push(k + '=' + obj[k]);
+                }
+                return uri.join('&');
+            };
+
+            xhr.open(option.method, option.url + (option.method === 'GET' ? '?'.concat(createURI(option.data)) : ''));
+            xhr.addEventListener('load', function () {
+                var res = JSON.parse(xhr.responseText);
+                if(Math.floor(xhr.status) === 4) fail(res);
+                else done(res);
+            });
+
+            if(option.method === 'GET') xhr.send();
+            else {
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.send(encodeURI(createURI(option.data)));
+            }
+        };
+
+        Ajax({
+            method: 'GET',
+            url: 'http://localhost:3000/api/readStudy',
+            data: {
+//                id: '5a14155ec357241bcc85e784'
+            }
+        }, console.log);
+    </script>
+</body>
+</html>

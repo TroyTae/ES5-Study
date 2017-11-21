@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>POST</title>
+</head>
+<body>
+    <button id="create">생성</button>
+    <script>
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'http://localhost:3000/api/createStudy');
+
+        var data = {
+            gender: true,
+            name: '김미르',
+            role: 'member'
+        };
+
+        document.getElementById('create').addEventListener('click', function() {
+            // form-uri
+            (function() {
+                var uri = [];
+                for(var k in data) {
+                    uri.push(k + '=' + data[k]);
+                }
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.send(encodeURI(uri.join('&')));
+            }());
+
+            // json
+            /*(function() {
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.send(JSON.stringify(data));
+            }());*/
+        });
+    </script>
+</body>
+</html>

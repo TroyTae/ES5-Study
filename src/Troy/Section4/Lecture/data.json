@@ -1,0 +1,16 @@
+[
+  {
+    "_id": "5a13e32bf28df2166826f6f2",
+    "role": "owner",
+    "name": "태재영",
+    "gender": true,
+    "__v": 0
+  },
+  {
+    "_id": "5a13ff794044c80d54d3b1a5",
+    "role": "member",
+    "name": "강현지",
+    "gender": false,
+    "__v": 0
+  }
+]
