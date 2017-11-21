@@ -6,6 +6,8 @@
 </head>
 <body>
     <ul id="list"></ul>
+
+    <!-- html을 읽어서 SPA로 활용가능! -->
     <script>
         var xhr = new XMLHttpRequest();
         xhr.open('GET', './data.json');
@@ -21,6 +23,10 @@
                 document.getElementById('list').appendChild(li);
             });
         });
+        /*xhr.open('GET', './2.4-Ajax.html');
+        xhr.addEventListener('load', function() {
+            console.log(xhr.responseText);
+        });*/
         xhr.send();
     </script>
 </body>

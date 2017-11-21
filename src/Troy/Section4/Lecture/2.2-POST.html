@@ -6,6 +6,8 @@
 </head>
 <body>
     <button id="create">생성</button>
+
+    <!-- POST는 send를 이용해 body에 직접 삽입 -->
     <script>
         var xhr = new XMLHttpRequest();
         xhr.open('POST', 'http://localhost:3000/api/createStudy');
@@ -16,6 +18,7 @@
             role: 'member'
         };
 
+        /* x-www-form-urlencoded은 form 전송, json은 json 데이터 형식을 의미 */
         document.getElementById('create').addEventListener('click', function() {
             // form-uri
             (function() {
