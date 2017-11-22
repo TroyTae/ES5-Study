@@ -26,17 +26,13 @@
         li:hover {
             background-color: #ddd;
         }
+        li.active {
+            background-color: #ddd;
+        }
     </style>
     <div>
-        <input type="text"/>
-        <ul>
-            <li>아무개</li>
-            <li>김누구</li>
-            <li>이름이</li>
-            <li>이무이</li>
-            <li>김철수</li>
-            <li>이수미</li>
-        </ul>
+        <input type="text" id="data"/>
+        <ul id="list"/>
     </div>
 
     <!--
@@ -46,6 +42,68 @@
     -->
     <script>
         var arr = ['아무개', '김누구', '이름이', '이무이', '김철수', '이수미'];
+
+        var choSeong = {
+            'ㄱ':'[가-깋]',
+            'ㄴ':'[나-닣]',
+            'ㄷ':'[다-딯]',
+            'ㄹ':'[라-맇]',
+            'ㅁ':'[마-밓]',
+            'ㅂ':'[바-빟]',
+            'ㅅ':'[사-싷]',
+            'ㅇ':'[아-잏]',
+            'ㅈ':'[자-짛]',
+            'ㅊ':'[차-칳]',
+            'ㅋ':'[카-킿]',
+            'ㅌ':'[타-팋]',
+            'ㅍ':'[파-핗]',
+            'ㅎ':'[하-힣]'
+        };
+
+        var data = document.getElementById('data');
+        var list = document.getElementById('list');
+
+        data.addEventListener('keydown', function(e){
+            var li = list.querySelector('.active');
+            // console.log(e.keyCode);
+            if(e.keyCode ===  13){
+                data.value = li.textContent;
+                list.innerHTML='';
+            }else if(e.keyCode === 38 && li.previousElementSibling){
+                li.classList.remove('active');
+                li.previousElementSibling.classList.add('active');
+            }else if(e.keyCode === 40 && li.nextElementSibling){
+                li.classList.remove('active');
+                li.nextElementSibling.classList.add('active');
+            }
+        });
+
+        data.addEventListener('input', function(e) {
+            var val = this.value,
+                regExp = new RegExp(val
+                    .split('')
+                    .map(function (v) {
+                        return (choSeong[v] ? choSeong[v] : v);
+                    })
+                    .join(''),
+                'g'
+            );
+            list.innerHTML='';
+            list.style.display='none';
+            arr.forEach(function(v, i){
+                if(val !== '' && regExp.test(v)){
+                    var li = document.createElement('li');
+                    if(i === 0) li.classList.add('active');
+                    list.style.display='inline-block';
+                    li.textContent = v;
+                    list.appendChild(li);
+                    li.addEventListener('click', function(e){
+                        data.value = e.target.innerText;
+                        list.innerHTML='';
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
