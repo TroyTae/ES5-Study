@@ -12,7 +12,10 @@
     -->
     <script>
         function validateDate(date) {
-            var regExp = new RegExp('', 'g');
+            var date = new Date();
+            var yearMonth = '\\d{4}-(0[1-9]|1[0-2])';
+            var date = '(0[1-9]|[1-2][0-9]|3[0-1])';
+            var regExp = new RegExp('\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])', 'g');
 
             return regExp.test(date)
         }

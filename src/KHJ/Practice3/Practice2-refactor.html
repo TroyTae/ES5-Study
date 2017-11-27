@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practice2</title>
+</head>
+<body>
+    <style>
+        a{margin : 0 3px}
+    </style>
+
+    <ul id="data"></ul>
+
+    <button id="prev">prev</button>
+    <nav style="display: inline-block;" id="pagination"></nav>
+    <button id="next">next</button>
+
+    <!--
+    데이터가 249개 있다고 가정하고 Pagination 모듈을 만들어보자!
+    페이지 순번을 클릭했을 때 각 페이지별로 10개의 데이터가 보인다. (7페이지면 61부터 70까지 보인다)
+    prev 버튼을 누를경우 전 페이지의 마지막 순번으로 가며, (14번에서 prev를 누를경우 10번으로간다)
+    next 버튼을 누를경우 다음 페이지의 첫 순번으로 간다. (14번에서 next를 누를경우 21번으로간다)
+    해당하는 페이지가 없을 때 prev/next를 클릭하면 아무런 반응이 없어도 된다.
+    -->
+    <script>
+        var prev = document.getElementById('prev');
+        var next = document.getElementById('next');
+
+        var pagination = document.getElementById('pagination');
+        var ul = document.getElementById('data');
+
+        var func = (function(){
+            // rows: 데이터 수, pages: 페이지 수
+            var rows = 10, pages =10;
+
+            function Pagination(idx, cnt){
+                var _this = this;
+                this.idx = (idx ? idx : 1);
+                this.cnt = cnt;
+                this.setPage(this.idx);
+                prev.addEventListener('click', function(){
+                    var curPage = (Math.ceil(_this.idx/10)-1)*10;
+                    if(curPage > 0){
+                        _this.setPage(curPage);
+                    }
+                })
+                next.addEventListener('click', function(){
+                    var curPage = Math.ceil(_this.idx/10)*10 + 1;
+                    var lastPage = Math.ceil(cnt/rows);
+                    if(curPage < lastPage){
+                        _this.setPage(curPage);
+                    }
+                })
+            }
+
+            Pagination.prototype.setPage = function(idx){
+                this.idx = idx;
+                drawPages(this.idx, this.cnt);
+                drawData(this.idx, this.cnt);
+            }
+
+            function createAtag(idx, cnt){
+                var a = document.createElement('a');
+                a.href = '#' + idx;
+                a.textContent = idx;
+                a.addEventListener('click', function(){
+                    drawData(idx, cnt);
+                })
+                pagination.appendChild(a);
+            }
+
+            function drawPages(idx, cnt){
+                var lastPage = Math.ceil(cnt/rows),
+                    startIdx = (Math.ceil(idx/pages)-1)*10 + 1,
+                    lastIdx = startIdx+(pages-1);
+                pagination.innerHTML = '';
+                if(lastIdx > lastPage) {
+                    lastIdx = lastPage;
+                }
+
+                // console.log(this);
+
+                for(var i = startIdx; i <= lastIdx; i++){
+                    createAtag(i, cnt);
+                }
+            }
+
+             function drawData(idx, cnt){
+                var startIdx = (idx-1)*10 +1;
+                var lastIdx = startIdx+rows-1;
+                data.innerHTML = '';
+                for(var i = startIdx ; i <= (lastIdx < cnt ? lastIdx : cnt) ; i++){
+                    var li = document.createElement('li');
+                    li.textContent = i;
+                    ul.appendChild(li);
+                }
+            }
+
+            return Pagination;
+        }());
+
+        var a = new func(5,249);
+        console.log(a);
+        console.log(a.drawPages);
+        a.setPage(25);
+        //a.idx = 11;
+        //a.drawPages();
+        //window.addEventListener('popstate', function(){console.log('강현지')});
+
+    </script>
+</body>
+</html>
