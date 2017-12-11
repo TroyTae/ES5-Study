@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hoisting</title>
+</head>
+<body>
+    <!-- t1 변수는 아래에 선언되었는데 왜 위에서 출력이 가능할까요? -->
+    <script>
+        console.log(t1);   // undefined 출력
+        var t1 = '여기서 선언!';
+        console.log(t1);   // '여기서 선언!' 출력
+    </script>
+
+    <!--
+       Hoisting - 끌어올리다/들어올리다
+       자바스크립트의 호이스팅 매커니즘은 var로 선언 된 변수가 있으면,
+       최상단에 선언해서 해당 영역에 그 변수가 사용될 것을 알려줍니다.
+       호이스팅 매커니즘으로 인한 혼란을 피하기 위해 변수 선언은 가급적 최상단에 해주세요^^
+    -->
+    <script>
+        // 사실상 이런 코드가 수행...
+        var t2;
+        console.log(t2);
+        t2 = '여기서 선언!';
+        console.log(t2);
+    </script>
+</body>
+</html>
