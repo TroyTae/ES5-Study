@@ -12,12 +12,37 @@
     -->
     <script>
         function validateDate(date) {
-            var date = new Date();
+            // var date = new Date();
             var yearMonth = '\\d{4}-(0[1-9]|1[0-2])';
-            var date = '(0[1-9]|[1-2][0-9]|3[0-1])';
-            var regExp = new RegExp('\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])', 'g');
+            var dateRegExp = new RegExp('\\d{4}-\\d{2}-\\d{2}', 'g');
 
-            return regExp.test(date)
+            if(dateRegExp.test(date)){ // 닐짜 형식일 경우 (yyyy-MM-dd)
+
+                var parseDate = date.split('-');
+                var parseYear = parseDate[0];
+                var parseMonth = parseDate[1];
+                var regExp;
+
+                if(parseMonth % 2 === 0){ // 짝수달
+                    if(parseMonth === '02'){ // 2월
+                        if((parseYear % 4 === 0) && (parseYear % 100 !== 0 || !(parseYear % 100 === 0 && parseYear % 400 !== 0))){ // 윤년은 2월 29일이 있다.
+                            regExp = new RegExp(yearMonth + '-(0[1-9]|[1-2][0-9])', 'g');
+                        }else{
+                            regExp = new RegExp(yearMonth + '-(0[1-9]|[1-2][0-8])', 'g');
+                        }
+                    }else{ // 2월을 제외한 짝수달
+                        regExp = new RegExp(yearMonth + '-(0[1-9]|[1-2][0-9]|30)', 'g');
+                    }
+                }else{ // 홀수달
+                    regExp = new RegExp(yearMonth + '-(0[1-9]|[1-2][0-9]|3[0-1])', 'g');
+                }
+
+                return regExp.test(date);
+
+            }else{ // 날짜 형식이 아닐 경우
+                return false;
+            }
+
         }
     </script>
 </body>
