@@ -5,11 +5,17 @@
     <title>continue</title>
 </head>
 <body>
+    <!--
+        continue 예약어를 이용해서 특정 코드들을 생략하는 형태로
+        반복문의 수행을 제어할 수도 있지만 코드의 가독성과 흐름을
+        해친다는 의견이 많고 if~else 같은 조건문의 사용을 권장한다
+    -->
     <script>
         var list = [1, 5, 9, 10];
 
         for(var i = 0, max = list.length; i < max; ++i) {
-            // 아래 문장을 생략하고 조건변화식과 조건식을 체크한다!
+            console.log(i);
+            // continue: 아래에 있는 코드들은 생략, 수행문은 끝난 것으로 간주, 조건변화식과 조건식 검사를 진행한다.
             if(i === 2) continue;
             console.log(list[i]);
         }

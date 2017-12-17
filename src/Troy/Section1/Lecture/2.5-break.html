@@ -9,8 +9,9 @@
         var list = [1, 2, 3, 4],
             i = 0
         ;
-        // 이런 경우를 무한 루프라고 한다
+        // 무한 루프: 조건이 거짓이되는 경우가 없어서 반복문을 무한 수행
         while(true) {
+            // break: while 문의 조건에 관계없이 반복문을 강제 종료
             if(i === 3) break;
             console.log(list[i++]);
         }
