@@ -5,18 +5,27 @@
     <title>Practice4</title>
 </head>
 <body>
-    <!--문제4
-        아래 객체에서 gender의 값이 잘못되었다.
-        gender의 값을 true로 수정하고 console로 출력한 뒤,
-        position이라는 key값을 가지고 "owner"라는 value를 가진
-        property를 추가하고 다시 한번 console로 출력하는 스크립트를 작성하시오
+    <!--
+        컴퓨터에서는 파일의 크기를 byte라는 단위로 나타낸다.
+        그리고 큰 단위를 편하게 나타내기 위해 아래와 같은 단위를 쓰는데,
+        KB = 1024[byte]
+        MB = 1024[KB]
+        GB = 1024[MB]
+        변수 byte의 값에 따라 단위를 다르게 출력하는 스크립트를 작성해보자.
+        각 단위에서 1024 이상이면 더 큰 단위로 바꿔주며 단위 출력이 달리한다.
+        예를 들어 200byte는 그대로 출력되고, 1024byte는 1KB로 출력된다.
+        [ 단, 소수점이 길어지면 두번 째 자리에서 반올림한다. ]
     -->
     <script>
-        var troy = {
-            age: 21,
-            name: 'TJY',
-            gender: false
-        };
+        /*
+        아래 값들을 byte 변수에 넣어가며 테스트!
+        var byte = 130,
+            kb = 2000,
+            mb = 1100000,
+            gb = 1100000000
+        ;
+        */
+        var byte = 128;
     </script>
 </body>
 </html>
