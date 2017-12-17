@@ -7,20 +7,20 @@
 <body>
     <!--논리 연산자-->
     <script>
-        // AND
+        // AND: 모두 참일 때 참
         console.log(true && true);
         console.log(false && true);
 
-        // OR
+        // OR: 하나라도 참이면 참
         console.log(false || false);
         console.log(true || true);
 
-        // NOT
+        // NOT: 참은 거짓으로, 거짓은 참으로 바꿈
         console.log(!true);
         console.log(!false);
-        console.log(!'');   // 문자열에도 적용가능(공백많이 false...)
+        console.log(!'');   // 문자열에도 적용가능(공백만 false...)
         console.log(!0);    // 숫자에도 적용가능(0 아니면 다 true...)
-        console.log(!null); // null은 척봐도 false
+        console.log(!null); // null은 딱봐도 false
 
         // 복합
         console.log(!false && (true || false));
@@ -31,7 +31,7 @@
         console.log(1 > 5);
         console.log(1 <= 5);
 
-        // ==과 ===의 차이 유념하기!!!!
+        // ==은 데이터만 비교하고, ===은 자료형도 비교한다.
         console.log(1 == '1');
         console.log(1 === '1');
         console.log('js' !== 'js');

@@ -4,10 +4,15 @@
     <meta charset="UTF-8">
     <title>DOM</title>
 </head>
+
+<!--
+    html을 작성해서 만드는 요소들을 DOM(Document Object Model)이라고 하는데,
+    html을 작성하지 않고 javascript를 이용해 DOM을 만들어보자!!
+ -->
 <body>
     <h1 id="id" class="class" name="name">이건 원래 있던거!</h1>
 
-    <!--create-->
+    <!-- Create -->
     <script>
         var dom = document.createElement('h1');
         document.body.appendChild(dom);
