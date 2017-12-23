@@ -5,20 +5,6 @@
     <title>Math</title>
 </head>
 <body>
-    <!--Random-->
-    <script>
-        (function () {
-            function random(min, max) {
-                var num = Math.random() * (max - min + 1) + min;
-                return Math.floor(num);
-            }
-            for(var i = 0; i < 10; ++i) {
-                console.log(random(-3, 10));
-            }
-        }());
-        console.log('-------------------------------------------------');
-    </script>
-
     <!--2,8,10,16진수-->
     <script>
         // 2진수
@@ -56,13 +42,35 @@
     </script>
 
     <script>
+        // PI 상수 값
         console.log(Math.PI);
+        // 절대 값 얻기
         console.log(Math.abs(0), Math.abs(-5), Math.abs(3));
+        // 올림
         console.log(Math.ceil(0.8), Math.ceil(-0.8), Math.ceil(5));
+        // 내림
         console.log(Math.floor(0.8), Math.floor(-0.8), Math.floor(5));
+        // 반올림
         console.log(Math.round(0.8), Math.round(-0.8), Math.round(5.5));
+        // 최댓값/최솟값
         console.log(Math.max(1, 10, 7, 5, 9), Math.min(1, 10, 7, 5, 9));
+        // 제곱
         console.log(Math.pow(5, 2), Math.pow(2, 4));
+        // 제곱근
+        console.log(Math.sqrt(16), Math.sqrt(25));
+    </script>
+
+    <!-- Random -->
+    <script>
+        // min/max 사이의 값을 램덤으로 얻는 함수
+        function random(min, max) {
+            var num = Math.random() * (max - min + 1) + min;
+            return Math.floor(num);
+        }
+        for(var i = 0; i < 10; ++i) {
+            console.log(random(-3, 10));
+        }
+        console.log('-------------------------------------------------');
     </script>
 </body>
 </html>
