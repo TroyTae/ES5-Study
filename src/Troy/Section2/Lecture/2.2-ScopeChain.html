@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>scope</title>
+</head>
+<body>
+    <!-- Scope Chain -->
+    <script>
+        var global = 'This is global';
+        (function () {
+            var global;
+            (function () {
+                global = 'Year~!';
+                console.log(global);
+            }());
+        }());
+        console.log(global);
+    </script>
+
+    <!-- var 없이 하면 전역으로 선언되므로 주의!!! -->
+    <script>
+        (function () {
+            chain = '이건 어떻게 될까?';
+        }());
+        console.log(chain);
+    </script>
+</body>
+</html>
