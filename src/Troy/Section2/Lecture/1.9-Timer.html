@@ -7,22 +7,27 @@
 <body>
     <!--애니메이션은 1000/60ms=60fps-->
     <script>
-        // 5초 뒤에 콜백을 실행하는 타이머
+        // 5초 뒤에 callback을 실행하는 타이머
         setTimeout(function() {
             console.log('5초 뒤 실행');
         }, 5000);
 
-        // 타이머와 반복문의 혼합
+        // 타이머와 반복문의 혼합으로 1초마다 callback을 반복 수행
         var key = setInterval(function() {
             console.log('1초마다 실행');
         }, 1000);
 
+        // 10초 뒤에 반복 수행하는 타이머를 종료
         setTimeout(function () {
+            /*
+            * setTimeout/setInterval 모두 정수형의 key 값을 반환하며,
+            * 이 key 값을 매개변수로 clearTimeout/clearInterval 함수를 실행시키면 타이머가 종료된다.
+            */
             clearInterval(key);
         }, 10000);
-        // clearTimeout(key);
     </script>
+
     <!--setInterval(function() {console.log('1');}, 500);-->
-    <!--추가로 배터리 절약을 위해 비활성화 Tab에서는 타이머가 클램핑되기 떄문에 위 코드의 타이머는 1000ms로 치환-->
+    <!--추가로 배터리 절약을 위해 비활성화 Tab에서는 타이머가 Clamping 되기 때문에 위 코드의 타이머는 1000ms로 치환-->
 </body>
 </html>
