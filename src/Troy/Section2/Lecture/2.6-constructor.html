@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>constructor</title>
+</head>
+<body>
+    <!-- 생성자 함수를 이용해 우리가 원하는 자료형을 만들 수 있다! -->
+    <script>
+        /*
+        * 여기서 this는 new Keyword를 이용해 Instance가 생성된 후 담기는 변수(bird/bear)를 가르킨다.
+        * 따라서 객체에 Property가 추가되듯이 name/type이 추가되고 prototype에서 이 값들에 접근 가능하다!
+        */
+        function Animal(name, type) {
+            this.name = name;
+            this.type = type;
+        }
+        Animal.prototype.eat = function () {
+            console.log(this.name + '(' + this.type + '): "냠냠"');
+        };
+
+        /*
+        * 만들어진 구조만 보면 Object랑 똑같다! ex) new Object({name:'???', type:'???'})
+        * 하지만 계속해서 어떤 property가 있는지 정의해줘야만 하는 객체와는 다르게 동물에 관한
+        * 데이터를 새로 만들 때 매개변수만 넘기면 되고 같이 개발하는 사람들에게 가이드를 제공할 수 있다.
+        */
+        var bird = new Animal('새', '조류'),
+            bear = new Animal('곰', '포유류')
+        ;
+        console.log(bird.name, bird.type), bird.eat();
+        console.log(bear.name, bear.type), bear.eat();
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CallByReference vs CallByValue</title>
+</head>
+<!--
+Reference는 주소를 말하고 Value는 값 자체를 말하는데,
+CallByReference는 주로 객체의 key 값을 사용할 때 일어나며 원본을 수정하지만,
+CallByValue는 변수에 담긴 값만 다른 걸로 바뀔 뿐 원래 담겨있던 값은 유지된다.
+-->
+<body>
+    <script>
+        // 매개변수 target만 바뀔 뿐 원본은 유지
+        function callByValue(target) {
+            target = 0;
+            console.log('매개변수:', target);
+        }
+        // 매개변수 target이 obj를 통해 property "num"의 주소에 직접 접근
+        function callByReference(target) {
+            target.num = 0;
+            console.log('매개변수:', target);
+        }
+
+        /* 각 함수를 호출할 때 num과 obj의 변화를 잘 보자! */
+        (function () {
+            var num = 10,
+                obj = { num: 10 }
+            ;
+
+            callByValue(num);
+            console.log('원본:', num);
+
+            console.log('--------------------------------------');
+
+            callByValue(obj);
+            console.log('원본:', obj);
+
+            console.log('--------------------------------------');
+
+            callByReference(obj);
+            console.log('원본:', obj);
+        }());
+    </script>
+</body>
+</html>

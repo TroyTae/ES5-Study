@@ -6,7 +6,7 @@
 </head>
 <body>
 <!--
-    "new" 키워드
+    "new" 키워드의 mechanism (ECMAScript 표준에 기반)
     1. obj에 새로운 native ECMAScript 객체를 삽입한다.
     2. 8.12에 명시된 모든 내장 메서드들을 설정한다. (자료형과 관계없는 메서드 Get/Set/GetProperty)
     3. obj의 내부 속성 [[Class]]를  "Object"로 설정한다.
@@ -28,12 +28,15 @@
             console.log(this.name + '(' + this.type + '): "냠냠"');
         };
 
-        // new Animal('돌고래', '포유류')
-        // 위 코드를 실행하면 실제 내부에서는 이런일이...
-        var obj = {};
-        obj.__proto__ = Animal.prototype;
-        obj.name = '돌고래';
-        obj.type = '포유류';
-        console.log(obj);
+        // new Animal('돌고래', '포유류');라는 코드를 실행하면 실제 내부에서는 이런일이...
+        (function() {
+            var obj = {};
+            // 5번을 보면 알겠지만 __proto__를 이용해 자료형의 prototype에 접근
+            obj.__proto__ = Animal.prototype;
+            obj.name = '돌고래';
+            obj.type = '포유류';
+
+            obj.eat(), console.log(obj, obj.name, obj.type);
+        }());
     </script>
 </html>

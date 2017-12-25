@@ -11,26 +11,24 @@
         /*
         * 즉시실행함수가 실행되면 upCount/downCount 함수를
         * Property로 가지는 객체가 Counter 변수에 할당된다.
-        * 따라서 외부에서는 count 변수를 직접 접근할 수 없지만,
-        * upCount/downCount 함수를 통해 값을 접근할 수 있다.
+        * 따라서 외부에서는 count 변수를 직접 접근할 순 없지만,
+        * upCount/downCount 함수를 통해 값을 수정할 수 있다.
         */
         var Counter = (function() {
             var count = 0;
             return {
                 upCount: function () {
-                    count++;
-                    console.log(count);
+                    ++count;
                 },
                 downCount: function () {
-                    count--;
-                    console.log(count);
+                    --count;
                 }
             };
         }());
 
-        Counter.downCount();
-        Counter.upCount();
-        Counter.upCount();
+        Counter.downCount(), console.log(count);
+        Counter.upCount(), console.log(count);
+        Counter.upCount(), console.log(count);
     </script>
 </body>
 </html>

@@ -5,6 +5,7 @@
     <title>prototype</title>
 </head>
 <body>
+    <!-- Wrapper Object의 prototype을 보면 우리가 공부하면 함수들이 들어있는 걸 확인할 수 있다 -->
     <script>
         console.log(Object.prototype);
         console.log(Boolean.prototype);
@@ -14,26 +15,27 @@
         console.log('----------------------------------------------------------------------');
     </script>
 
-    <!--Prototype은 자료형의 기능 확장을 위한것-->
+    <!-- Prototype은 자료형의 기능 확장을 위한것 -->
     <script>
-        Object.prototype.func = function () { console.log('객체의 줄임말입니다.'); };
+        Object.prototype.func = function () { console.log('함수의 줄임말입니다.'); };
         Boolean.prototype.string = 'Boolean';
         Number.prototype.ten = function () { return 10; };
         String.prototype.useYn = true;
 
+        /* prototype에 추가 후 new keyword로 Instance를 생성하면 선언한 것들을 사용 가능! */
         (function () {
-            var obj = new Object();
-            var boo = new Boolean();
-            var num = new Number(100);
-            var str = new String('!!!');
-
+            var obj = new Object(),
+                boo = new Boolean(),
+                num = new Number(100),
+                str = new String('!!!')
+            ;
             console.log(boo.string);
             console.log(num.ten());
             console.log(str.useYn);
 
             obj.func();
-            // 중간에 추가될 수도 있으므로 정말 관리를 잘해야함
-            Object.prototype.func2 = function () { console.log('객체의 줄임말입니다2.'); };
+            // 중간에 추가될 수도 있으므로 정말 관리를 잘 해야함
+            Object.prototype.func2 = function () { console.log('함수2의 줄임말입니다.'); };
             obj.func2();
         }());
     </script>
