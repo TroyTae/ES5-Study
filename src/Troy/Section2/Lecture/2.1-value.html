@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>value</title>
+</head>
+<body>
+    <input id="input" type="text" value="JS Study"/>
+    <textarea id="textarea"></textarea>
+    <select id="select">
+        <option>선택지1</option>
+        <option value="2">선택지2</option>
+    </select>
+
+    <!-- 입력 가능 요소에서 입력된 값을 가져올 수 있고 대입할 수 있는 속성 -->
+    <script>
+        var input = document.getElementById('input'),
+            textarea = document.getElementById('textarea'),
+            select = document.getElementById('select')
+        ;
+        console.log(input.value);
+        console.log(textarea.value);
+        console.log(select.value);
+
+        // :selected는 jQuery가 만든 자체 css 문법이다. 표준은 checked! 오해말자!
+        var opt = select.querySelector(':checked');
+        console.log(opt.value, opt.textContent);
+    </script>
+</body>
+</html>
