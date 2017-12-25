@@ -6,32 +6,33 @@
 </head>
 <body>
     <div>
-        <h1>라디오 버튼처럼 동작하는 체크박스</h1>
         <label><input type="checkbox" checked><span>체크박스1</span></label>
         <label><input type="checkbox"><span>체크박스2</span></label>
         <label><input type="checkbox"><span>체크박스3</span></label>
     </div>
 
-    <!--checked는 key의 존재여부로 활성화 여부를 판단하는 Boolean 값-->
+    <!-- checked: key의 존재여부로 활성화 여부를 판단하는 Boolean 값 -->
     <script>
         /*
         * checked === true, 체크된 상태
         * checked === false 해제된 상태
         */
-        (function () {
-            var checkbox = document.querySelectorAll('[type="checkbox"]');
-
-            for(var i = 0, max = checkbox.length; i < max; ++i) {
-                checkbox[i].addEventListener('change', function() {
-                    var checked = this.checked;
-                    for(var i = 0, max = checkbox.length; i < max; ++i) {
-                        // 현재 있는 모든 체크박스의 체크를 해제
-                        checkbox[i].checked = false;
-                    }
-                    this.checked = checked;
-                });
+        var checkAll = function() {
+                var checkBoxes = document.querySelectorAll('[type="checkbox"]');
+                for(var i = 0, max = checkBoxes.length; i < max; ++i) {
+                    // 현재 있는 모든 체크박스를 체크
+                    checkBoxes[i].checked = true;
+                }
+            },
+            uncheckAll = function() {
+                var checkBoxes = document.querySelectorAll('[type="checkbox"]');
+                for(var i = 0, max = checkBoxes.length; i < max; ++i) {
+                    // 현재 있는 모든 체크박스를 체크 해제
+                    checkBoxes[i].checked = false;
+                }
             }
-        }());
+        ;
     </script>
+    <!-- 두 함수를 콘솔에서 실행시켜 동작을 확인해보자! -->
 </body>
 </html>

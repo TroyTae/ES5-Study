@@ -5,48 +5,35 @@
     <title>text</title>
 </head>
 <body>
-    <textarea id="textarea"></textarea>
+    <textarea id="textarea">
+        안녕하세요?
+        모두들 반갑습니다!
+        지금부터 텍스트에 대해 알아봅시다~
+    </textarea>
     <p id="innerText"></p>
     <p id="textContent"></p>
 
-    <button id="show">show</button>
-    <button id="beforebegin">beforebegin</button>
-    <button id="afterbegin">afterbegin</button>
-    <button id="beforeend">beforeend</button>
-    <button id="afterend">afterend</button>
+    <button id="show">Show</button>
 
+    <!--
+        innerText와 textContent 모두 DOM의 text를 읽고 쓰기 위한 속이지만,
+        innerText는 렌더링에 기반으로 \n(Enter)이 개행을 나타내는 <br>로 치환되고,
+        textContent는 자바스크립트를 기반으로 \n(Enter)이 공백(WhiteSpace) 하나로 치환된다!
+    -->
     <script>
-        var innerText = document.getElementById('innerText'),
-            textContent = document.getElementById('textContent'),
-            textarea = document.getElementById('textarea')
+        var textarea = document.getElementById('textarea'),
+            innerText = document.getElementById('innerText'),
+            textContent = document.getElementById('textContent')
         ;
-        var show = document.getElementById('show'),
-            beforebegin = document.getElementById('beforebegin'),
-            afterbegin = document.getElementById('afterbegin'),
-            beforeend = document.getElementById('beforeend'),
-            afterend = document.getElementById('afterend')
-        ;
-        /*
-        * innerText는 렌더링에 기반으로 보이는 대로 읽어들여서 치환해주며,
-        * textContent는 자바스크립트를 기반으로 순수하게 데이터만 본다.
-        */
-        textarea.addEventListener('input', function() {
-            var val = this.value;
-            innerText.innerText = val;
-            textContent.textContent = val;
-        });
+        innerText.innerText = textarea.value;
+        textContent.textContent = textarea.value;
+    </script>
 
-        /* 렌더링을 기반으로 하므로 display 속성에 주의하자! */
-        show.addEventListener('click', function() {
-            console.log(innerText.innerText);
-            console.log(textContent.textContent);
-        });
-
-        /* innerText나 textContent를 사용하여 텍스트를 추가하는 것보다 빠르다 */
-        beforebegin.addEventListener('click', function() { innerText.insertAdjacentText('beforebegin', 'bb'); });
-        afterbegin.addEventListener('click', function() { innerText.insertAdjacentText('afterbegin', 'ab'); });
-        beforeend.addEventListener('click', function() { innerText.insertAdjacentText('beforeend', 'be'); });
-        afterend.addEventListener('click', function() { innerText.insertAdjacentText('afterend', 'ae'); });
+    <!-- 대부분의 DOM 속성은 읽을 수 있으면서 덮어 쓸 수 있다 -->
+    <script>
+        var show = document.getElementById('show');
+        show.textContent = ('Now ' + show.textContent);
+        show.textContent += ' Everything!';
     </script>
 </body>
 </html>

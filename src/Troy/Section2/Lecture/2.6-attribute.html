@@ -7,28 +7,26 @@
 <body>
     <input id="attr" type="text"/>
 
-    <button id="show">show</button>
-    <button id="enable">enable</button>
-    <button id="disable">disable</button>
-
-    <!--attribute와 property의 차이에 주의하자!-->
+    <!-- attribute: DOM이 가질 수 있는 속성 -->
     <script>
         var attr = document.getElementById('attr');
 
-        document.getElementById('show').addEventListener('click', function() {
-            console.log(attr.getAttribute('id'));
-            console.log(attr.getAttribute('type'));
-            console.log(attr.getAttribute('name'));
-            console.log(attr.hasAttribute('disabled'));
-        });
-        document.getElementById('enable').addEventListener('click', function() {
-            attr.setAttribute('name', 'enable');
-            attr.removeAttribute('disabled');
-        });
-        document.getElementById('disable').addEventListener('click', function() {
-            attr.setAttribute('name', 'disable');
+        console.log(attr.getAttribute('id'));
+        console.log(attr.getAttribute('type'));
+        console.log(attr.getAttribute('name'));
+
+        // attr.disabled = true;를 실행하면 아래와 같은 동작
+        var disable = function() {
             attr.setAttribute('disabled', '');
-        });
+            console.log(attr.hasAttribute('disabled'));
+        };
+
+        // attr.disabled = false;를 실행하면 아래와 같은 동작
+        var enable = function () {
+            attr.removeAttribute('disabled');
+            console.log(attr.hasAttribute('disabled'));
+        };
     </script>
+    <!-- 두 함수를 콘솔에서 실행시켜 동작을 확인해보자! -->
 </body>
 </html>

@@ -4,19 +4,26 @@
     <meta charset="UTF-8">
     <title>dataset</title>
 </head>
+
+<!-- dataset: ECMA에서 공식 지정한 Custom 정의 -->
 <body>
-    <div id="data" data-action="click"></div>
+    <div id="dataSet" data-action="click"></div>
 
-    <!--ECMA에서 공식 지정한 Custom 정의-->
+    <!--
+        id/class 같은 표준 attribute 이외에 개발자들이 임의로 다른 속성들을
+        중구난방으로 넣지 않게 하고 개발 접근성을 향상 시키기 위해 하나의 표준안을 제시
+    -->
     <script>
-        var data = document.getElementById('data');
+        var dataSet = document.getElementById('dataSet');
 
-        console.log(data.dataset);
-        console.log(data.dataset.action);
+        /* data-action 속성 읽기 */
+        console.log(dataSet.dataset);
+        console.log(dataSet.dataset.action);
 
-        data.dataset.button = 'btn';
-        console.log(data.dataset);
-        console.log(data.dataset.button);
+        /* data-button 속성 추가 */
+        dataSet.dataset.button = 'btn';
+        console.log(dataSet.dataset);
+        console.log(dataSet.dataset.button);
     </script>
 </body>
 </html>
