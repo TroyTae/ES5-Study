@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Keyboard</title>
+</head>
+<body>
+    <div>
+        <input id="down" type="text" placeholder="keyup"/>
+        <input id="up" type="text" placeholder="keydown"/>
+        <input id="clipboard" type="text" placeholder="clipboard"/>
+    </div>
+
+    <div>
+        <h6>Ctrl + Y = 텍스트 초기화</h6>
+        <h6>Alt + Enter = 입력된 텍스트 삽입</h6>
+        <input id="input" type="text"/>
+        <ul id="list"></ul>
+    </div>
+
+    <script>
+        var up = document.getElementById('up'),
+            down = document.getElementById('down'),
+            clipboard = document.getElementById('clipboard')
+        ;
+        up.addEventListener('keyup', function() { console.log('키보드 up~'); });
+        down.addEventListener('keydown', function() { console.log('키보드 down~'); });
+        clipboard.addEventListener('cut', function() { console.log('잘라내기!'); });
+        clipboard.addEventListener('copy', function() { console.log('복사!'); });
+        clipboard.addEventListener('paste', function() { console.log('붙여넣기!'); });
+    </script>
+
+    <script>
+        var ul = document.getElementById('list');
+
+        document
+            .getElementById('input')
+            .addEventListener('keyup', function(e) {
+                // init
+                if(e.ctrlKey && e.keyCode === 89) {
+                    this.value = '';
+                }
+                // insert
+                else if(e.altKey && e.keyCode === 13) {
+                    var li = document.createElement('li'),
+                        value = this.value
+                    ;
+                    if(value) {
+                        li.textContent = value;
+                        this.value = '';
+                        ul.appendChild(li);
+                    }
+                }
+            })
+        ;
+    </script>
+</body>
+</html>
