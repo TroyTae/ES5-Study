@@ -5,23 +5,26 @@
     <title>Practice5</title>
 </head>
 <body>
+    <style>
+        div {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 15px;
+        }
+    </style>
+
+    <div style="background-color: red;"></div>
+
     <!--
-        현재 Date prototype에 있는 toString 메서드를 실행시키면, "Mon Sep 04 2017 09:42:02 GMT+0900 (대한민국 표준시)" 이렇게 출력된다.
-        고객들이 보기 편한 형태로 아래 주석처럼 출력하기 위해 prototype를 덮어써서 작성해보자!
+        랜덤 한 색을 가진 div태그를 만들어 랜덤한 속도와 방향으로 움직이고, 벽에 부딪히면 반사각 방향으로 이동하는 스크립트를 작성하시오
+        [ 공은 화면에 100개를 생성하자! ]
+        [ 속도는 60fps기준 최대 10px의 속도를 가질 수 있다 ]
+        [ 색의 범위를 10진수로 나타내면 0~16777215의 범위를 가진다! ]
+        [ 벽은 화면의 최대 크기를 말하며 window.innerHeight/window.innerWidth 이용하면 된다! ]
+        [ 코드 작성 후에는 위에 예시로 넣어놓은 div 태그는 지우시오! ]
     -->
     <script>
-        Date.prototype.toString = function(pattern) {};
-
-        var date = new Date();
-
-        // console.log(date.toString('yyyy'))
-        // 위 코드를 실행시키면 Year 출력
-
-        // console.log(date.toString('yyyy-MM'))
-        // 위 코드를 실행시키면 Year-Month 형태로 출력
-
-        // console.log(date.toString('MM/dd'))
-        // 위 코드를 실행시키면 Month/Date 형태로 출력
     </script>
 </body>
 </html>

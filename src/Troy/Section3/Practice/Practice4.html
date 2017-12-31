@@ -7,43 +7,45 @@
 <body>
     <style>
         div {
-            position: absolute;
-            border: 1px solid black;
+            position: relative;
+            width: 175px;
         }
-        #vertical {
+        ul {
+            position: absolute;
             top: 0;
-            width: 1px;
-            height: calc(100% - 2px);
-        }
-        #horizontal {
             left: 0;
-            height: 1px;
             width: calc(100% - 2px);
+            padding: 0;
+            margin-top: 23px;
         }
-        .red.ball {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: red;
-            border: none;
-            border-radius: 10px;
+        li {
+            cursor: pointer;
+            list-style: none;
+            background-color: #eee;
+        }
+        li:hover {
+            background-color: #ddd;
         }
     </style>
-
-    <div id="vertical"></div>
-    <div id="horizontal"></div>
-
+    <div>
+        <input type="text"/>
+        <ul>
+            <li>아무개</li>
+            <li>김누구</li>
+            <li>이름이</li>
+            <li>이무이</li>
+            <li>김철수</li>
+            <li>이수미</li>
+        </ul>
+    </div>
     <!--
-    스나이퍼 UI를 만들어보자~
-    지금있는 2개의 선을 조준경이라고 생각하고 마우스가 움직이면 중앙의 조준점이 따라서 움직이는 스크립트를 작성해보자.
-    조준경 따라가는걸 했다면 클릭시 클릭한 좌표에 빨간 공이 생기는 스크립트를 추가해보자! (빨간 공의 css는 만들어져 있음)
+    자동완성을 만들어보자~
+    input에 글자를 입력하면 ul에 해당하는 글자와 일치하는 문자열을 포함하는 배열 요소를 li로 만들어 출력하고, 클릭 시 input에 자동완성된다.
+    만약 일치하는 문자열을 가진 배열요소가 하나도 없을 시 ul의 display 상태는 none이여야 한다.
+    (초성 검색까지는 안해도 된다... 초성검색은 다음 시간에 정규식 배우고 나서!)
     -->
     <script>
-        var vertical = document.getElementById('vertical'),
-            horizontal = document.getElementById('horizontal')
-        ;
-        vertical.style.left = '50px';
-        horizontal.style.top = '50px';
+        var arr = ['아무개', '김누구', '이름이', '이무이', '김철수', '이수미'];
     </script>
 </body>
 </html>
