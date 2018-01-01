@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mouse</title>
+</head>
+<body>
+    <style>
+        #wrap {
+            margin: 20px;
+            width: 500px;
+            height: 500px;
+            border: 2px solid black;
+        }
+        .ball {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
+        }
+        .red { background-color: red; }
+        .blue { background-color: blue; }
+        .green { background-color: green; }
+    </style>
+
+    <div class="ball red"></div>
+    <div class="ball blue"></div>
+    <div class="ball green"></div>
+    <div style="margin: 50px;"><div id="wrap"></div></div>
+
+    <!--
+        offsetX/Y: 이벤트가 binding 된 DOM을 기준으로 한 마우스 좌표 (body에서 이벤트가 발생되면 pageX/Y와 값이 똑같음)
+        pageX/Y: document 기준 마우스 좌표 (상단바를 제외한 브라우저 영역에서 우리가 볼 수 있는 마우스 좌표와 동일)
+        screenX/Y: 모니터 전체를 기준으로 한 마우스 좌표 (pageX/Y와 같은 좌표를 얻으려면 F11을 눌러 전체화면으로 전환)
+    -->
+    <script>
+        var redBall = document.getElementsByClassName('red')[0],
+            blueBall = document.getElementsByClassName('blue')[0],
+            greenBall = document.getElementsByClassName('green')[0]
+        ;
+
+        document
+            .getElementById('wrap')
+            .addEventListener('mousemove', function(e) {
+                redBall.style.cssText = ('top:' + e.offsetY + 'px; left:' + e.offsetX + 'px');
+                blueBall.style.cssText = ('top:' + e.pageY + 'px; left:' + e.pageX + 'px');
+                greenBall.style.cssText = ('top:' + e.screenY + 'px; left:' + e.screenX + 'px');
+            })
+        ;
+    </script>
+</body>
+</html>
