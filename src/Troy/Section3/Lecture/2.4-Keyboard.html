@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Keyboard</title>
+</head>
+<body>
+    <div>
+        <h6>Ctrl + Y = 텍스트 초기화</h6>
+        <h6>Alt + Enter = 입력된 텍스트 삽입</h6>
+        <input id="key" type="text"/>
+        <ul id="list"></ul>
+    </div>
+
+    <!--
+        Keyboard Event 객체에는 keyCode라고 하는 값이 있는데,
+        키보드의 각 key 별로 고유한 값을 가지고 있으며 모두 숫자이다.
+     -->
+    <script>
+        var ul = document.getElementById('list');
+        document
+            .getElementById('key')
+            .addEventListener('keyup', function(e) {
+                // Ctrl 누른 상태로 Y키
+                if(e.ctrlKey && e.keyCode === 89) {
+                    this.value = '';
+                }
+                // Alt 누른 상태로 Enter 키
+                else if(e.altKey && e.keyCode === 13) {
+                    var value = this.value,
+                        li = document.createElement('li')
+                    ;
+                    if(value) {
+                        li.textContent = value;
+                        this.value = '';
+                        ul.appendChild(li);
+                    }
+                }
+            })
+        ;
+    </script>
+</body>
+</html>

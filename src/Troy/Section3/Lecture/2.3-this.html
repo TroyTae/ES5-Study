@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>this</title>
+</head>
+<body>
+    <input type="text"/>
+    <input type="text"/>
+
+    <!-- 10글자 제한 스크립트 -->
+    <script>
+        var inputs = document.getElementsByTagName('input');
+
+        // this는 이벤트가 발생된 DOM
+        inputs[0].addEventListener('keydown', function() {
+            var value = this.value;
+            if(10 < value.length) {
+                this.value = value.slice(0, 10);
+            }
+            console.log(this);
+        });
+
+        // 마찬가지로 .앞에 있는 걸 보면 된다
+        inputs[1].addEventListener('keyup', function() {
+            var value = this.value;
+            if(10 < value.length) {
+                this.value = value.slice(0, 10);
+            }
+            console.log(this);
+        });
+    </script>
+</body>
+</html>

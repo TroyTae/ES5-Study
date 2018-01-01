@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>CBRvsCBV</title>
-</head>
-<body>
     <style>
         button {
             width: 160px;
@@ -12,13 +10,45 @@
             margin: 10px;
         }
     </style>
+</head>
+<body>
+    <div i="CBR"><h4>CBR</h4></div>
+    <div id="CBV"><h4>CBV</h4></div>
 
+    <!-- Call By Reference -->
     <script>
+        var CBR = document.getElementById('CBR');
         for(var i = 0, max = 5; i < max; ++i) {
             var btn = document.createElement('button');
             btn.textContent = i;
-            btn.addEventListener('click', function() { console.log(i); });
-            document.body.appendChild(btn);
+            btn.addEventListener('click', function() {
+                /*
+                * i 변수에 대한 주소를 가지고 있고
+                * for 문이 끝났을 때 i는 5이기 때문에
+                * 어떤 버튼을 클릭해도 5가 출력된다
+                */
+                console.log(i);
+            });
+            CBR.appendChild(btn);
+        }
+    </script>
+
+    <!-- Call By Value -->
+    <script>
+        var CBV = document.getElementById('CBV');
+        for(var i = 0, max = 5; i < max; ++i) {
+            (function(num) {
+                var btn = document.createElement('button');
+                btn.textContent = num;
+                btn.addEventListener('click', function() {
+                    /*
+                    * 새로운 스코프를 생성해서 변수를 선언해
+                    * 그 변수에 i 값을 담으면 0~4를 저장해 출력
+                    */
+                    console.log(num);
+                });
+                CBV.appendChild(btn);
+            }(i))
         }
     </script>
 </body>

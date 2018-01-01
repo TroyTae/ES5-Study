@@ -2,9 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Bubble&Capture</title>
-</head>
-<body>
+    <title>Propagation</title>
     <style>
         .div {
             display: inline-block;
@@ -12,7 +10,9 @@
             border: 2px solid black;
         }
     </style>
-
+</head>
+<!-- https://www.w3.org/TR/DOM-Level-3-Events/#event-flow -->
+<body>
     <div id="bubble">
         <div class="div">
             <div class="div">
@@ -28,11 +28,15 @@
         </div>
     </div>
 
-    <!-- https://www.w3.org/TR/DOM-Level-3-Events/#event-flow -->
+    <!--
+        Bubbling: 조상 DOM으로 이벤트 전파
+        Capturing: 후손 DOM으로 이벤트 전파
+    -->
     <script>
-        var bubbles = document.getElementById('bubble').getElementsByClassName('div');
-        var captures = document.getElementById('capture').getElementsByClassName('div');
-
+        var bubbles = document.getElementById('bubble').getElementsByClassName('div'),
+            captures = document.getElementById('capture').getElementsByClassName('div')
+        ;
+        // Bubbling/Capturing 여부는 addEventListener 메서드의 세 번째 매개변수로 지정 가능
         for(var i = 0, max = 3; i < max; ++i) {
             bubbles[i].addEventListener('click', function() { console.log(this); }, false);
             captures[i].addEventListener('click', function() { console.log(this); }, true);
