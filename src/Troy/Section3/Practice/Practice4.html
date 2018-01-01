@@ -3,46 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <title>Practice4</title>
-</head>
-<body>
     <style>
-        div {
+        #select {
+            width: 150px;
+            display: block;
             position: relative;
-            width: 175px;
-        }
-        ul {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: calc(100% - 2px);
-            padding: 0;
-            margin-top: 23px;
-        }
-        li {
-            cursor: pointer;
-            list-style: none;
-            background-color: #eee;
-        }
-        li:hover {
             background-color: #ddd;
         }
+        #select > input {
+            width: 0;
+            height: 0;
+            border: none;
+        }
+        #select > ul > li { cursor: pointer; }
+        #select > ul > li:hover,
+        #select > ul > li.active {
+            background-color: #eee;
+        }
+        #select > ul {
+            position: absolute;
+            width: 100%;
+        }
     </style>
-    <div>
-        <input type="text"/>
-        <ul>
-            <li>아무개</li>
+</head>
+<body>
+    <label id="select">
+        <input type="text">
+        <span>김누구</span>
+        <ul style="display: none;">
+            <li class="active">아무개</li>
             <li>김누구</li>
             <li>이름이</li>
             <li>이무이</li>
             <li>김철수</li>
             <li>이수미</li>
         </ul>
-    </div>
+    </label>
+
     <!--
-    자동완성을 만들어보자~
-    input에 글자를 입력하면 ul에 해당하는 글자와 일치하는 문자열을 포함하는 배열 요소를 li로 만들어 출력하고, 클릭 시 input에 자동완성된다.
-    만약 일치하는 문자열을 가진 배열요소가 하나도 없을 시 ul의 display 상태는 none이여야 한다.
-    (초성 검색까지는 안해도 된다... 초성검색은 다음 시간에 정규식 배우고 나서!)
+        custom select를 만들어보자~
+        label 태그 안에 있는 input이 focus되면 ul 태그가 보이고 blur되면 다시 안보인다.
+        li 태그를 클릭하면 span의 텍스트가 선택된 텍스트로 바뀐다.
+        방향키(↑↓)를 이용해 active class를 형/동생 DOM으로 옮길 수 있다.
+        Enter를 누르면 span의 텍스트가 active class를 가진 li 태그의 텍스트로 바뀐다.
     -->
     <script>
         var arr = ['아무개', '김누구', '이름이', '이무이', '김철수', '이수미'];

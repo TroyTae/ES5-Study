@@ -10,18 +10,16 @@
         고객들이 보기 편한 형태로 아래 주석처럼 출력하기 위해 Date.prototype.toString 함수를 덮어써서 작성해보자!
     -->
     <script>
-        Date.prototype.toString = function(pattern) {};
-
         var date = new Date();
 
-        // console.log(date.toString('yyyy'))
-        // 위 코드를 실행시키면 Year 출력
+        console.log(date.toString('yyyy'))
+        // 위 코드를 실행시키면 년도 출력
 
-        // console.log(date.toString('yyyy-MM'))
-        // 위 코드를 실행시키면 Year-Month 형태로 출력
+        console.log(date.toString('yyyy-MM'))
+        // 위 코드를 실행시키면 년도-월 형태로 출력
 
-        // console.log(date.toString('MM/dd'))
-        // 위 코드를 실행시키면 Month/Date 형태로 출력
+        console.log(date.toString('MM/dd'))
+        // 위 코드를 실행시키면 월/일 형태로 출력
     </script>
 </body>
 </html>
