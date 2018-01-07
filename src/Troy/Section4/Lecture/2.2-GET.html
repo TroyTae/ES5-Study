@@ -10,8 +10,7 @@
     <!-- GET은 ? 뒤에 query를 붙이는 형식으로 parameter를 전달 -->
     <script>
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'http://localhost:3000/api/readStudy');
-//        xhr.open('GET', 'http://localhost:3000/api/readStudy?id=5a13ff794044c80d54d3b1a5');
+        xhr.open('GET', './data.json');
         xhr.addEventListener('load', function() {
             var list = JSON.parse(xhr.responseText);
             list.forEach(function(v) {
