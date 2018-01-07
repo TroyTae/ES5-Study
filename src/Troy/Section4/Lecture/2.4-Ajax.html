@@ -7,36 +7,53 @@
 <body>
     <!-- 아래 코드를 이해했다면 당신은 이제 JS 초보 탈출~ -->
     <script>
-        var Ajax = function(option, done, fail) {
+        var Ajax = function(option, done) {
             var xhr = new XMLHttpRequest();
-            function createURI(obj) {
-                var uri = [];
-                for(var k in obj) {
-                    uri.push(k + '=' + obj[k]);
-                }
-                return uri.join('&');
-            };
-
-            xhr.open(option.method, option.url + (option.method === 'GET' ? '?'.concat(createURI(option.data)) : ''));
             xhr.addEventListener('load', function () {
-                var res = JSON.parse(xhr.responseText);
-                if(Math.floor(xhr.status) === 4) fail(res);
-                else done(res);
+                var status = Math.floor(xhr.status);
+                if(status === 4) console.log(xhr);
+                else done(JSON.parse(xhr.responseText));
             });
+            Ajax[option.method](xhr, option);
+        };
 
-            if(option.method === 'GET') xhr.send();
+        Ajax.createURI = function(obj) {
+            var uri = [];
+            for(var k in obj) {
+                uri.push(k + '=' + obj[k]);
+            }
+            return uri.join('&');
+        };
+
+        Ajax.GET = function(xhr, option) {
+            var URI = Ajax.createURI(option.data);
+            xhr.open('GET', option.url.concat('?' + URI));
+            xhr.send();
+        };
+
+        Ajax.POST = function(xhr, option) {
+            xhr.open('POST', option.url);
+            if(option['dataType'] === 'json') {
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.send(JSON.stringify(data));
+            }
             else {
+                var URI = Ajax.createURI(option.data);
                 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                xhr.send(encodeURI(createURI(option.data)));
+                xhr.send(encodeURI(URI));
             }
         };
 
         Ajax({
             method: 'GET',
-            url: 'http://localhost:3000/api/readStudy',
-            data: {
-//                id: '5a14155ec357241bcc85e784'
-            }
+            url: './data.json',
+            data: { id: '5a14155ec357241bcc85e784' }
+        }, console.log);
+
+        Ajax({
+            method: 'POST',
+            url: './data.json',
+            data: { id: '5a14155ec357241bcc85e784' }
         }, console.log);
     </script>
 </body>

@@ -15,11 +15,7 @@
             var list = JSON.parse(xhr.responseText);
             list.forEach(function(v) {
                 var li = document.createElement('LI');
-                li.textContent = (
-                    v.name + ' - ' +
-                    v.role + '(' +
-                    (v.gender ? '남' : '여') + ')'
-                );
+                li.textContent = (v.name + '-' + (v.gender ? '남' : '여'));
                 document.getElementById('list').appendChild(li);
             });
         });

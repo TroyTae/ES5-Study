@@ -12,42 +12,21 @@
         var xhr = new XMLHttpRequest();
         xhr.open('POST', './data.json');
 
-        var data = {
-            gender: true,
-            name: '김미르',
-            role: 'member'
-        };
-
         /* x-www-form-urlencoded은 form 전송, json은 json 데이터 형식을 의미 */
 
         // form-uri
         (function() {
-            var uri = [];
-            for(var k in data) {
-                uri.push(k + '=' + data[k]);
-            }
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.setRequestHeader('Content-Type', 'application/json');
             xhr.addEventListener('load', function() {
-                console.log(xhr);
                 var list = JSON.parse(xhr.responseText);
                 list.forEach(function(v) {
                     var li = document.createElement('LI');
-                    li.textContent = (
-                        v.name + ' - ' +
-                        v.role + '(' +
-                        (v.gender ? '남' : '여') + ')'
-                    );
+                    li.textContent = (v.name + '-' + (v.gender ? '남' : '여'));
                     document.getElementById('list').appendChild(li);
                 });
             });
-            xhr.send(encodeURI(uri.join('&')));
+            xhr.send(JSON.stringify({}));
         }());
-
-        // json
-        /*(function() {
-            xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.send(JSON.stringify(data));
-        }());*/
     </script>
 </body>
 </html>
