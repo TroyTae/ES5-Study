@@ -121,7 +121,27 @@
     태그들의 class를 모두 JS-Study로 바꾸는 정규식을 작성해보자!
     -->
     <script>
-        // document.getElementById('ac-globalnav').outerHTML = '';
+
+        /* 1. 정규식 활용 */
+        var tagList = document.getElementById('ac-globalnav').outerHTML;
+        var regExp = new RegExp('(?<=class=")[\\w\\s\-]+(?=")', 'g');
+        console.log(tagList.replace(regExp, 'JS-Study'));
+
+
+        /* 2. className 이용 */
+        var recursiveNodes = function (element){
+            for(var i = 0 ; i < element.childNodes.length ; i++){
+                element.childNodes[i].className = 'JS-Study';
+                if(element.childNodes[i].hasChildNodes()){
+                        recursiveNodes(element.childNodes[i]);
+                }
+            }
+        }
+        recursiveNodes(document.body);
+        console.log(document.getElementById('ac-globalnav').outerHTML);
+
+
+
     </script>
 </body>
 </html>
