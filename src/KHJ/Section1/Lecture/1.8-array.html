@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array</title>
+</head>
+<body>
+    <!--
+        객체가 서로 관련있는 변수를 모으는데 사용하고 key로 분류했다면,
+        배열은 똑같은 자료형을 가진 변수들을 정렬하는데 사용하고 순서(index)로 분류한다.
+    -->
+    <script>
+        var list = [1, '배열', true, { name: '객체닷!' }];
+        console.log(list);
+        console.log(list[0]);
+        console.log(list[1]);
+        console.log(list[2]);
+        console.log(list[3]);
+        console.log(list[3].name);
+        console.log(list[4]);
+        // console.log(list.1);
+    </script>
+
+    <!--
+        학생과 관련된 내용은 student 객체에 넣고,
+        여러 학생 객체를 배열에 넣어 관리하는 예시
+    -->
+    <script>
+        var student1 = {
+                name: '태재영',
+                class: 'A',
+                major: 'embedded'
+            },
+            student2 = {
+                name: '강현지',
+                class: 'B',
+                major: 'statistics'
+            }
+        ;
+        var students = [student1, student2];
+    </script>
+
+    <!-- 객체 안에 객체를 담을 수 있었듯 배열 안에 배열을 저장할 수 있음 -->
+    <script>
+        // 2차원 배열
+        var matrix = [
+            [1, 2, 3, 4],
+            [5, 7, 8, 9]
+        ];
+        console.log(matrix[0][0]);
+        console.log(matrix[0][2]);
+        console.log(matrix[1][1]);
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function</title>
+</head>
+<!--        함수
+ 일련의 코드들을 모아둔 것으로
+ 함수 이름을 작성하는 것만으로
+ 함수 안의 코드들을 수행시킬 수 있기 때문에
+ 반복적인 코드 작성을 줄일 수 있으며 변경사항 반영에 유리하다.
+-->
+<body>
+    <!-- 함수선언 -->
+    <script>
+        // 함수 선언은 함수가 전체가 호이스팅
+        console.log(sum(1, 5));
+
+        // (a, b)는 매개변수로 함수 실행마다 값을 받기 위해 사용
+        function sum(a, b) {
+            if(a === 1) a = 5;
+            return a + b;
+        }
+    </script>
+
+    <!-- 함수표현식 -->
+    <script>
+        // 함수 표현은 변수만 호이스팅
+        console.log(multiply);
+
+        // 함수를 변수에 값처럼 대입
+        var multiply = function(a, b) {
+            var res = a * b;
+            return res;
+        };
+        console.log(multiply(2, 5));
+    </script>
+
+    <script>console.log('-----------------------------------------------------');</script>
+
+    <!-- 이름이 있냐 없냐에 따라 익명/기명 함수라고 명명 -->
+    <script>
+        // 익명 함수 표현식
+        var func1 = function() { return 1; };
+        console.log(func1());
+
+        // 기명 함수 표현식
+        var func2 = function func3() { return 2; };
+        console.log(func2());
+        /* 표현식에서 변수에 대입된 기명 함수 func3는 외부에서 사용불가하므로 재귀함수에 주로 사용!! */
+        // console.log(func3());
+    </script>
+
+    <!-- 재귀함수: 함수 내에서 똑같은 함수를 호출하는 것으로 Stack Overflow의 원인이 되기도 함 -->
+    <script>
+        /* 재귀함수를 이용한 팩토리얼 */
+        var factorial = function self(n) {
+            if(n === 1) return 1;
+            else return n * self(n - 1);
+        };
+        console.log(factorial(3));
+        console.log(factorial(5));
+    </script>
+
+    <!--                                    Stack Overflow?
+     함수 내부에서 함수를 호출하고, 그 함수에서 또 함수를 호출하면 실행이 실행이 끝나지 않은 함수들이 계속 쌓이게 된다.
+     이 쌓이는 곳을 호출 스택이라고 하며 최대 제한이 있는데 이걸 넘어서는 것을 Stack Overflow라 하며 프로그램과 충돌을 일으킨다.
+     (테스트해보고 싶다면 위 재귀 함수 예제에서 매개변수의 값을 굉~장히 큰 숫자로 해보자!)
+    -->
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GET</title>
+</head>
+<body>
+    <ul id="list"></ul>
+
+    <!-- GET은 ? 뒤에 query를 붙이는 형식으로 parameter를 전달 -->
+    <script>
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', './data.json');
+        xhr.addEventListener('load', function() {
+            var list = JSON.parse(xhr.responseText);
+            list.forEach(function(v) {
+                var li = document.createElement('LI');
+                li.textContent = (v.name + '-' + (v.gender ? '남' : '여'));
+                document.getElementById('list').appendChild(li);
+            });
+        });
+        xhr.send();
+    </script>
+</body>
+</html>

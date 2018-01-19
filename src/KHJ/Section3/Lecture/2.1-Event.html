@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event</title>
+    <style>
+        button {
+            padding: 10px;
+        }
+    </style>
+</head>
+<!--                            Event?
+ 사용자가 웹페이지를 클릭하는 등의 상호작용이 일어났을 때 이벤트가 발생한다.
+ 그리고 이런 이벤트가 발생했을 때 처리할 수 있게 해주는 것을 Event Handler/Listener 라고 한다.
+-->
+<body>
+    <button id="down">mouseDown</button>
+    <button id="up">mouseUp</button>
+    <button id="click">Click</button>
+    <button id="dblclick">dblClick</button>
+
+    <!-- DOM 객체의 addEventListener 메서드를 이용해서 이벤트 리스너를 binding 할 수 있다! -->
+    <script>
+        // 첫 번째 매개변수: 이벤트의 종류
+        document.getElementById('down').addEventListener('mousedown', function(e) {
+            console.log(e.target);
+            console.log('up 상태였던 마우스가 해당 DOM 좌표에서 down!');
+        });
+        // 두 번째 매개변수: 이벤트 리스너
+        document.getElementById('up').addEventListener('mouseup', function(e) {
+            console.log(e.target);
+            console.log('down 상태였던 마우스가 해당 DOM 좌표에서 up!');
+        });
+        // 이벤트 리스너의 매개변수에는 Event 객체가 넘어온다
+        document.getElementById('click').addEventListener('click', function(e) {
+            console.log(e.target);
+            console.log('해당 DOM 좌표에서 mousedown 후 mouseup!');
+        });
+        // Event 객체에는 target처럼 공통된 정보부터 마우스 이벤트만의 X/Y 좌표같은 여러 정보가 담겨있다
+        document.getElementById('dblclick').addEventListener('dblclick', function(e) {
+            console.log(e.target);
+            console.log('해당 DOM 연속으로 click!');
+        });
+    </script>
+</body>
+</html>

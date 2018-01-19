@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>checked</title>
+</head>
+<body>
+    <div>
+        <label><input type="checkbox" checked><span>체크박스1</span></label>
+        <label><input type="checkbox"><span>체크박스2</span></label>
+        <label><input type="checkbox"><span>체크박스3</span></label>
+    </div>
+
+    <div>
+        <label><input type="radio" name="radio" checked><span>라디오1</span></label>
+        <label><input type="radio" name="radio"><span>라디오2</span></label>
+    </div>
+
+    <!-- checked: key의 존재여부로 활성화 여부를 판단하는 Boolean 값 -->
+    <script>
+        /*
+        * checked === true, 체크된 상태
+        * checked === false 해제된 상태
+        */
+        var checkBoxes = document.querySelectorAll('[type="checkbox"]');
+        for(var i = 0, max = checkBoxes.length; i < max; ++i) {
+            // 현재 있는 모든 체크박스를 체크
+            checkBoxes[i].checked = !checkBoxes[i].checked;
+        }
+
+        // 라디오 버튼도 강제적으로 체크해제 가능
+        document.querySelector('[type="radio"]:checked').checked = false;
+    </script>
+</body>
+</html>

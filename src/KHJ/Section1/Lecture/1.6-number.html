@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>number</title>
+</head>
+<body>
+    <!-- 기본적인 산술 연산자 -->
+    <script>
+        console.log(1 + 5);
+        console.log(1 - 5);
+        console.log(5 * 5);
+        console.log(10 / 5);
+        console.log(10 % 3);
+    </script>
+
+    <!-- 현재 변수의 값을 기준으로 연산하는 복합 연산자 -->
+    <script>
+        var num = 1;
+        num += 1; // num = num + 1;
+        console.log(num);
+        num -= 1; // num = num - 1;
+        console.log(num);
+    </script>
+
+    <!--가산/감산 연산자-->
+    <script>
+        var num1 = 1;
+        console.log(num1++);
+        console.log(++num1);
+
+        var num2 = 2;
+        console.log(--num2 + num1--);
+
+        /*
+        * 실제로는 이런식으로 해석된것...
+        * 가산 연산자가 앞에 올 때와 뒤에 올 때의 연산 순서에 유의하면서 보자!!
+        *
+        * var num1 = 1, num2;
+        *
+        * console.log(num1);
+        * num1 += 1;
+        * num1 += 1;
+        * console.log(num1);
+        *
+        * num2 = 2;
+        * num2 -= 1;
+        * console.log(num2 + num1);
+        * num1 -= 1;
+        *
+        */
+    </script>
+
+
+    <!--
+        부동 소수점 오차
+        자바스크립트는 부동 소수점이라는 소수점 계산 방식을 사용하기 때문에 오차가 발생하는데,
+        2번 째 콘솔 출력문처럼 정수 상태에서 필요한 연산을 한 뒤 다시 소수점으로 바꿔준다.
+    -->
+    <script>
+        var f1 = 0.1, f2 = 0.2;
+        console.log(f1 + f2);
+        console.log((f1 * 10 + f2 * 10) / 10);
+    </script>
+</body>
+</html>

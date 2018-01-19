@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>POST</title>
+</head>
+<body>
+    <ul id="list"></ul>
+
+    <!-- POST는 send를 이용해 body에 직접 삽입 -->
+    <script>
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', './data.json');
+
+        /* x-www-form-urlencoded은 form 전송, json은 json 데이터 형식을 의미 */
+
+        // form-uri
+        (function() {
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.addEventListener('load', function() {
+                var list = JSON.parse(xhr.responseText);
+                list.forEach(function(v) {
+                    var li = document.createElement('LI');
+                    li.textContent = (v.name + '-' + (v.gender ? '남' : '여'));
+                    document.getElementById('list').appendChild(li);
+                });
+            });
+            xhr.send(JSON.stringify({}));
+        }());
+    </script>
+</body>
+</html>

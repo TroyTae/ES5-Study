@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practice3</title>
+    <style>
+        div { position: absolute; border: 1px solid black; }
+        #vertical { top: 0; width: 1px; height: calc(100% - 2px); }
+        #horizontal { left: 0; height: 1px; width: calc(100% - 2px); }
+        .red.ball {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            border: none;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="vertical"></div>
+    <div id="horizontal"></div>
+
+    <!--
+        스나이퍼 UI를 만들어보자~
+        지금있는 2개의 선을 조준경이라고 생각하고 마우스가 움직이면 중앙의 조준점이 따라서 움직이는 스크립트를 작성해보자.
+        조준경 따라가는걸 했다면 클릭시 클릭한 좌표에 빨간 공이 생기는 스크립트를 추가해보자! (빨간 공의 css는 만들어져 있음)
+    -->
+    <script>
+        var vertical = document.getElementById('vertical'),
+            horizontal = document.getElementById('horizontal')
+        ;
+        vertical.style.left = '50px';
+        horizontal.style.top = '50px';
+    </script>
+</body>
+</html>

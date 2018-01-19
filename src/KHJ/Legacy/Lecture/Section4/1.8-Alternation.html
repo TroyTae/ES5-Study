@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Alternation</title>
+</head>
+<body>
+    <!-- CharacterSet이 [ ]안에 있는 하나 하나의 조건을 쪼개서 체크했다면 -->
+    <!-- Alternation은 |로 구분된 그룹핑 조건을 검사한다 -->
+    <script>
+        var regExp = new RegExp('\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])', 'g');
+
+        console.log(regExp.test('2014-11-11'));
+        console.log(regExp.test('1023-12-31'));
+        console.log(regExp.test('9999-05-33'));
+        console.log(regExp.test('3011-01-25'));
+        console.log(regExp.test('4099-13-19'));
+        console.log(regExp.test('1997-07-21'));
+    </script>
+</body>
+</html>

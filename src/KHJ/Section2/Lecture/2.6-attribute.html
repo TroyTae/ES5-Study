@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>attribute</title>
+</head>
+<body>
+    <input id="attr" type="text"/>
+
+    <!-- attribute: DOM이 가질 수 있는 속성 -->
+    <script>
+        var attr = document.getElementById('attr');
+
+        console.log('id:', attr.getAttribute('id'));
+        console.log('type:', attr.getAttribute('type'));
+        console.log('name:', attr.getAttribute('name'));
+
+        // attr.disabled = true;를 실행하면 아래와 같은 동작
+        attr.setAttribute('disabled', '');
+        console.log(attr.hasAttribute('disabled'));
+
+        // attr.disabled = false;를 실행하면 아래와 같은 동작
+        attr.removeAttribute('disabled');
+        console.log(attr.hasAttribute('disabled'));
+    </script>
+</body>
+</html>

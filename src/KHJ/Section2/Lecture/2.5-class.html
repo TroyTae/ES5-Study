@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>class</title>
+</head>
+<body>
+    <h1>Class</h1>
+
+    <!-- className/classList를 사용해서 class를 조작할 수 있다. -->
+    <!-- classList가 더 많은 기능들을 제공하지만 일부 브라우저에서 동작하지 않으므로 주의! -->
+    <script>
+        var h1 = document.querySelector('h1'),
+            classes = h1.classList
+        ;
+        // className read/write 모두 가능
+        h1.className = 'test';
+        console.log(h1.className);
+
+        /* classList 활용 class 추가/삭제 등 조작이 가능! */
+        classes.add('cls'), console.log('add:', h1.className);
+        classes.remove('cls'), console.log('remove:', h1.className);
+        classes.toggle('cls'), console.log('toggle:', h1.className);
+        classes.toggle('cls'), console.log('toggle:', h1.className);
+        console.log('contains:', classes.contains('cls'));
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>break</title>
+</head>
+<body>
+    <script>
+        var list = [1, 2, 3, 4],
+            i = 0
+        ;
+        // 무한 루프: 조건이 거짓이되는 경우가 없어서 반복문을 무한 수행
+        while(true) {
+            // break: while 문의 조건에 관계없이 반복문을 강제 종료
+            if(i === 3) break;
+            console.log(list[i++]);
+        }
+    </script>
+</body>
+</html>

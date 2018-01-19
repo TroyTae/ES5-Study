@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Input</title>
+</head>
+<body>
+    <select>
+        <option value="Mireu">김미르</option>
+        <option>Chloe</option>
+        <option>hyeon</option>
+        <option value="Troy">태재영</option>
+        <option>JHJ</option>
+        <option>Jurip</option>
+        <option value="JYS">전윤선</option>
+        <option>kimhoyoung</option>
+        <option>seyoung</option>
+        <option value="KHJ">강현지</option>
+        <option>YuniJ</option>
+        <option>HDC</option>
+    </select>
+
+    <textarea id="textarea" placeholder="작성하세요"></textarea>
+
+    <!--
+        초점이 맞춰졌다는 것은 해당 DOM이 입력 가능한 상태가 되었다는 걸 의미한다.
+        그래서 focus 상태는 input, select, textarea 등 입력 가능 요소만 가질 수 있다.
+    -->
+    <script>
+        var select = document.querySelector('select');
+        // focus: 초점이 맞춰진 상태
+        select.addEventListener('focus', function() { console.log('집중!'); });
+        // blur: 초점이 풀린 상태
+        select.addEventListener('blur', function() { console.log('해방!'); });
+    </script>
+
+    <!--
+        input: 입력 가능 요소의 value가 바뀔 때마다 이벤트 발생
+        change: blur 등이 발생해서 value 값이 확정되었을 때 발생
+    -->
+    <script>
+        var textarea = document.getElementById('textarea');
+        // The DOM input event is fired synchronously when the value of an <input>, <select>, or <textarea> element is changed.
+        textarea.addEventListener('input', function() {
+            console.log('input', this.value);
+        });
+        // Unlike the input event, the change event is not necessarily fired for each change to an element's value.
+        textarea.addEventListener('change', function() {
+            console.log('change', this.value);
+        });
+    </script>
+</body>
+</html>

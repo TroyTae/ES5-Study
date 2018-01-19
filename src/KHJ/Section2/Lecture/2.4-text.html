@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>text</title>
+</head>
+<body>
+    <textarea id="textarea">
+        안녕하세요?
+        모두들 반갑습니다!
+        지금부터 텍스트에 대해 알아봅시다~
+    </textarea>
+    <p id="innerText"></p>
+    <p id="textContent"></p>
+
+    <button id="show">Show</button>
+
+    <!--
+        innerText와 textContent 모두 DOM의 text를 읽고 쓰기 위한 속이지만,
+        innerText는 렌더링에 기반으로 \n(Enter)이 개행을 나타내는 <br>로 치환되고,
+        textContent는 자바스크립트를 기반으로 \n(Enter)이 공백(WhiteSpace) 하나로 치환된다!
+    -->
+    <script>
+        var textarea = document.getElementById('textarea'),
+            innerText = document.getElementById('innerText'),
+            textContent = document.getElementById('textContent')
+        ;
+        innerText.innerText = textarea.value;
+        textContent.textContent = textarea.value;
+    </script>
+
+    <!-- 대부분의 DOM 속성은 읽을 수 있으면서 덮어 쓸 수 있다 -->
+    <script>
+        var show = document.getElementById('show');
+        show.textContent = ('Now ' + show.textContent);
+        show.textContent += ' Everything!';
+    </script>
+</body>
+</html>

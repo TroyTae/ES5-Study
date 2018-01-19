@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>this</title>
+</head>
+<body>
+    <!--this는 곧 해당 Instance 자신을 의미한다-->
+    <script>
+        Object.prototype.getThis = function () { return this; };
+        Boolean.prototype.getThis = function () { return this; };
+        Number.prototype.getThis = function () { return this; };
+        String.prototype.getThis = function () { return this; };
+
+        /* 쉽게 생각하면 getThis 함수 실행 시 .앞에 있는 각 obj/boo/num/str 변수들이 Instance! */
+        (function () {
+            var obj = new Object({ data: {} });
+            console.log(obj, obj.getThis());
+            var boo = new Boolean(true);
+            console.log(boo, boo.getThis());
+            var num = new Number(10);
+            console.log(num, num.getThis());
+            var str = new String('Test');
+            console.log(str, str.getThis());
+            /*
+            * 새로운 변수는 전역 변수의 속성이므로 this === window!
+            * 이것도 쉽게 함수를 실행시키는 구문 앞에 .이 없으면 window 전역변수가 this라고 생각하자!!
+            */
+            var func = obj.getThis;
+            console.log(func());
+        }());
+
+        Object.prototype.getValue = function () { return this.valueOf(); };
+        Boolean.prototype.getValue = function () { return this.valueOf(); };
+        Number.prototype.getValue = function () { return this.valueOf(); };
+        String.prototype.getValue = function () { return this.valueOf(); };
+
+        /* Wrapper Object에서 각 자료형의 Primitive 값을 얻고 싶다면 valueOf 함수를 사용! */
+        (function () {
+            var obj = new Object({ data: {} });
+            console.log(obj.valueOf(), obj.getValue());
+            var boo = new Boolean(true);
+            console.log(boo.valueOf(), boo.getValue());
+            var num = new Number(10);
+            console.log(num.valueOf(), num.getValue());
+            var str = new String('Test');
+            console.log(str.valueOf(), str.getValue());
+        }());
+
+    </script>
+</body>
+</html>

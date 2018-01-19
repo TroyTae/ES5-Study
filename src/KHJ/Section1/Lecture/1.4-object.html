@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>object</title>
+</head>
+<body>
+    <!--
+        객체는 서로 관련있는 변수를 묶어놓은 것으로 key-value(키-값)의 형태를 가진다.
+        key라고 하니 어색할 수도 있지만 변수 이름 지정하는 것과 똑같다고 보면 된다.
+    -->
+    <script>
+        var obj = {
+            bol: true,
+            num: 10,
+            str: 'bol',
+            tmp: undefined,
+            nll: null,
+            obj: {
+                str: '또다른 객체!'
+            }
+        };
+
+        // key를 이용해 객체의 값에 접근
+        console.log(obj.bol, obj.num, obj.str, obj.tmp, obj.nll);
+        // 객체 안에 있는 객체 접근
+        console.log(obj.obj, obj.obj.str);
+        // 대괄호를 이용한 접근도 가능
+        console.log(obj['obj'], obj['obj']['str']);
+        // 대괄호 사용 시 변수 활용 가능
+        console.log(obj[obj.str]);
+    </script>
+</body>
+</html>

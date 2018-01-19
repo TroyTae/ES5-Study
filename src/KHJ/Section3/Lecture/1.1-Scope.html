@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>scope</title>
+</head>
+<!--        Scope?
+ 이름 그대로 유효범위를 나타내며,
+ Scope 내부에서 선언된 변수/함수는
+ 외부에서 접근해 사용할 수 없다.
+-->
+<body>
+    <!-- 함수를 실행하는 순간 Scope가 생성되며, 실행 범위는 함수 내부 -->
+    <script>
+        var func = function() {
+            var tmp = '임시';
+            console.log(tmp);
+        };
+        func();
+
+        // 함수 안에 있던 tmp 변수 접근 불가!
+        // console.log(tmp);
+    </script>
+
+    <!-- 단발성 코드의 Scope를 생성하기 위해 즉시실행함수를 사용 -->
+    <script>
+        // 즉시실행함수
+        (function () {
+            var a = 1;
+            console.log(a);
+        }());
+
+        // 접근불가!!
+        // console.log(a);
+
+        // 즉시실행함수도 함수이므로 매개변수 사용가능
+        (function (b) {
+            var a = 1;
+            console.log(a);
+            a = b;
+            console.log(a);
+        }(5));
+    </script>
+</body>
+</html>

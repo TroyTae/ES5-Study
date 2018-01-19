@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>style</title>
+</head>
+<body>
+    <div id="box1"></div>
+    <div id="box2"></div>
+
+    <!-- Inline Style -->
+    <script>
+        // cssText가 더 빠르고 권장되는 방법
+        document.getElementById('box1').style.cssText = 'width: 100px; height: 100px; background-color: red;';
+        document.getElementById('box2').setAttribute('style', 'width: 100px; height: 100px; background-color: blue;');
+
+        // cssText를 사용하면 기존 스타일을 덮어쓰므로, 특정한 스타일만 바꾸고 싶으면 style 객체에서 해당 규칙만 수정
+        document.getElementById('box1').style.backgroundColor = 'yellow';
+    </script>
+
+    <!-- CSS 삽입 -->
+    <script>
+        var style = document.createElement('style');
+        document.head.appendChild(style);
+
+        var CSS = {
+            // sheet 객체를 이용해 CSS 삽입 가능
+            sheet: style.sheet,
+            // CSS 삽입
+            insertRule: function(rule) {
+                var sheet = CSS.sheet;
+                sheet.insertRule(rule, sheet.cssRules.length);
+            },
+            // selector 규칙을 이용해 탐색
+            findRule: function(selector) {
+                var rules = CSS.sheet.cssRules;
+                for(var i = 0, max = rules.length; i < max; ++i) {
+                    if(rules[i].selectorText === selector.trim()) {
+                        return {
+                            index: i,
+                            rule: rules[i]
+                        };
+                    }
+                }
+            },
+            // index로 규칙 삭제
+            deleteRule: function(selector) {
+                var rule = CSS.findRule(selector);
+                CSS.sheet.deleteRule(rule.index);
+            }
+        };
+
+        CSS.insertRule('div { border-radius: 50%; }');
+        CSS.insertRule('#box2 { float: right; }');
+        console.log(CSS.findRule('div'));
+        console.log(CSS.findRule('#box1'));
+        console.log(CSS.findRule('#box2').rule);
+        CSS.deleteRule('div');
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StopPropagation</title>
+    <style>
+        p, span, strong {
+            display: block;
+            padding: 40px;
+        }
+        p {
+            width: 160px;
+            background-color: red;
+        }
+        span { background-color: blue; }
+        strong { background-color: green; }
+    </style>
+</head>
+<body>
+    <div id="preventDefault">
+        <h4>preventDefault</h4>
+        <p><span><strong></strong></span></p>
+    </div>
+    <div id="stopPropagation">
+        <h4>stopPropagation</h4>
+        <p><span><strong></strong></span></p>
+    </div>
+    <div id="stopImmediatePropagation">
+        <h4>stopImmediatePropagation</h4>
+        <p><span><strong></strong></span></p>
+    </div>
+
+    <!--
+        preventDefault: 브라우저 기본 동작 방지
+        stopPropagation: 이벤트 전파 방지
+        stopImmediatePropagation: 현재 DOM에 걸린 이벤트 포함 전파 방지
+    -->
+    <script>
+        var attachEvent = function(id) {
+            var dom = document.getElementById(id),
+                evt = function(e) {
+                    e[id]();
+                    // e.preventDefault();
+                    // e.stopPropagation();
+                    // e.stopImmediatePropagation();
+                    console.log(this.tagName);
+                }
+            ;
+            dom.querySelector('p').addEventListener('contextmenu', evt);
+            dom.querySelector('span').addEventListener('contextmenu', evt);
+            dom.querySelector('strong').addEventListener('contextmenu', evt);
+            dom.querySelector('strong').addEventListener('contextmenu', evt);
+        };
+
+        attachEvent('preventDefault');
+        attachEvent('stopPropagation');
+        attachEvent('stopImmediatePropagation');
+    </script>
+</body>
+</html>

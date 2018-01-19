@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM</title>
+</head>
+
+<!--                            DOM?
+ html을 작성해서 만드는 요소들을 DOM(Document Object Model)이라고 하는데,
+ html을 작성하지 않고 javascript를 이용해 DOM을 만들어 document에 삽입보자!!
+-->
+<body>
+    <h1 id="id" class="class" name="name">이건 원래 있던거!</h1>
+
+    <script>
+        // DOM 생성
+        var dom = document.createElement('h1');
+        document.body.appendChild(dom);
+    </script>
+
+    <!-- document에 존재는 DOM 읽기 -->
+    <script>
+        console.log(document.getElementById('id'));
+        console.log(document.getElementsByClassName('class'));
+        console.log(document.getElementsByName('name')[0]);
+        console.log(document.getElementsByTagName('h1'));
+
+        console.log(document.querySelector('#id'));
+        console.log(document.querySelector('.class'));
+        console.log(document.querySelectorAll('[name="name"]'));
+        console.log(document.querySelectorAll('h1'));
+    </script>
+
+    <script>
+        // DOM 수정
+        dom.textContent = '이건 나중에 들어간거!';
+        // DOM 삭제
+        document.body.removeChild(dom);
+    </script>
+</body>
+</html>

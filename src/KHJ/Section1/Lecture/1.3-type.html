@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>type</title>
+</head>
+<body>
+    <!--
+        자바스크립트의 변수는 모두 var 선언으로 숫자/논리/문자에 상관없이 담을 수 있다.
+        변수에 담겨진 값의 자료형이 알고 싶다면 typeof를 이용하자!
+    -->
+    <script>
+        var bol = true,
+            num = 5,
+            str = '문자열',
+            nll = null,
+            t
+        ;
+        console.log(typeof bol);    // boolean (true/false, 참/거짓 두 값 중 하나를 가진다)
+        console.log(typeof num);    // number (이름 그대로 숫자를 의미한다)
+        console.log(typeof str);    // string (문자열, 0개 이상의 문자로 이루어져 있다.)
+        console.log(typeof nll);    // 원래는 null이라고 출력되어야 하나 object라고 출력되는 공식 버그
+        console.log(typeof t);      // undefined (선언만 하고 값을 할당하지 않은 상태)
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Date</title>
+</head>
+<body>
+    <script>
+        // 매개변수가 없으면 오늘을 기준으로 Date 자료형 생성
+        console.log(new Date());
+        // 순서대로 년, 월, 일 등을 넣어 특정 날짜 지정
+        console.log(new Date(2011, 10, 10));
+        // 현재 시간을 초단위로 반환
+        console.log(Date.now());
+        // 매개변수로 초단위를 넣으면 Date 형태로 변환
+        console.log(new Date(Date.now()));
+
+        console.log('--------------------------------------------------------');
+    </script>
+
+    <script>
+        var date = new Date();
+        // 연도
+        console.log(date.getFullYear(), date.getYear());
+        // 월 (0부터 시작)
+        console.log(date.getMonth());
+        // 일
+        console.log(date.getDate());
+        // 시
+        console.log(date.getHours());
+        // 분
+        console.log(date.getMinutes());
+        // 초
+        console.log(date.getSeconds());
+        // milliseconds
+        console.log(date.getMilliseconds());
+        // Date 자료형을 초단위의 number 자료형으로 변환
+        console.log(date.getTime());
+
+        console.log('--------------------------------------------------------');
+
+        // 년도 지정
+        date.setFullYear(2010), console.log(date);
+        // 12월을 넘어가면 다음 해로 넘어간다
+        date.setMonth(12), console.log(date);
+        // -1로 설정하면 이전 해로 온다
+        date.setMonth(-1), console.log(date);
+        // 다음 달로 가기...
+        date.setMonth(date.getMonth() + 1), console.log(date);
+        // 지난달 마지막 날로 가기...
+        date.setDate(0), console.log(date);
+    </script>
+</body>
+</html>

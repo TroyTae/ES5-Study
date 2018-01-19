@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>for</title>
+</head>
+<body>
+    <!-- for문: for(초기식; 조건식; 조건변화식) { 수행문; } -->
+    <script>
+        var list = [1, 5, 9, 10];
+
+        /*
+        * 초기식 -> (조건 검사 -> 수행문 -> 조건변화식)...
+        * 초기식은 처음 한 번만 수행되고 그후에는 소괄호 안에 있는 과정이 반복
+        */
+        for(var i = 0, max = list.length; i < max; ++i) {
+            console.log(list[i]);
+        }
+    </script>
+
+    <!-- for~in문: for(객체 키값 in 객체) { 수행문; } -->
+    <script>
+        var obj = {
+            name: 'unknown',
+            age: '???',
+            type: 'alien'
+        };
+        /*
+        * 객체에 담긴 key 값을 순서대로 변수 k에 담아주며,
+        * 모든 객체 속성을 탐색 후 for~in 문은 종료된다.
+        */
+        for(var k in obj) console.log('key: ' + k + ', value: ' + obj[k]);
+    </script>
+</body>
+</html>

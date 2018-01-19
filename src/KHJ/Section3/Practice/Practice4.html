@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practice4</title>
+    <style>
+        #select {
+            width: 150px;
+            display: block;
+            position: relative;
+            background-color: #ddd;
+        }
+        #select > input {
+            width: 0;
+            height: 0;
+            border: none;
+        }
+        #select > ul > li { cursor: pointer; }
+        #select > ul > li:hover,
+        #select > ul > li.active {
+            background-color: #eee;
+        }
+        #select > ul {
+            position: absolute;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <label id="select">
+        <input type="text">
+        <span>김누구</span>
+        <ul style="display: none;">
+            <li class="active">아무개</li>
+            <li>김누구</li>
+            <li>이름이</li>
+            <li>이무이</li>
+            <li>김철수</li>
+            <li>이수미</li>
+        </ul>
+    </label>
+
+    <!--
+        custom select를 만들어보자~
+        label 태그 안에 있는 input이 focus되면 ul 태그가 보이고 blur되면 다시 안보인다.
+        li 태그를 클릭하면 span의 텍스트가 선택된 텍스트로 바뀐다.
+        방향키(↑↓)를 이용해 active class를 형/동생 DOM으로 옮길 수 있다.
+        Enter를 누르면 span의 텍스트가 active class를 가진 li 태그의 텍스트로 바뀐다.
+    -->
+    <script>
+        var arr = ['아무개', '김누구', '이름이', '이무이', '김철수', '이수미'];
+    </script>
+</body>
+</html>

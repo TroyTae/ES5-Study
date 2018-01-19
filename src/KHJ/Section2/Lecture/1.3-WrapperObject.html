@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wrapper Object</title>
+</head>
+<!--
+ 이미 우리가 배운 기본 자료형들을 활용하기 위해 여러 함수들을 제공해주는데 그것들을 배워보자!
+ new라는 keyword를 이용해 instance를 생성해 변수에 담은 뒤에 사용하면 된다!!
+ (new keyword의 자세한 mechanism에 대해서는 추후에 설명~)
+-->
+<body>
+    <!--Object-->
+    <script>
+        var obj = new Object();
+
+        // 만약 Object.create를 쓰지 않고 clone = obj; 이렇게 대입한다면 obj와 clone이 함께 수정
+        var clone = Object.create(obj);
+        obj.data = {};
+        console.log(obj);
+        console.log(clone);
+
+        // Object.freeze를 사용하면 객체에 더 이상 Property 추가 불가
+        Object.freeze(clone);
+        clone.data = {};
+        console.log(clone);
+        console.log(Object.isFrozen(clone));
+
+        console.log('------------------------------------------------');
+    </script>
+
+    <!--Boolean-->
+    <script>
+        var v1 = new Boolean(true), // 매개 변수로 초기 값을 지정
+            v2 = new Boolean();     // 아무것도 없으면 undefined, 이는 Boolean 값으로 falseㄴ
+        console.log(v1, v2);
+
+        // Boolean 값을 문자로 변환
+        console.log(v1.toString(), v2.toString());
+
+        console.log('------------------------------------------------');
+    </script>
+
+    <!--Number-->
+    <script>
+        var num = new Number(10.51);
+        console.log(num);
+
+        // 문자열로 변환
+        console.log(num.toString());
+        // n자리 이하 소수점 버림
+        console.log(num.toFixed(0), num.toFixed(1));
+
+        // 정수 변환
+        console.log(Number.parseInt('2015'), parseInt('-2015'));
+        // 소수점 변환
+        console.log(Number.parseFloat('205.203'), parseFloat('-205.203'));
+        // NaN은 숫자가 아님을 나타내는 상수
+        console.log(Number.NaN, parseInt('a'));
+
+        console.log('------------------------------------------------');
+    </script>
+
+    <!--String-->
+    <script>
+        var str = new String('JS STUDY!');
+        console.log(str);
+
+        // 문자열에서 매개변수의 숫자(index)에 해당하는 문자 반환
+        console.log(str.charAt(0), str.charAt(4));
+        // 문자열 합성
+        console.log(str.concat('JS LOUNGE!'), (str + 'JS LOUNGE!'));
+        // 특정 문자열 수정
+        console.log(str.replace('STUDY', 'LOUNGE'));
+        // 특정 문자열을 기준점으로 나눈 뒤 배열 반환
+        console.log(str.split(' '), str.split('S'));
+        // 두 매개변수 사이에 있는 문자열을 반환
+        console.log(str.substring(0, 2));
+
+        /* 프로그래밍에서 문자들은 A=65, B=66 처럼 아스키 코드라고 하는 숫자로 나타낼 수 있다 */
+        console.log(String.fromCharCode(65, 66, 67));
+    </script>
+</body>
+</html>

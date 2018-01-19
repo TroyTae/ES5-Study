@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>if</title>
+</head>
+<body>
+    <!-- 조건이 참일때만 동작을 수행하는 문 -->
+    <script>
+        if(true) {
+            console.log('조건이 참이니');
+            console.log('수행되랏!');
+        }
+        if(false) { console.log('여긴 안됨!'); }
+        if(true) console.log('한줄이면 중괄호 생략가능!');
+    </script>
+
+    <!-- if문 안에는 값뿐만이 아니라 식도 삽입 가능 -->
+    <script>
+        if(true || false) { console.log('논리연산식'); }
+        if(!0) console.log('숫자는 0아니면 다 true~');
+        if(1 < 5) console.log('5는 1보다 크다');
+        if(1 == '1') console.log('==과 ===의 차이');
+        if(1 === '1') console.log('안 잊으셨겠죠?');
+    </script>
+
+    <!--  삼항연산자 -->
+    <script>
+        var name = '';
+        // 값의 유무에 따라 default 값을 줄 때 if~else 문에 비해 간편
+        console.log(name ? name : '손님1');
+        /*
+        * if(name) console.log(name);
+        * else console.log('손님1')
+        */
+    </script>
+</body>
+</html>
