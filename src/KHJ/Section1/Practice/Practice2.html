@@ -11,7 +11,21 @@
         [ 단, 손님 뒤에 붙는 숫자 n의 경우 1로 시작해서 자동으로 Counting 되어야 한다 ]
     -->
     <script>
-        var list = ['태재영', '김미르', '', null, '강현지', ''];
+        var list = ['태재영', '김미르', '', null, '강현지', ''],
+             cnt = 1;
+
+        for(i in list){
+            if(! list[i]){
+                list[i] = '손님' + cnt++;
+            }
+        }
+        console.log(list);
+
+        list = ['태재영', '김미르', '', null, '강현지', ''], cnt = 1;
+        list.forEach(function(v, i){
+            if(!v) list[i] = '손님' + cnt++;
+        });
+        console.log(list);
     </script>
 </body>
 </html>

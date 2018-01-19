@@ -14,7 +14,30 @@
         10  9  8  7
     -->
     <script>
-        var count = 4;
+        var count = 4,
+            arr = [[],[],[],[]],
+            x = 0,
+            y = 0,
+            dir = 'right'
+            ;
+
+        for(var i = 1, max = count*count ; i <= max ;){
+            for(var cnt = 0 ; cnt < count ; cnt++, i++){
+                arr[x][y] = i;
+                if(cnt === count-1) {
+                    if(dir === 'right') dir = 'down';
+                    else if(dir === 'down') dir = 'left';
+                    else if(dir === 'left') dir = 'up';
+                    else if(dir === 'up') dir = 'right';
+                }
+                if(dir === 'right') y++;
+                else if(dir === 'down') x++;
+                else if(dir === 'left') y--;
+                else if(dir === 'up') x--;
+            }
+            if(dir === 'down' || dir === 'up') count--;
+        }
+        console.log(arr);
     </script>
 </body>
 </html>

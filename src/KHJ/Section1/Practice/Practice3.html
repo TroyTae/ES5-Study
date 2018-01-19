@@ -25,7 +25,14 @@
             gb = 1100000000
         ;
         */
-        var byte = 128;
+        var byte = [ 128, 130, 2000, 1100000, 1100000000 ];
+        for(v in byte){
+            if(byte[v] < 1024) byte[v] = byte[v] + 'byte';
+            else if(byte[v] >= 1024 && byte[v] < Math.pow(1024,2)) byte[v] = byte[v]/1024 + 'KB';
+            else if(byte[v] >= Math.pow(1024,2) && byte[v] < Math.pow(1024,3)) byte[v] = (byte[v]/(Math.pow(1024,2))).toFixed(2) + 'MB';
+            else if(byte[v] >= Math.pow(1024,3) && byte[v] < Math.pow(1024,4)) byte[v] = (byte[v]/(Math.pow(1024,3))).toFixed(2) + 'GB';
+        }
+        console.log(byte);
     </script>
 </body>
 </html>
