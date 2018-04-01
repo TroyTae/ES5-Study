@@ -7,7 +7,26 @@
 <body>
     <!-- 아래 주석 처리된 코드가 실행되면 "JS STUDY"라는 문자열이 콘솔에 출력되는 스크립트를 작성하시오. -->
     <script>
-        // console.log(func().attr.attr.func()()().value);
+        var func = function() {
+            return {
+                attr:
+                    {
+                        attr:
+                            {
+                                func : function() {
+                                    return function(){
+                                        return function () {
+                                            return {
+                                                value : "JS STUDY"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                    }
+            }
+        }
+        console.log(func().attr.attr.func()()().value);
     </script>
 </body>
 </html>

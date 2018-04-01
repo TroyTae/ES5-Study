@@ -26,6 +26,29 @@
     -->
     <script>
         var colors = ['red', 'blue', 'green', 'orange', 'black', 'yellow', 'gray'];
+
+        var random = function(min, max){
+            var num = Math.random() * (max - min + 1) + min;
+            return Math.floor(num);
+        }
+
+        var divList = document.getElementsByTagName('div');
+        // size(X), length(0)
+        for(var idx = 0 , size = divList.length; idx < size ; idx++){
+            var randNum = random(0, colors.length - 1);
+            console.log(randNum, colors[randNum]);
+
+            /*if(divList[idx].classList.contains('circle')){
+                divList[idx].style.cssText = 'border-radius : 50% ; background-color: ' + colors[randNum];
+            } else{
+                divList[idx].style.cssText = 'background-color: ' + colors[randNum];
+            }*/
+
+            divList[idx].style.cssText = 'background-color: ' + colors[randNum];
+            if(divList[idx].classList.contains('circle')){
+                divList[idx].style.borderRadius = '50%';
+            }
+        }
     </script>
 </body>
 </html>

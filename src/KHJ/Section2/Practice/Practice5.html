@@ -14,7 +14,6 @@
         }
     </style>
 
-    <div style="background-color: red;"></div>
 
     <!--
         랜덤 한 색을 가진 div태그를 만들어 랜덤한 속도와 방향으로 움직이고, 벽에 부딪히면 반사각 방향으로 이동하는 스크립트를 작성하시오
@@ -24,7 +23,54 @@
         [ 벽은 화면의 최대 크기를 말하며 window.innerHeight/window.innerWidth 이용하면 된다! ]
         [ 코드 작성 후에는 위에 예시로 넣어놓은 div 태그는 지우시오! ]
     -->
+
     <script>
+        var random = function (min, max) {
+            var num = Math.random()*(max - min + 1 ) + min;
+            return Math.floor(num);
+        }
+
+        function Ball(){
+            var div = document.createElement('div');
+            var ranColor = '#' + random(0, 16777215).toString(16);
+            div.style.cssText = 'background-color: ' + ranColor;
+            document.body.appendChild(div);
+
+            this.dom = div;
+            this.pos = { x: random(0, window.innerWidth - 30), y: random(0, window.innerHeight - 30)};
+            this.spd = { x: random(-10, 10), y: random(-10, 10)};
+        };
+
+        Ball.prototype.start = function(){
+            var t = this;
+            setInterval(function(){
+                var pos = t.pos;
+                var spd = t.spd;
+
+                if(pos.x < 0 || pos.x + spd.x > window.innerWidth - 30){
+                    spd.x *= -1;
+                }
+
+                if(pos.y < 0 || pos.y + spd.y > window.innerHeight - 30){
+                    spd.y *= -1;
+                }
+
+                pos.x += spd.x;
+                pos.y += spd.y;
+
+                t.dom.style.left = (pos.x + 'px');
+                t.dom.style.top = (pos.y + 'px');
+
+            }, 1000/60);
+        };
+
+        (function(){
+            for(var i = 0 ; i < 100 ; i++) {
+                var ball = new Ball();
+                ball.start();
+            }
+        }());
+
     </script>
 </body>
 </html>

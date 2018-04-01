@@ -6,15 +6,39 @@
 </head>
 <body>
 
-    <h1>KOR 03:32:59</h1>
+    <h1 id = 'h1'>KOR 03:32:59</h1>
 
     <!--
         인터넷 시계를 만들어보자!
-        h1 태그의 텍스를 조작하여 초단위로 hour:min:sec 형식의 현재 시간을 표시하는 스크립트를 작성하시오.
+        h1 태그의 텍스트를 조작하여 초단위로 hour:min:sec 형식의 현재 시간을 표시하는 스크립트를 작성하시오.
         [ 단, 10초마다 13시간 차이나는 미국 시간(예: USA 16:32:59)이 1초간 표시된 후 한국 시간으로 복귀 ]
         [ 2분 뒤에는 배터리가 방전되어 시계가 멈춘다. ]
     -->
     <script>
+        // getElementsByTagName에는 textContent, innerText가 없다...
+        var curTime = document.getElementById('h1'), i = 1, dateFormat;
+
+        dateFormat = new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+        curTime.textContent = 'KOR ' + dateFormat;
+
+        // 1초 마다 시간 표시
+        var interval = setInterval(function(){
+            if(i % 10 == 0) {
+                var date = new Date();
+                date.setHours(date.getHours() + 13);
+                dateFormat = date.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+                curTime.textContent = 'USA ' + dateFormat;
+            }else{
+                dateFormat = new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+                curTime.textContent = 'KOR ' + dateFormat;
+            }
+            i++;
+        },1000);
+
+        // 2분 뒤에 배터리 방전 시계 멈춤
+        setTimeout(function(){
+            clearInterval(interval(1));
+        }, 120000);
     </script>
 </body>
 </html>

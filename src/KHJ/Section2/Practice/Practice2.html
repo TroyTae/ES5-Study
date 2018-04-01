@@ -11,7 +11,11 @@
         [ map/filter/forEach 등 Array 함수를 활용하자!! ]
     -->
     <script>
-        [4, 16, 25, 9, 144];
+        var arr = [4, 16, 25, 9, 144];
+        arr.map(function(v){ return Math.sqrt(v); })
+            .filter(function(v){ return v > 4; })
+            .map(function(v){ return v*2; })
+            .forEach(function(v){ return console.log(v); })
     </script>
 </body>
 </html>
