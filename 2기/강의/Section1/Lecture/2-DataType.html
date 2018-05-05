@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>DataType</title>
+</head>
+<body>
+    <!-- 자료형?
+     자료형은 컴퓨터에서 여러 종류의 데이터를 식별하는 분류로서,
+     저장된 값의 표현과 자료형 체계를 이용한 데이터의 해석에 사용된다.
+    -->
+    <script>
+        // 오직 참과 거짓 두 가지 상태만 가지고,
+        // 0 이외의 모든 값을 참으로 취급하는 자료형이다.
+        var boolean = false;
+        console.log(typeof boolean, '-> 참/거짓');
+
+        // 메모리 상에 2진수로 표현된 숫자를 다양한 형태로 나타낸다.
+        // ex) 01101100 -> 108
+        var number = 10;
+        console.log(typeof number, '-> 숫자');
+
+        // ASCII 코드처럼 특정 인코딩 방식을 이용해 문자열을 표현하는 자료형
+        // ex) ASCII 코드로 인코딩된 문서에서 65는 알파벳 대문자 A로 치환된다.
+        var string = 'JS STUDY';
+        console.log(typeof string, '-> 문자열');
+    </script>
+</body>
+</html>

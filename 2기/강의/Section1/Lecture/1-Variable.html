@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Variable</title>
+</head>
+<body>
+     <!-- 변수?
+      변수는 변할 수 있는 값으로 컴퓨터 메모리에 존재하며 실행 도중 변경될 수 있다.
+      자바스크립트에서는 var 예약어를 사용해서 변수를 선언할 수 있다.
+     -->
+    <script>
+        var variable = 1; // 대입 연산자(=)를 이용한 변수(variable) 값 할당
+        var nothing;      // undefined (선언만 하고 값을 할당하지 않은 상태)
+
+        console.log(variable);
+        console.log(nothing);
+        console.log('-----------------------------------------------------');
+
+        // 변수에 할당된 값은 언제든 변경할 수 있어요!
+        variable = false;
+        console.log(variable);
+        variable = 5;
+        console.log(variable);
+        variable = 'JS STUDY';
+        console.log(variable);
+
+
+        // [자바스크립트 변수 규칙]
+        // 1. 변수 이름은 문자, 밑줄(_), 달러 기호($)로 시작해야 하고, 그 뒤에는 숫자(0~9)도 올 수 있다.
+        // 2. 대소문자를 구별한다.
+        // 3. 자바스크립트에서 정한 예약어는 사용할 수 없다.
+    </script>
+</body>
+</html>
