@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>LogicalOperator</title>
+</head>
+<body>
+    <!-- 논리 연산자?
+     논리 비교를 통해 논리 값이나 피연산자를 반환하는 연산자로,
+     피연산자가 숫자나 문자일 경우 각각 0과 공백을 제외하고 true 취급한다.
+    -->
+    <script>
+        var boolean = false;
+
+        // NOT: 피연산자를 참은 거짓으로, 거짓은 참으로 반전시키는 연산자
+        console.log(!boolean);
+        console.log(!true, !false);
+        console.log(!0, !'');
+        console.log(!10, !'JS');
+        console.log('-----------------------------------------------------');
+
+        // OR: 참인 값이 먼저 나오면 그 피연산자를, 없을 시 마지막 피연산자를 반환
+        console.log(boolean || true);
+        console.log(boolean || false);
+        console.log(boolean || true || false);
+        console.log(0 || '');
+        console.log(10 || '');
+        console.log('' || 'JS' || 0);
+        console.log('-----------------------------------------------------');
+
+        // AND: 거짓인 값이 먼저 나오면 그 피연산자를, 없을 시 마지막 피연산자를 반환
+        console.log(boolean && true);
+        console.log(boolean && false);
+        console.log('' && 0);
+        console.log('JS' && false);
+        console.log(10 && 100 && 1000);
+        console.log('JS' && 0 && false);
+    </script>
+</body>
+</html>

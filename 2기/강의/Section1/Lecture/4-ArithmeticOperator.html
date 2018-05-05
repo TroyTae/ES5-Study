@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>ArithmeticOperator</title>
+</head>
+<body>
+    <!-- 산술 연산자?
+     피연산자를 계산하여 하나의 숫자로 반환하는 연산자로,
+     논리 값일 경우 거짓은 0으로 참은 1로 치환해서 연산한다.
+    -->
+    <script>
+        var number = 10;
+
+        /* 기본 산술 연산자 */
+        console.log('number + 10 =', number + 10);
+        console.log('number - 4 =', number - 4);
+        console.log('number * 9 =', number * 9);
+        console.log('number / 5 =', number / 5);
+        console.log('number % 3 =', number % 3);
+        console.log('-----------------------------------------------------');
+
+        /* 논리 값 계산 */
+        console.log('false + 10 =', false + 10);
+        console.log('true - 10 =', true - 10);
+        console.log('true + false =', true + false);
+        console.log('true + 10 - true =', true + 10 - true);
+        console.log('-----------------------------------------------------');
+
+        /* 문자열 연산자 */
+        console.log('JS' + '-' + 'Study');
+        console.log('절대숫자=' + 0);
+        console.log('거짓은 영어로' + ' ' + false);
+        console.log(20 + '=' + 2 + 0);
+        console.log(10 + 10 + '');
+    </script>
+</body>
+</html>
