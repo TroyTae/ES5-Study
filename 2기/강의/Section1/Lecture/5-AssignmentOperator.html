@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>AssignmentOperator</title>
+</head>
+<body>
+    <!-- 대입 연산자?
+     수학에서 값이 동일함을 나타내는 =(equals)를 이용하면
+     변수에 논리 값, 숫자, 문자열 등 다양한 값을 대입시킬 수 있다.
+    -->
+    <script>
+        // 대입 연산자
+        var number = 10,
+            string = 'JS'
+        ;
+
+        /* 복합 대입 연산자 */
+        console.log('number = number + 10; =>', number += 10);
+        console.log('number = number - 10; =>', number -= 10);
+        console.log('number = number * 10; =>', number *= 10);
+        console.log('number = number / 10; =>', number /= 10);
+        console.log('number = number % 10; =>', number %= 10);
+        console.log('number = number + true; =>', number += true);
+        console.log('number = number - false; =>', number -= false);
+        console.log('string = string + "-"; =>', string += '-');
+        console.log('string = string + "Study"; =>', string += 'Study');
+        console.log('-----------------------------------------------------');
+
+        /* 전/후위 증감 연산자 */
+        console.log('number =>', number);
+        console.log('number -= 1; console.log(number); =>', --number);
+        console.log('console.log(number); number -= 1; =>', number--);
+        console.log('console.log(number); number += 1; =>', number++);
+        console.log('number += 1; console.log(number); =>', ++number);
+    </script>
+</body>
+</html>
