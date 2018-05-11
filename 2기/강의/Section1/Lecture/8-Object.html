@@ -6,28 +6,44 @@
 </head>
 <body>
     <!-- 객체?
-     여러 데이터들이 모인 자료구조이며 순서를 보장하지 않는다.
+     서로 관계있는 데이터들 모으는 자료구조이며 순서를 보장하지 않는다.
      객체 안에 모여있는 데이터들을 프로퍼티(Property)라고 부른다.
     -->
     <!-- Property?
-     객체 안에 들어있는 데이터들로 특정 키에
-     대응하는 값을 가지는 key-value 쌍으로 되어있다.
+     객체 안에 들어있는 데이터들로 특정 키에 대응하는 값을 가지는 key-value 쌍으로 되어있다.
+     자유롭게 추가 삭제가 가능하지만 초기화할 때의 구조를 그대로 쓰는게 최적화에 유리하다.
     -->
     <script>
+        // 중괄호로 선언하며 콜론(:)을 기준으로 좌측이 key, 우측이 value.
         var human = {
             gender: true,
             age: 30,
             name: '아버지',
             children: [{
                 gender: true,
-                age: 2,
+                age: 1,
                 name: '철수'
             }, {
                 gender: false,
-                age: 3,
+                age: 2,
                 name: '유리'
             }]
         };
+
+        /* 객체 안에 있는 데이터 접근 */
+        var properties = ['gender', 'age', 'name', 'children'];
+        console.log(human.gender);
+        console.log(human.children[0].name);
+        console.log(human['age']);
+        console.log(human[properties[2]]);
+
+
+        /* 객체의 추가와 삭제 */
+        console.log(human);
+        human.var = '추가 선언!';
+        console.log(human);
+        delete human.var;
+        console.log(human);
     </script>
 </body>
 </html>
