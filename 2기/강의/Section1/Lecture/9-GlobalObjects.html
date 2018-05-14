@@ -10,17 +10,22 @@
         var variable;
         console.log(undefined);
         console.log(variable);
+        console.log(variable === undefined);
 
-        // null: ddd
+        // null: 명시적으로 빈 공간임을 알리는 특수 객체
+        var nll = null;
         console.log(null);
+        console.log(null === nll);
+
+        // Infinity: 무한대를 나타내는 특수 값
+        console.log(Infinity);
+        console.log(10 / 0);
+        console.log(10 / 0 === Infinity);
 
         // NaN(Not a Number): 숫자가 아님을 나타내는 특수 값
         console.log(NaN);
         console.log('JS' / 10);
-
-        // Infinity: ㅇㅇㅇ
-        console.log(Infinity);
-        console.log(10 / 0);
+        console.log('JS' / 10 === NaN);
     </script>
 </body>
 </html>
