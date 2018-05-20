@@ -5,20 +5,29 @@
     <title>if</title>
 </head>
 <body>
-    <!-- 조건이 참일때만 동작을 수행하는 문 -->
+    <!-- if문?
+     소괄호 안에 들어있는 조건이 참일 때 구문을 실행시키며,
+     코드가 한 줄일 경우 중괄호(구문의 범위)는 생략이 가능하다.
+    -->
     <script>
+        /* 일반적인 if문 */
         if(true) {
-            console.log('조건이 참이니');
-            console.log('수행되랏!');
+            console.log('조건이 참이니!');
+            console.log('수행되랏!!');
         }
-        if(false) { console.log('여긴 안됨!'); }
+        if(false) {
+            console.log('안돼!');
+            console.log('돌아가!');
+            console.log('실행시켜줄 생각 없어!');
+        }
         if(true) console.log('한줄이면 중괄호 생략가능!');
-    </script>
+        if('') console.log('공백은 false~');
 
-    <!-- if문 안에는 값뿐만이 아니라 식도 삽입 가능 -->
-    <script>
-        if(true || false) { console.log('논리연산식'); }
+        /* 논리 연산식 */
+        if(true || false) console.log('논리연산식');
         if(!0) console.log('숫자는 0아니면 다 true~');
+
+        /* 비교 연산식 */
         if(1 < 5) console.log('5는 1보다 크다');
         if(1 == '1') console.log('==과 ===의 차이');
         if(1 === '1') console.log('안 잊으셨겠죠?');
