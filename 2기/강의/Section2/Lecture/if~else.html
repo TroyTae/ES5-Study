@@ -10,13 +10,33 @@
      다른 조건(else if)에 따른 실행문을 추가적으로 정의할 수 있다.
     -->
     <script>
+        // else if: 조건식으로 여러 개 설정할 때 작성하며, 위에서부터 차례대로 검사
+        if (false) {
+            console.log('else if로 이어가면');
+        } else if(true) {
+            console.log('여러가지 조건들을');
+        } else {
+            console.log('설정할 수 있어요~');
+        }
+
+        // else: 참인 조건식이 없을 때 실행하는 구문
+        if (false) console.log('조건식이 거짓일 경우에는?');
+        else console.log('무조건 여기로!!');
+
+        /* 삼항 연산식?
+        * 물음표(?)를 기준으로 좌측의 조건식이 참일 경우
+        * 콜론(:)을 기준으로 좌측 거짓일 경우 우측 값을 반환
+        **/
         var name = '';
-        // 값의 유무에 따라 default 값을 줄 때 if~else 문에 비해 간편
+
+        if (name) {
+            console.log(name);
+        } else {
+            console.log('손님1')
+        }
+
+        // 값의 유무에 따라 default 값을 줄 때 편리
         console.log(name ? name : '손님1');
-        /*
-        * if(name) console.log(name);
-        * else console.log('손님1')
-        */
     </script>
 </body>
 </html>
