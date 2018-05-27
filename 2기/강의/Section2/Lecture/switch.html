@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>switch</title>
+</head>
+<body>
+    <!-- switch 구문?
+    -->
+    <script>
+        // var goods = 'apple';
+        var goods = 'banana';
+        // var goods = 'unknown';
+
+        switch (goods) {
+            case 'apple':
+                console.log('500원');
+                break;
+            case 'banana':
+                console.log('1000원');
+                break;
+            default:
+                console.log('존재하지 않는 상품입니다.');
+        }
+
+        // Mechanism
+        var authority = {
+                read: false,
+                write: false,
+                delete: false
+            },
+            code = 'MASTER'
+            // code = 'MANAGER'
+            // code = 'USER'
+        ;
+        switch (code) {
+            case 'MASTER': authority.delete = true;
+            case 'MANAGER': authority.write = true;
+            default: authority.read = true;
+        }
+        console.log(authority);
+    </script>
+</body>
+</html>
