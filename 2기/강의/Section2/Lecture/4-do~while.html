@@ -6,32 +6,36 @@
 </head>
 <body>
     <!-- do~while 구문?
+        while 구문과 동일하게 조건문이 참이면 반복해서 코드를 수행한다.
+        다만 코드 수행 후 조건 검사를 하기 때문에 최소한 1번은 코드를 실행한다.
     -->
     <script>
-        var i = 10;
+        /* 최소 한 번은 실행된다. */
+        var i = 0;
         do {
             console.log('반복');
-            i -= 2;
         } while (0 < i);
-    </script>
 
-    <!--
-        while문은 조건 검사 후 코드를 수행했지만,
-        do~while문은 코드 수행 후 조건 검사를 한다.
-    -->
-    <script>
-        var list = [1, 3, 5, 10],
-            i = 0,
+        /* 최초 사용 연도 구하기! */
+        var firstUseYear = null,
+            list = [{
+                year: 2010,
+                point: null
+            }, {
+                year: 2011,
+                point: 100
+            }, {
+                year: 2012,
+                point: 200
+            }],
             max = list.length
         ;
-        /*
-        * 코드 수행 -> 조건 검사 -> 코드 수행 -> 조건검사...
-        * 조건이 참인 이상 계속해서 위 과정을 반복하는건 while과 같지만,
-        * do~while은 코드 수행이 먼저이기 때문에 최소한 1번은 무조건 코드를 수행한다.
-        */
         do {
-            console.log(list[i]);
-        } while(++i < max);
+            if(list[i].point) {
+                firstUseYear = list[i].year;
+            }
+        } while (++i < max && !firstUseYear);
+        console.log(firstUseYear);
     </script>
 </body>
 </html>
