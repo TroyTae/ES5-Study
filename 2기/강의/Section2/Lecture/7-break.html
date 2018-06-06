@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>break</title>
+</head>
+<body>
+    <!-- break?
+        반복문 실행 도중에 반복 구문을 탈출할 수 있는 예약어
+    -->
+    <script>
+        /* 반복문 탈출 */
+        var i = 10;
+        while (i--) {
+            console.log('while 문!!');
+            if (i < 5) {
+                break;
+            }
+        }
+        for (i = 0; i < 10; ++i) {
+            console.log('for 문!!');
+            if(3 < i) break;
+        }
+
+        /* for~in 구문 탈출 */
+        var obj = {
+            first: 1,
+            second: 2
+        };
+        for (var k in obj) {
+            console.log('key => ', k);
+            console.log('value => ', obj[k]);
+            break;
+        }
+    </script>
+</body>
+</html>

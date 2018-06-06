@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>for</title>
+</head>
+<body>
+    <!-- for 구문?
+        for(초기식; 조건식; 조건변화식) { 수행문; }
+        while 구문과 같은 반복문으로 처음에 한 번 실행되는 초기식과
+        조건 검사 전 실행하는 조건변화식을 추가로 작성할 수 있다.
+    -->
+    <script>
+        var sum = 0,
+            i = 100,
+            max = 0
+        ;
+
+        /* 1부터 9의 합계 */
+        for (i = 1, max = 10; i < max; ++i) {
+            sum += i;
+        }
+        console.log(sum);
+        console.log('-----------------------------------------------------');
+
+        /* 배열 순환 */
+        var arr = ['손님1', '손님2', '손님3'];
+        for (i = 0, max = arr.length; i < max; ++i) {
+            console.log(arr[i]);
+        }
+    </script>
+</body>
+</html>
