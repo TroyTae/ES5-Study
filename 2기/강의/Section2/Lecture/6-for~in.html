@@ -6,7 +6,7 @@
 </head>
 <body>
     <!-- for~in 구문?
-        for(key : object) { 수행문; }
+        for (key in object) { 수행문; }
         주로 배열에 접근하기 위해 사용했던 반복문과는
         다르게 객체의 프로퍼티에 접근하기 위한 반복문입니다.
     -->
@@ -26,7 +26,8 @@
             }]
         };
 
-        for(var k in human) {
+        var k;
+        for(k in human) {
             console.log('key => ', k);
             console.log('value => ', human[k]);
         }
