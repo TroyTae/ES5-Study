@@ -9,13 +9,16 @@
         배열 arr 안에 있는 숫자들 중 가장 낮은 숫자는 변수 min,
         가장 큰 숫자는 변수 max 안에 저장되는 스크립트를 작성하시오.
     -->
-    <script>
-        var min = null,
-            max = null,
-            arr = [1, 10, 5, 7, 8, 15]
-        ;
+</body>
+<script>
+        var min = 100,
+            max = 0,
+            arr = [1, 10, 5, 7, 8, 15];
+
+        for(var i=0; i<arr.length;i++) if(min > arr[i]) min = arr[i];
+        for(var i=0; i<arr.length;i++) if(max < arr[i]) max = arr[i];
+
         console.log(min);
         console.log(max);
     </script>
-</body>
 </html>

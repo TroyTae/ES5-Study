@@ -14,8 +14,48 @@
         11 16 15  6
         10  9  8  7
     -->
+
     <script>
-        var count = 4;
+    var count = 4;
+
+    var a = [1,-1];
+    var value = 0;
+    var num = 0;
+    var x=0,  y=0;
+
+    /* 2차원 배열 선언*/
+    var ans = new Array(count);
+    for(var i=0; i<count; i++) ans[i] = new Array(count);
+
+
+    /* 달팽이 배열 구현*/
+    while(num<count){
+        for(var nx=num; nx <count; nx++){
+            value ++;
+            ans[x][y] = value;
+            x += a[num%2];
+        }
+
+        num++;
+        x += a[num%2];
+
+        for(var ny = num; ny < count; ny++){
+            value ++;
+            y -= a[num%2];
+            ans[x][y] = value;
+        }
+        x += a[num%2];
+    }
+
+    /* 프린트시 배열 반전 */
+        for(var px=0; px<count; px++){
+            var print = " ";
+            for( var py=0; py< count; py++) {
+                if(ans[py][px]<10) print+= ' ';
+                print = print+ans[py][px] +" ";
+            }
+            console.log(print);
+         }
     </script>
 </body>
 </html>
