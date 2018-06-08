@@ -15,7 +15,23 @@
         10  9  8  7
     -->
     <script>
-        var count = 4;
+        var count = 4,
+            arr = []
+        ;
+        var i = 0, j = 0;
+        var str = '';
+
+        // 2차원 배열 초기화
+        while (i < count) arr[i++] = [];
+
+        // 출력
+        for(i = 0; i < count; ++i) {
+            str = '';
+            for(j = 0; j < count; ++j) {
+                str += (' ' + arr[i][j]);
+            }
+            console.log(str);
+        }
     </script>
 </body>
 </html>
