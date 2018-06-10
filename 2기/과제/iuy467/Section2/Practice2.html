@@ -11,9 +11,9 @@
     -->
 </body>
 <script>
-        var min = 100,
+        var arr = [1, 10, 5, 7, 8, 15],
             max = 0,
-            arr = [1, 10, 5, 7, 8, 15];
+            min = arr[0];
 
         for(var i=0; i<arr.length;i++) if(min > arr[i]) min = arr[i];
         for(var i=0; i<arr.length;i++) if(max < arr[i]) max = arr[i];
