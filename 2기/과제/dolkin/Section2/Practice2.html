@@ -13,9 +13,18 @@
         var min = Infinity,
             max = -Infinity,
             arr = [1, 10, 5, 7, 8, 15]
+            i = arr.length
         ;
-        console.log(min);
-        console.log(max);
+        //while로도 해볼 수 있을 것 같은데 모르겠다...//
+        for (var min = arr[0], i=0 ; i < arr.length ; i++) {
+            if(min > arr[i]) var min = arr[i] ;
+        }
+        console.log(min) ;
+
+        for (var max = arr[0], i=0 ; i < arr.length ; i++) {
+            if(max < arr[i]) var max = arr[i] ;
+        }
+        console.log(max) ;
     </script>
 </body>
 </html>

@@ -20,7 +20,16 @@
             9 * 9 = 81
     -->
     <script>
-        console.log('1 * 1 = 1');
+    //일단 for로 시작해보자.//
+        var t = 1,
+            y = 1
+        ;
+        for (t = 1 ; t < 10 ; ++t) {
+        console.log(t + '단');
+            for (y = 1 ; y < 10 ; ++y) {
+            console.log(t + ' * ' + y + ' = ' + (t * y));
+            }
+        }
     </script>
 </body>
 </html>
