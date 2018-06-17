@@ -13,10 +13,21 @@
         *****
     -->
     <script>
-        var height = 3;
-        console.log('  *');
-        console.log(' ***');
-        console.log('*****');
+        var height = 4;
+        var i = 0;
+        var j = 0;
+        var z = 0;
+        var star = '';
+        for(i=0; i<height; i++){
+          for(j=0; j<height-(i+1); j++){
+            star += ' ';
+          }
+          for(z=0; z<2*(i+1)-1; z++){
+            star += '*';
+          }
+          console.log(star);
+          star = '';
+        }
     </script>
 </body>
 </html>

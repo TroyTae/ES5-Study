@@ -20,10 +20,32 @@
         ;
         var i = 0, j = 0;
         var str = '';
+        // 달팽이 배열을 위한 변수
+        var value = 1;
+        var sign = 1;
+        var row = 0;
+        var col = -1;
+        var num = count;
 
         // 2차원 배열 초기화
         while (i < count) arr[i++] = [];
 
+        // 달팽이 배열 시작
+        while(num > 0){
+          for(i=0; i<num; i++){
+              col += sign;
+              arr[row][col] = value;
+              value++;
+          }
+          num--;
+          if(count == 0) break;
+          for(j=0; j<num; j++){
+            row += sign;
+            arr[row][col] = value;
+            value++;
+          }
+          sign *= -1;
+        }
         // 출력
         for(i = 0; i < count; ++i) {
             str = '';
