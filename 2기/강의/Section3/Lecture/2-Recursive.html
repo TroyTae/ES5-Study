@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Recursive</title>
+</head>
+<body>
+    <!-- 재귀함수?
+        호출된 함수 내부에서 같은 함수를 다시 호출하는 것으로
+        탈출 조건 없이 무한 루프처럼 계속해서 호출하는 경우
+        호출 스택이 끝없이 계속 쌓이기 때문에 문제가 생긴다.
+    -->
+    <script>
+        /* 재귀 호출을 위해 기명함수 사용 */
+        var rocket = function f(count) {
+                if (!count) {
+                    return '발사!';
+                } else {
+                    console.log(count);
+                    return f(count - 1);
+                }
+            }
+        ;
+        console.log(rocket(5));
+
+        /*
+        // 최대 호출 스택이 정해져 있기 때문에 사용 시 주의!
+        var loop = function () {
+            console.log('이러면 망해요');
+            loop();
+        };
+        loop();
+        */
+    </script>
+</body>
+</html>

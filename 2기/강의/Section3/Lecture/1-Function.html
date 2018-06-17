@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Function</title>
+</head>
+<body>
+    <!-- 함수?
+        함수는 작업을 수행하거나 값을 계산할 수 있는 코드의 집합으로
+        호출할 때 값을 넘길 수 있는 매개변수와 반환값을 가질 수 있다.
+    -->
+    <script>
+        /* 익명함수 */
+        var anonymous = function () { console.log('anonymous'); },
+            sum = function (n1, n2) { return n1 + n2; }
+        ;
+        anonymous();
+        console.log(sum(10, 6));
+        console.log('-----------------------------------------------------');
+
+        /* 기명 함수 */
+        var subtract = function minus(n1, n2) {
+            console.log('이 함수의 이름은 minus!');
+            return sum(n1, -n2);
+        };
+        console.log(subtract(10, 6));
+    </script>
+</body>
+</html>
