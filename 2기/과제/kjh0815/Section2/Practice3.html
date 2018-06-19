@@ -13,10 +13,20 @@
         *****
     -->
     <script>
-        var height = 3;
-        console.log('  *');
-        console.log(' ***');
-        console.log('*****');
+    var height = 3,
+             i = 1,
+             j = 1;
+
+
+for(i =1; i<=height; i++){
+	for(j=1;j<=height-i;j++){
+		console.log(' ');
+	}
+	for(j=1;j<=2*i-1;j++){
+		console.log('*');
+	}
+}
+
     </script>
 </body>
 </html>
