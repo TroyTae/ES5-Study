@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Practice2</title>
+</head>
+<body>
+
+<!--    <ul>
+        <li><h1>1단</h1></li>
+        <li>1 x 1 = 1</li>
+        <li>1 x 2 = 2</li>
+        <li>1 x 3 = 3</li>
+        <li>1 x 4 = 4</li>
+        <li>1 x 5 = 5</li>
+        <li>1 x 6 = 6</li>
+        <li>1 x 7 = 7</li>
+        <li>1 x 8 = 8</li>
+        <li>1 x 9 = 9</li>
+    </ul>-->
+
+
+    <!-- 위와 같이 구구단을 DOM으로 생성하는 스크립트를 작성하시오! -->
+    <span>
+
+    </span>
+    <script>
+        var ary_dom = new Array(10);
+
+        ary_dom[0] = document.createElement('ui');
+        ary_dom[0].textContent =  '1단';
+
+        for(var i =1; i<10 ; i++){
+            ary_dom[i] = document.createElement('li');
+            ary_dom[i].textContent +=  ' 1 x ' + i + ' = ' + i;
+         }
+
+    </script>
+</body>
+</html>
