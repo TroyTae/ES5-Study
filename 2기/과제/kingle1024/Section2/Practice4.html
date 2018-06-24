@@ -57,3 +57,85 @@
     </script>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Practice4</title>
+</head>
+<body>
+    <!--
+        아래와 같은 형식을 달팽이 배열이라고 한다.
+        변수 count 수에 따라 달팽이 배열을 콘솔에 출력하는 스크립트를 작성하시오.
+        [ 4일 경우 아래와 같이 출력돼야 합니다!! ]
+         1  2  3  4
+        12 13 14  5
+        11 16 15  6
+        10  9  8  7
+    -->
+    <script>
+        var count = 6,
+            reCount = count, // 처음의 count 값을 저장
+            num = 0, // count 갯수를 세어주는 변수
+            arr = []
+            total = 1
+        ;
+        var i = 0, j = 0;
+        var str = '';
+        var stack = 1; // 계속 증가하는 변수
+        var s = 'R';
+
+        // 2차원 배열 초기화
+        while (i < count) arr[i++] = [];
+        i = 0; j= 0;
+        while(count > 0){
+          arr[i][j] = stack++;
+          // console.log(i+':' + j + ' -> '+ arr[i][j] + ' , count : '+count + ', total : '+total + ', num : '+num);
+          if(s === 'R'){
+              if(j++, ++num === count){ // num가 0부터 count 만큼 돌음
+                s = 'D';
+                --j; ++i; // 위치를 옮겨준다.
+                if(total/2 !== 0){
+                  count--; total++;
+                }
+                num = 0;
+
+              }
+          }else if(s === 'D'){
+              if(++i, ++num === count){
+                s ='L';
+                --i; --j; // 위치를 옮겨준다.
+                if(total/2 !== 0){ total++;}
+                  num = 0;
+                  total++;
+              }
+          }else if(s === 'L'){
+              if(--j, ++num === count){
+                s = 'U';
+                ++j; --i; // 위치를 옮겨준다.
+                if(total/2 !== 0){ count--; total++;}
+                num = 0;
+                total++;
+              }
+          }else if(s === 'U'){
+              if(--i, ++num === count){
+                s = 'R';
+                i++; j++; // 위치를 옮겨준다.
+                if(total/2 !== 0){ total++;}
+                num = 0;
+                total++;
+              }
+          }
+        }
+        // 출력
+        for(i = 0; i < reCount; ++i) {
+            str = '';
+            for(j = 0; j < reCount; ++j) {
+                str += (' ' + arr[i][j]);
+            }
+            console.log(str);
+        }
+    </script>
+</body>
+</html>
