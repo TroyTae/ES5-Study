@@ -13,20 +13,21 @@
         *****
     -->
     <script>
-        var height = 3;
-        console.log('  *');
-        console.log(' ***');
-        console.log('*****');
-
-
-        //아직 하는 중.....//
-        var height = 3 ;
-        var space = " ", star = "*" ;
-
-        for (var i = 1 ; i < height ; i++, space += star) {
-            console.log(space + star) ;
-        }
-
+        var height = 3,
+            triangle = "",
+            row = 1
+            space = 1
+            ;
+        for (row = 1 ; row <= height ; row++) {
+            triangle = "" ;
+            for (space = 1 ; space <= height - row ; space++) {
+                triangle += " " ;
+                }
+            for (space = 1 ; space <= 2 * row - 1 ; space++) {
+                triangle += "*" ;
+                }
+            console.log(triangle) ;
+            }
     </script>
 </body>
 </html>
