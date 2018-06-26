@@ -5,20 +5,22 @@
     <title>AutoWrapping</title>
 </head>
 <body>
-    <!--                                    AutoWrapping?
-     new Keyword를 작성하지 않아도 내부에서 자동으로 붙여줘서 WrapperObject에 있는 함수들을 사용할 수 있다.
-     하지만 말 그대로 코드 수행 시 자동으로 붙여주는 것이기 때문에 수만번 반복 사용한다면 꼭 new를 작성하길 권장한다!
+    <!-- AutoBoxing?
+        new 키워드를 작성하지 않아도 내부에서 자동 생성해 함수들을 사용할 수 있다.
+        하지만 코드 수행 시 자동으로 붙여주는 것이기 반복 시 성능 문제가 생길 수 있다!
     -->
     <script>
-        var boo = true;
-        var num = 10.102;
-        var str = 'JS STUDY!';
+        var boo = true,
+            num = 10.102,
+            str = 'JS STUDY!'
+        ;
 
+        /* 이렇게 사용할 수 있지만? */
         console.log(boo.toString());
         console.log(num.toFixed(0), num.toFixed(2));
         console.log(str.substring(0, 2), str.replace('STUDY', 'LOUNGE'));
 
-        /*실제로는 아래와 같이 동작함*/
+        /* 실제로는 아래와 같이 동작함! */
         console.log(new Boolean(boo).toString());
         console.log(new Number(num).toFixed(0), new Number(num).toFixed(2));
         console.log(new String(str).substring(0, 2), new String(str).replace('STUDY', 'LOUNGE'));
