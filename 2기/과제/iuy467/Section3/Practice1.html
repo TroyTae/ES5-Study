@@ -7,11 +7,8 @@
 <body>
     <!-- 재귀함수를 이용해 아래 팩토리얼 함수를 구현하시오. -->
     <script>
-        var st = "재귀함수 미완료";
         var factorial = function f(n) {
-            st = n<0 ? "재귀함수 완료": factorial(n-1);
-            return st;
-
+            return n<2 ? 1: n*factorial(n-1);
         };
         console.log(factorial(10));
         console.log(factorial(5));

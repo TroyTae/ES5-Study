@@ -25,15 +25,23 @@
 
     </span>
     <script>
-        var ary_dom = new Array(10);
 
-        ary_dom[0] = document.createElement('ui');
-        ary_dom[0].textContent =  '1단';
+        // ul 테크 돔 생성
+        var dom = document.createElement('ul');
 
-        for(var i =1; i<10 ; i++){
-            ary_dom[i] = document.createElement('li');
-            ary_dom[i].textContent +=  ' 1 x ' + i + ' = ' + i;
-         }
+        // 10개의 li 테그 생성
+        for(var i=0; i<10; i++) dom.appendChild(document.createElement('li'));
+
+        // 0번 li테그에 h1 테그 추가 및 내용 추가
+        dom.getElementsByTagName('li')[0].appendChild(document.createElement('h1'));
+        dom.getElementsByTagName('h1')[0].textContent = '1단';
+
+        //구구단 입력
+        for(i =1; i< 10; i++) dom.getElementsByTagName('li')[i].textContent ='1 x '+ i +' = ' + i;
+
+        //트리의 span에 추가
+        document.getElementsByTagName('span')[0].appendChild(dom);
+
 
     </script>
 </body>

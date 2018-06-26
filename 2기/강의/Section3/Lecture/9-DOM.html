@@ -12,12 +12,6 @@
 <body>
     <h1 id="id" class="class" name="name">이건 원래 있던거!</h1>
 
-    <script>
-        // DOM 생성
-        var dom = document.createElement('h1');
-        document.body.appendChild(dom);
-    </script>
-
     <!-- document에 존재는 DOM 읽기 -->
     <script>
         console.log(document.getElementById('id'));
@@ -32,6 +26,9 @@
     </script>
 
     <script>
+        // DOM 생성
+        var dom = document.createElement('h1');
+        document.body.appendChild(dom);
         // DOM 수정
         dom.textContent = '이건 나중에 들어간거!';
         // DOM 삭제
