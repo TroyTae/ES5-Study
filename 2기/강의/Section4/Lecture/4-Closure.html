@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Closure</title>
+</head>
+<body>
+    <!-- 클로저?
+        클로저는 독립적인 자유 변수를 가리키는 함수로
+        클로저 안에 정의된 함수는 만들어진 환경을 기억한다.
+    -->
+    <script>
+        // result 변수는 함수 실행 뒤에도 GC가 수거하지 않음
+        var sum = (function () {
+            var result = 0;
+            return function (n) {
+                result += n;
+                return result;
+            };
+        }());
+
+        console.log(sum(10));
+        console.log(sum(3));
+        console.log(sum(8));
+
+        try {
+            console.log(result);
+        } catch (e) {
+            console.log(e);
+        }
+    </script>
+</body>
+</html>
