@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Scope</title>
+</head>
+<body>
+    <!-- 스코프?
+        변수나 함수의 유효범위를 나타내며 함수의 실행 영역와 동일하다.
+        실행 범위를 벗어나 함수가 종료된 뒤에는 GC가 메모리를 수거한다.
+    -->
+    <script>
+        // 상위 스코프 변수
+        var str = '%';
+
+        // 상위 스코프 변수 str 접근 가능!
+        var func = function () {
+            var n = 10;
+            return n + str;
+        };
+
+        // 함수 실행 시 하위 스코프 생성
+        console.log(func());
+
+        // 하위 스코프의 변수에는 접근 불가!
+        try {
+            console.log(n);
+        } catch (e) {
+            console.log(e);
+        }
+    </script>
+</body>
+</html>
