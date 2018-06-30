@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>CBRvsCBV</title>
+</head>
+<body>
+    <!-- Call By Reference vs Call By Value?
+        주소에 의한 참조를 할 경우 원본 값을
+        값에 의한 참조를 할 경우 복사 값을 수정
+    -->
+    <script>
+        var human = {
+            name: '아버지',
+            age: 30
+        };
+
+        function func(param) {
+            var obj = param,
+                name = param.name
+            ;
+            obj.age = 25;
+            obj = {};
+            name = '어머니';
+
+            console.log(obj);
+            console.log(name);
+            console.log(human);
+        }
+
+        func(human);
+        console.log('-----------------------------------------------------');
+        console.log(human);
+        console.log(human.age);
+        console.log(human.name);
+    </script>
+</body>
+</html>
