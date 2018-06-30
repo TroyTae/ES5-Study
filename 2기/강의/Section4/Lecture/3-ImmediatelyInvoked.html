@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>ImmediatelyInvoked</title>
+</head>
+<body>
+    <!-- 즉시실행함수?
+        함수 선언과 동시에 실행시키는 것을 말하며
+        스코프를 만들어 다른 곳에 영향없게 하는데 사용!
+    -->
+    <script>
+        (function () {
+            console.log('즉시실행함수');
+        }());
+
+        (function (n1, n2) {
+            console.log(n1 + n2);
+        }(1, 7));
+
+        var per = (function (n) {
+            var unit = '%';
+            return n + unit;
+        }(100));
+
+        try {
+            console.log(per);
+            console.log(unit);
+        } catch (e) {
+            console.log(e);
+        }
+    </script>
+</body>
+</html>
