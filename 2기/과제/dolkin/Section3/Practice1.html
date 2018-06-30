@@ -7,10 +7,17 @@
 <body>
     <!-- 재귀함수를 이용해 아래 팩토리얼 함수를 구현하시오. -->
     <script>
-        var factorial = function f(n) {};
+        var factorial = function f(n) {
+                    if (n == 1)  {
+                    return n ;
+                } else {
+                    return n * f(n-1) ;
+                    }
+            }
         console.log(factorial(10));
         console.log(factorial(5));
-        console.log(factorial(13));
+        console.log(factorial(3));
+        console.log(factorial(1));
     </script>
 </body>
 </html>

@@ -11,6 +11,28 @@
         매 초마다 현재 시간을 hh:mm:ss 형식으로
         span 태그의 글자를 갱신시키는 스크립트를 작성하시오!
     -->
-    <script></script>
+    <script>
+        /* 시분초 보정할 함수 만들기 */
+        function correct(i) {
+            if(i < 10) {
+                return '0' + i;
+                } else {
+                    return i;
+                }
+            }
+
+        /* correct 함수 테스트용 */
+        console.log(correct(8));
+        console.log(correct(15));
+
+        /* span태그 갱신할 함수 만들기 */
+        function clock() {
+            var timer = document.getElementById('time');
+            var date = new Date();
+            timer.innerHTML = correct(date.getHours()) + ':' + correct(date.getMinutes()) + ':' + correct(date.getSeconds());
+            setInterval(clock,500);
+            }
+        clock();
+    </script>
 </body>
 </html>
