@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HtmlElement</title>
+</head>
+<body>
+    <div></div>
+    <div id="count"><span>1</span><span>2</span><span>3</span><span>4</span></div>
+
+    <!-- html 문자를 동적으로 넣고 덮어 쓸 수 있다! -->
+    <script>
+        var div = document.getElementsByTagName('div')[0];
+
+        /* 해당 DOM 내부에 있는 HTML 문자열을 가져온다 */
+        console.log(div.innerHTML);
+        div.innerHTML = '<span>inner</span>';
+        console.log(div.innerHTML);
+        div.innerHTML += '<span>inner2</span>';
+        console.log(div.innerHTML);
+
+        /* 해당 DOM 자체의 HTML 문자열을 가져온다 */
+        console.log(div.outerHTML);
+        div.outerHTML = '<div>원상복귀!</div>';
+
+        console.log('------------------------------------------------------------------------------------');
+    </script>
+
+    <!-- DOM 단위의 이동/복사/치환 -->
+    <script>
+        var wrap = document.getElementById('count');
+
+        /* 이미 document 상에 있는 DOM을 append시키면 복사가 아니라 이동됨 */
+        wrap.appendChild(wrap.firstElementChild);
+        console.log(wrap.lastElementChild);
+
+        /* 두번째 매개변수 DOM 앞에 첫번째 매개변수 DOM을 삽입 */
+        wrap.insertBefore(
+            document.createElement('span'),
+            wrap.querySelector(':nth-child(2)')
+        );
+
+        /*
+        * 매개변수에 따라 자식들까지 복사할 것인지 판단
+        * false면 자식은 복사하지 않고, true면 자식까지 복사
+        */
+        document.body.appendChild(wrap.cloneNode(false));
+        document.body.appendChild(wrap.cloneNode(true));
+
+        /* 두번째 매개변수 DOM을 첫번째 매개변수 DOM으로 치환 */
+        wrap.replaceChild(
+            wrap.querySelector(':nth-child(4)'),
+            wrap.querySelector(':nth-child(1)')
+        );
+
+        /* 특정 DOM의 관련 DOM을 보는 여러 가지 방법들 */
+        console.log('children:', wrap.children);
+        console.log('parent:', wrap.parentElement);
+        console.log('next:', wrap.nextElementSibling);
+        console.log('prev:', wrap.previousElementSibling);
+    </script>
+</body>
+</html>
