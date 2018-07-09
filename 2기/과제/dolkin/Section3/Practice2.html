@@ -28,25 +28,24 @@
         /* while로 구구단 반복시키기 */
         var a = 1
         while(a <= 9) {
-            console.log(table(a));
+            table(a);
             a++;
-            }
+        }
 
         /* for로 구구단 반복시키기 */
         for (var b = 1 ; b <=9 ; b++) {
-            console.log(table(b));
-            }
+            table(b);
+        }
 
         /* 구구단 만들기 */
         function table(n) {
+            var i;
             console.log(n + '단');
             for (i = 1 ; i < 10 ; i++) {
                 var r = n * i;
                 console.log(n + ' x ' + i + ' = ' + r);
-                }
             }
-
-        /* 근데 콘솔창에서 undefined가 왜 뜨는지는 도저히 모르겠음... */
+        }
     </script>
 </body>
 </html>
