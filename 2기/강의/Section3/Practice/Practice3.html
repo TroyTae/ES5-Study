@@ -11,30 +11,6 @@
         매 초마다 현재 시간을 hh:mm:ss 형식으로
         span 태그의 글자를 갱신시키는 스크립트를 작성하시오!
     -->
-    <script>
-      var dom = document.querySelector('#time');
-      document.body.appendChild(dom);
-      dom.textContent = "";
-
-      var date = new Date();
-      var hour, minute, second;
-      var key = setInterval(function(){
-        date = new Date(Date.now());
-        hour = new Number(date.getHours());
-        minute = new Number(date.getMinutes());
-        second = new Number(date.getSeconds());
-        if(date.getHours() < 10){
-          dom.textContent = '0'+hour+':'+minute+':'+second;
-        }
-        else if(date.getMinutes < 10){
-          dom.textContent = hour+':'+'0'+minute+':'+second;
-        }else if(second < 10){
-          dom.textContent = hour+':'+minute+':'+'0'+second;
-        }else{
-          dom.textContent = hour+':'+minute+':'+second;
-        }
-      }, 1000);
-
-    </script>
+    <script></script>
 </body>
 </html>

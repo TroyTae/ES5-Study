@@ -22,23 +22,6 @@
 
     <!-- 위와 같이 구구단을 DOM으로 생성하는 스크립트를 작성하시오! -->
     <script>
-      // document.body.appendChild(document.createElement('h1'))
-      var dom;
-      var child;
-      var ul;
-      ul = document.createElement('ul');
-      document.body.appendChild(ul);
-      dom = document.createElement('li');
-      ul.appendChild(dom);
-      child = document.createElement('h1');
-      child.textContent = '1단';
-      dom.appendChild(child);
-
-      for(var i = 1; i<10; i++){
-        dom = document.createElement('li');
-        ul.appendChild(dom);
-        dom.textContent = '1 x '+i+' = '+1*i;
-      }
     </script>
 </body>
 </html>

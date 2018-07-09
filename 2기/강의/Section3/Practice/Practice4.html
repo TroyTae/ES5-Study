@@ -33,53 +33,6 @@
             math: 50,
             science: 20
         }];
-        var table, tr1, tr2, tr3, tr4;
-        var child;
-
-        table = document.createElement('table');
-        document.body.appendChild(table);
-
-        tr1 = document.createElement('tr');
-        table.appendChild(tr1);
-        child = document.createElement('td');
-        tr1.appendChild(child);
-        child.textContent='점수/이름';
-
-        tr2 = document.createElement('tr');
-        table.appendChild(tr2);
-        child = document.createElement('td');
-        tr2.appendChild(child);
-        child.textContent='국어';
-
-        tr3 = document.createElement('tr');
-        table.appendChild(tr3);
-        child = document.createElement('td');
-        tr3.append(child);
-        child.textContent='수학';
-
-        tr4 = document.createElement('tr');
-        table.appendChild(tr4);
-        child = document.createElement('td');
-        tr4.append(child);
-        child.textContent='과학';
-
-        arr.forEach(function (v, i){ // i : 인덱스 | v : value | arr : 배열
-          child = document.createElement('td');
-          tr1.appendChild(child);
-          child.textContent = arr[i].name;
-
-          child = document.createElement('td');
-          tr2.appendChild(child);
-          child.textContent = arr[i].korean;
-
-          child = document.createElement('td');
-          tr3.appendChild(child);
-          child.textContent = arr[i].math;
-
-          child = document.createElement('td');
-          tr4.appendChild(child);
-          child.textContent = arr[i].science;
-        });
     </script>
 </body>
 </html>
