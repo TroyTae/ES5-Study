@@ -1,5 +1,4 @@
+out
 .idea
-project
-ES5-Study.iml
-node_modules
-package-lock.json
+.vscode
+.history
